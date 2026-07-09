@@ -1,0 +1,94 @@
+/* 통합 대시보드 공용 스타일 — 각 도구는 이 변수들을 참고하되 style.css에서 자유롭게 오버라이드합니다 */
+
+:root {
+  --brand-primary: #2563eb;
+  --brand-bg: #f8fafc;
+  --brand-text: #1e293b;
+  --brand-text-muted: #64748b;
+  --brand-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  line-height: 1.6;
+}
+
+.dashboard-header {
+  text-align: center;
+  padding: 48px 16px 24px;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+  color: var(--brand-primary);
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: var(--brand-text-muted);
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+.tool-category h2 {
+  font-size: 1.1rem;
+  color: var(--brand-text-muted);
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.tool-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--brand-radius);
+  padding: 20px;
+  text-decoration: none;
+  color: var(--brand-text);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+}
+
+.tool-card-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--brand-primary);
+}
+
+.tool-card-desc {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--brand-text-muted);
+}
+
+.dashboard-footer {
+  text-align: center;
+  padding: 24px 16px 40px;
+  color: var(--brand-text-muted);
+  font-size: 0.8rem;
+}

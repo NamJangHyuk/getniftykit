@@ -1,0 +1,399 @@
+/* 국기 다운로드 도구 전용 스타일
+   테마: 시원한 블루 계열 — "세계/지도"를 연상시키는 톤으로 다른 도구들과 구분 */
+
+:root {
+  --flag-primary: #2563eb;
+  --flag-primary-dark: #1d4ed8;
+  --flag-bg: #f5f8ff;
+  --flag-card-bg: #ffffff;
+  --flag-border: #e2e8f5;
+  --flag-text: #1e293b;
+  --flag-text-muted: #64748b;
+  --flag-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--flag-bg);
+  color: var(--flag-text);
+  line-height: 1.6;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 16px 0 0 16px;
+  color: var(--flag-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  color: var(--flag-primary);
+}
+
+.page-header {
+  text-align: center;
+  padding: 32px 16px 16px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  color: var(--flag-primary-dark);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--flag-text-muted);
+  font-size: 1rem;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+.search-section {
+  position: sticky;
+  top: 0;
+  background: var(--flag-bg);
+  padding: 16px 0;
+  z-index: 10;
+}
+
+#search-input {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  border: 2px solid var(--flag-border);
+  border-radius: var(--flag-radius);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+#search-input:focus {
+  border-color: var(--flag-primary);
+}
+
+.continent-tabs {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.continent-tab {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--flag-border);
+  border-radius: 999px;
+  background: var(--flag-card-bg);
+  color: var(--flag-text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.continent-tab:hover {
+  border-color: var(--flag-primary);
+  color: var(--flag-primary-dark);
+}
+
+.continent-tab.is-active {
+  background: var(--flag-primary);
+  border-color: var(--flag-primary);
+  color: #fff;
+}
+
+.result-count {
+  margin: 8px 2px 0;
+  font-size: 0.85rem;
+  color: var(--flag-text-muted);
+}
+
+.flag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  column-gap: 14px;
+  row-gap: 22px;
+  margin-top: 8px;
+}
+
+.recent-section {
+  margin-top: 32px;
+}
+
+.recent-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.recent-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--flag-primary-dark);
+}
+
+.recent-clear {
+  border: none;
+  background: none;
+  color: var(--flag-text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.recent-clear:hover {
+  color: var(--flag-primary-dark);
+}
+
+.recent-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.recent-grid.is-collapsed {
+  max-height: var(--recent-row-height, 96px);
+}
+
+.recent-card {
+  flex: 0 0 auto;
+  width: 92px;
+  background: var(--flag-card-bg);
+  border: 1px solid var(--flag-border);
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.recent-card:hover {
+  border-color: var(--flag-primary);
+}
+
+.recent-card img {
+  width: 100%;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--flag-border);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.recent-card .recent-card-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--flag-text);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-toggle {
+  display: block;
+  margin: 10px auto 0;
+  padding: 5px 16px;
+  font-size: 0.78rem;
+  border: 1px solid var(--flag-border);
+  border-radius: 999px;
+  background: var(--flag-card-bg);
+  color: var(--flag-text-muted);
+  cursor: pointer;
+}
+
+.recent-toggle:hover {
+  border-color: var(--flag-primary);
+  color: var(--flag-primary-dark);
+}
+
+.flag-card {
+  background: var(--flag-card-bg);
+  border: 1px solid var(--flag-border);
+  border-radius: var(--flag-radius);
+  padding: 12px;
+  text-align: center;
+  transition: box-shadow 0.12s ease;
+}
+
+/* "내가 찾아본 국가"에서 카드를 클릭했을 때, 전체 목록에서 해당 국기 위치로
+   스크롤된 뒤 "여기예요!"라는 느낌으로 테두리가 몇 번 깜빡이는 효과입니다. */
+@keyframes flag-card-flash {
+  0%,
+  100% {
+    border-color: var(--flag-border);
+    box-shadow: none;
+  }
+  25%,
+  75% {
+    border-color: var(--flag-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.35);
+  }
+  50% {
+    border-color: var(--flag-primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  }
+}
+
+.flag-card.is-flashing {
+  animation: flag-card-flash 0.75s ease-in-out 3;
+}
+
+.flag-card img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--flag-border);
+  display: block;
+  margin-bottom: 8px;
+  background: #f0f0f0;
+}
+
+.flag-card .flag-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--flag-text);
+  display: block;
+}
+
+.flag-card .flag-name-en {
+  font-size: 0.72rem;
+  color: var(--flag-text-muted);
+  display: block;
+}
+
+.download-btn-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.flag-card .download-btn {
+  flex: 1;
+  padding: 6px 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: var(--flag-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.flag-card .download-btn:hover {
+  background: var(--flag-primary-dark);
+}
+
+.flag-card .download-btn-svg {
+  background: #64748b;
+}
+
+.flag-card .download-btn-svg:hover {
+  background: #475569;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--flag-text-muted);
+  padding: 40px 0;
+}
+
+.ads-container {
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2fb;
+  border-radius: var(--flag-radius);
+  color: var(--flag-text-muted);
+  font-size: 0.85rem;
+}
+
+/* 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고.
+   본문(max-width: 1000px)과 겹치지 않을 만큼 화면이 넓을 때만 노출합니다. */
+.ads-rail {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  margin: 0;
+  display: none;
+  z-index: 5;
+}
+
+.ads-rail-left {
+  left: 16px;
+}
+
+.ads-rail-right {
+  right: 16px;
+}
+
+/* 본문(max-width: 1000px) 기준 완전히 안 겹치는 지점은 1352px이지만,
+   요청에 따라 중앙 컨텐츠와 최대 10px까지는 겹쳐도 노출되도록 임계값을 낮췄습니다. */
+@media (min-width: 1332px) {
+  .ads-rail {
+    display: flex;
+  }
+}
+
+.info-section {
+  margin-top: 24px;
+}
+
+.info-section h2 {
+  color: var(--flag-primary-dark);
+  font-size: 1.25rem;
+  margin-top: 32px;
+}
+
+.faq-list .faq-item {
+  margin-bottom: 16px;
+}
+
+.faq-list dt {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.faq-list dd {
+  margin: 0;
+  color: var(--flag-text-muted);
+}
+
+.page-footer {
+  text-align: center;
+  padding: 24px 16px 40px;
+  color: var(--flag-text-muted);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 480px) {
+  .flag-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+}
