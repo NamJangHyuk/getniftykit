@@ -9,6 +9,7 @@ const flagGrid = document.getElementById("flag-grid");
 const resultCount = document.getElementById("result-count");
 const continentTabs = document.getElementById("continent-tabs");
 const searchSection = document.querySelector(".search-section");
+const adsBeforeGrid = document.getElementById("ads-before-grid");
 const recentSection = document.getElementById("recent-section");
 const recentGrid = document.getElementById("recent-grid");
 const recentToggle = document.getElementById("recent-toggle");
@@ -303,7 +304,10 @@ continentTabs.addEventListener("click", (e) => {
   }
 
   applyFilters();
-  scrollToElement(flagGrid);
+  // flagGrid로 바로 스크롤하면 그 사이의 광고 슬롯(ads-before-grid)이 화면 밖으로
+  // 지나가버려 노출이 안 됩니다. 광고 위치로 스크롤해서 광고가 보이게 하고,
+  // 목록도 바로 이어서 보이게 합니다.
+  scrollToElement(adsBeforeGrid);
 });
 
 function scrollToElement(el, extraOffset = 8) {
