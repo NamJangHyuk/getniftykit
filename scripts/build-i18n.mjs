@@ -213,6 +213,48 @@ function buildRedirectStub(absoluteUrl, relativeUrl, label, htmlLang = "ko") {
 `;
 }
 
+// 루트 bare "/"는 도메인만 입력해 들어온 방문자를 위한 진입점입니다. 브라우저 언어
+// (navigator.languages)를 감지해 지원하는 언어(LANGS)와 일치하면 그 언어로, 일치하는
+// 언어가 없으면 중립 기본값인 /en/으로 보냅니다. GitHub Pages는 서버 사이드 리다이렉트가
+// 없어 클라이언트 JS로 처리하며, JS가 꺼진 경우를 대비해 <noscript> 안에 정적
+// meta refresh(→ /en/)를 백업으로 둡니다. 검색엔진에는 이 페이지 대신 hreflang이 걸린
+// /{lang}/ 페이지가 각각 색인되므로 noindex를 유지합니다.
+function buildLangDetectStub(enUrl, supportedLangs, label) {
+  const langsJson = JSON.stringify(supportedLangs);
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${escapeHtml(label)}</title>
+  <link rel="canonical" href="${enUrl}" />
+  <meta name="robots" content="noindex" />
+  <noscript><meta http-equiv="refresh" content="0; url=en/" /></noscript>
+  <script>
+    (function () {
+      var supported = ${langsJson};
+      var candidates = (navigator.languages && navigator.languages.length)
+        ? navigator.languages
+        : [navigator.language || navigator.userLanguage || "en"];
+      var target = "en";
+      for (var i = 0; i < candidates.length; i++) {
+        var primary = String(candidates[i] || "").toLowerCase().split("-")[0];
+        if (supported.indexOf(primary) !== -1) {
+          target = primary;
+          break;
+        }
+      }
+      location.replace(target + "/");
+    })();
+  </script>
+</head>
+<body>
+  <p><a href="en/">${escapeHtml(label)}</a></p>
+</body>
+</html>
+`;
+}
+
 function render(template, tokens) {
   let out = template;
   for (const [key, value] of Object.entries(tokens)) {
@@ -864,11 +906,12 @@ async function buildRoot() {
     console.log(`생성됨: ${path.relative(ROOT, outPath)}`);
   }
 
-  // bare "/"는 실제 대시보드가 아니라 "/en/"로 안내하는 리다이렉트 스텁입니다.
+  // bare "/"는 실제 대시보드가 아니라 브라우저 언어를 감지해 /{lang}/로 안내하는
+  // 라우팅 스텁입니다(지원 언어가 아니면 중립 기본값 "/en/"로 보냄).
   const enUrl = `${SITE_BASE}en/`;
-  const stubHtml = buildRedirectStub(enUrl, "en/", enContent.pageTitle, "en");
+  const stubHtml = buildLangDetectStub(enUrl, LANGS, enContent.pageTitle);
   await fs.writeFile(path.join(ROOT, "index.html"), stubHtml);
-  console.log(`리다이렉트 스텁 생성됨: index.html → ${enUrl}`);
+  console.log(`언어 감지 스텁 생성됨: index.html (지원 언어: ${LANGS.join(", ")}, 기본값: en)`);
 }
 
 // privacy/about 페이지는 도구가 아니라 정적 정보 페이지라서 검색·SoftwareApplication

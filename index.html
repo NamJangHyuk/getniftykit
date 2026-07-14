@@ -5,8 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GetNiftyKit - Simple, Reliable Free Web Tools</title>
   <link rel="canonical" href="https://namjanghyuk.github.io/getniftykit/en/" />
-  <meta http-equiv="refresh" content="0; url=en/" />
   <meta name="robots" content="noindex" />
+  <noscript><meta http-equiv="refresh" content="0; url=en/" /></noscript>
+  <script>
+    (function () {
+      var supported = ["ko","en","ja","zh"];
+      var candidates = (navigator.languages && navigator.languages.length)
+        ? navigator.languages
+        : [navigator.language || navigator.userLanguage || "en"];
+      var target = "en";
+      for (var i = 0; i < candidates.length; i++) {
+        var primary = String(candidates[i] || "").toLowerCase().split("-")[0];
+        if (supported.indexOf(primary) !== -1) {
+          target = primary;
+          break;
+        }
+      }
+      location.replace(target + "/");
+    })();
+  </script>
 </head>
 <body>
   <p><a href="en/">GetNiftyKit - Simple, Reliable Free Web Tools</a></p>
