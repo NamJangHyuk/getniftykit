@@ -930,9 +930,14 @@ async function buildInfoPage(page) {
 
     const canonicalUrl = `${SITE_BASE}${lang}/${page}/`;
     const baseTag = `  <base href="../../" />\n`;
-    // 모든 언어의 대시보드가 /{lang}/에 대칭으로 있으므로 언어별 예외 없이 동일한
-    // 공식을 씁니다(자세한 이유는 build-i18n.mjs의 buildTool() 주석 참고).
-    const backLinkHref = `../${lang}/`;
+    // 주의: 도구 페이지의 <base>(`../../{tool}/`)는 사이트 루트보다 한 단계 더 아래
+    // ({tool}/ 디렉터리)를 가리키기 때문에 뒤로가기 링크가 "../{lang}/"(한 단계 위로)여야
+    // 하지만, 이 페이지의 <base>(`../../`)는 이미 사이트 루트 자체를 가리킵니다.
+    // 여기서도 "../{lang}/"을 쓰면 루트보다 한 단계 더 위로 올라가버려서 저장소 경로
+    // (/getniftykit/)가 통째로 빠진 잘못된 URL(예: namjanghyuk.github.io/ko/)이 되고
+    // 404가 납니다(실사용 테스트로 발견). <base>가 이미 루트이므로 앞에 "../" 없이
+    // "{lang}/"만 붙입니다.
+    const backLinkHref = `${lang}/`;
 
     const hreflangLines = LANGS.map(
       (l) => `  <link rel="alternate" hreflang="${l}" href="${SITE_BASE}${l}/${page}/" />`

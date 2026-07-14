@@ -39,6 +39,19 @@ body {
   background: var(--fc-bg);
 }
 
+/* PC처럼 넓은 화면에서는 스크롤을 올렸을 때 상단바 전체가 화면을 가리지 않도록,
+   막대(.top-bar) 자체를 폭 전체가 아니라 버튼 크기만큼만 남기고 배경도 지웁니다.
+   .back-link 자체가 이미 불투명한 배경(pill 버튼)을 갖고 있어서 겹침 문제 없이
+   버튼만 떠 있는 것처럼 보입니다. */
+@media (min-width: 768px) {
+  .top-bar {
+    width: fit-content;
+    height: auto;
+    padding: 12px 16px 0;
+    background: transparent;
+  }
+}
+
 .back-link {
   display: inline-block;
   padding: 6px 14px;
