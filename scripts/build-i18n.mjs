@@ -255,6 +255,15 @@ function buildLangDetectStub(enUrl, supportedLangs, label) {
 `;
 }
 
+// 구글 애드센스 사이트 소유권 확인 스크립트입니다. 애드센스가 "사이트의 모든 페이지"의
+// <head>에 넣으라고 요구하므로, 도구마다 template.html에 토큰을 추가하는 대신 모든 실제
+// 콘텐츠 페이지가 공통으로 거치는 render() 한 곳에서 삽입합니다(대시보드/도구/privacy/about
+// 22개 템플릿 전부가 "<head>"를 단독 줄로 갖고 있어 안전하게 매칭됩니다). bare "/" 같은
+// 리다이렉트 스텁은 render()를 거치지 않으므로 이 스크립트가 들어가지 않는데, 실제 콘텐츠가
+// 없이 즉시 다른 페이지로 넘어가는 페이지라 광고 승인 검토 대상이 아니라서 괜찮습니다.
+const ADSENSE_SCRIPT =
+  '  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>\n';
+
 function render(template, tokens) {
   let out = template;
   for (const [key, value] of Object.entries(tokens)) {
@@ -264,6 +273,7 @@ function render(template, tokens) {
   if (leftover) {
     throw new Error(`템플릿에 채워지지 않은 토큰이 남았습니다: ${leftover[0]}`);
   }
+  out = out.replace("<head>\n", `<head>\n${ADSENSE_SCRIPT}`);
   return out;
 }
 
