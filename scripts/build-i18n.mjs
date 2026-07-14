@@ -16,7 +16,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SITE_BASE = "https://namjanghyuk.github.io/getniftykit/";
+const SITE_BASE = "https://getniftykit.com/";
 const LANGS = ["ko", "en", "ja", "zh"];
 
 const TOOLS = [

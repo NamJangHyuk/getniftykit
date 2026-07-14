@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://namjanghyuk.github.io/getniftykit/sitemap.xml
+Sitemap: https://getniftykit.com/sitemap.xml
