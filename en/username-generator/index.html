@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Username Generator - Random Word Combination Generator Free | GetNiftyKit</title>
-  <meta name="description" content="Instantly generate a random username or email name idea by combining two adjectives and a noun. Choose your separator, casing style, and optional number suffix — free, no sign-up." />
+  <meta name="description" content="A free naming tool for email addresses and usernames. Instantly generate an idea by combining two adjectives and a noun — results are always in English. Choose your separator, casing style, and optional number suffix." />
   <link rel="canonical" href="https://getniftykit.com/en/username-generator/" />
   <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
   <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
@@ -60,6 +60,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes. Turn off the \"Add number\" checkbox and the result will only contain the three words, joined with whatever separator you chose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I set the page to another language. Will the result be in that language too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Since this tool is meant for naming email addresses and usernames, the result is always generated in English regardless of your display language."
       }
     },
     {
@@ -146,6 +154,7 @@
           data-copied-label="Copied!"
         >Copy</button>
       </div>
+      <p class="ug-result-note">Results are always in English, no matter your display language — this tool is meant for naming email addresses and usernames, which need to work everywhere.</p>
       <p class="ug-error" id="ug-error" hidden>Couldn't load the word list. Please reload the page.</p>
     </section>
 
@@ -154,7 +163,7 @@
     <article class="info-section">
       <h2>What is Username Generator?</h2>
       <p>
-        Username Generator instantly creates a fresh, random name by combining two adjectives and a noun — useful when you're stuck picking a name for a new email address, a game handle, a project codename, or any account that needs a unique identifier. It draws from a curated bank of hundreds of adjectives and nouns and uses your browser's cryptographically secure random number generator (crypto.getRandomValues), so every combination is genuinely unpredictable rather than following an obvious pattern.
+        Username Generator is a naming tool for email addresses, usernames, and other identifiers that need to be in English. It instantly creates a fresh, random name by combining two adjectives and a noun (the combination pattern is adjustable) — useful when you're stuck picking a name for a new email address, a game handle, a project codename, or any account that needs a unique identifier. It draws from a curated bank of hundreds of adjectives and nouns and uses your browser's cryptographically secure random number generator (crypto.getRandomValues), so every combination is genuinely unpredictable rather than following an obvious pattern. Regardless of your display language, the result is always generated in English so it works as a real email or username.
       </p>
 
       <h2>How to use it</h2>
@@ -185,6 +194,10 @@
         <div class="faq-item">
           <dt>Can I get a username without numbers?</dt>
           <dd>Yes. Turn off the &quot;Add number&quot; checkbox and the result will only contain the three words, joined with whatever separator you chose.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>I set the page to another language. Will the result be in that language too?</dt>
+          <dd>No. Since this tool is meant for naming email addresses and usernames, the result is always generated in English regardless of your display language.</dd>
         </div>
         <div class="faq-item">
           <dt>Why use crypto.getRandomValues instead of Math.random?</dt>

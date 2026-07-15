@@ -1,7 +1,7 @@
 {
   "htmlLang": "en",
   "pageTitle": "Username Generator - Random Word Combination Generator Free | GetNiftyKit",
-  "metaDescription": "Instantly generate a random username or email name idea by combining two adjectives and a noun. Choose your separator, casing style, and optional number suffix — free, no sign-up.",
+  "metaDescription": "A free naming tool for email addresses and usernames. Instantly generate an idea by combining two adjectives and a noun — results are always in English. Choose your separator, casing style, and optional number suffix.",
   "softwareAppName": "Username Generator",
   "softwareAppDescription": "A free web tool that instantly generates a random username by combining two adjectives and a noun, using your browser's cryptographically secure random number generator (crypto.getRandomValues).",
   "osLabel": "Any (Web Browser)",
@@ -10,6 +10,7 @@
   "subtitle": "Combine random words to get a fresh username or email name idea",
   "taglineExtra": "Adjust the separator, casing, and number suffix to fit exactly what you need.",
   "resultSectionAria": "Generated username",
+  "resultNote": "Results are always in English, no matter your display language — this tool is meant for naming email addresses and usernames, which need to work everywhere.",
   "optionsSectionAria": "Generator options",
   "patternLabel": "Word combination",
   "patternAdj2Noun1Option": "2 adjectives + 1 noun",
@@ -31,7 +32,7 @@
   "copiedText": "Copied!",
   "loadError": "Couldn't load the word list. Please reload the page.",
   "infoIntroH2": "What is Username Generator?",
-  "infoIntroP": "Username Generator instantly creates a fresh, random name by combining two adjectives and a noun — useful when you're stuck picking a name for a new email address, a game handle, a project codename, or any account that needs a unique identifier. It draws from a curated bank of hundreds of adjectives and nouns and uses your browser's cryptographically secure random number generator (crypto.getRandomValues), so every combination is genuinely unpredictable rather than following an obvious pattern.",
+  "infoIntroP": "Username Generator is a naming tool for email addresses, usernames, and other identifiers that need to be in English. It instantly creates a fresh, random name by combining two adjectives and a noun (the combination pattern is adjustable) — useful when you're stuck picking a name for a new email address, a game handle, a project codename, or any account that needs a unique identifier. It draws from a curated bank of hundreds of adjectives and nouns and uses your browser's cryptographically secure random number generator (crypto.getRandomValues), so every combination is genuinely unpredictable rather than following an obvious pattern. Regardless of your display language, the result is always generated in English so it works as a real email or username.",
   "infoHowtoH2": "How to use it",
   "infoHowtoP": "Click \"Generate new\" to get a random combination right away. Use the separator dropdown to join the words with a dot, underscore, hyphen, or nothing at all, and pick a letter case style (lowercase, camelCase, or PascalCase) to match the platform you're signing up for. Turn on \"Add number\" if you want a random number suffix — handy since plain word combinations are often already taken. Once you like the result, click \"Copy\" to copy it to your clipboard.",
   "infoUseCasesH2": "When it comes in handy",
@@ -54,6 +55,10 @@
     {
       "q": "Can I get a username without numbers?",
       "a": "Yes. Turn off the \"Add number\" checkbox and the result will only contain the three words, joined with whatever separator you chose."
+    },
+    {
+      "q": "I set the page to another language. Will the result be in that language too?",
+      "a": "No. Since this tool is meant for naming email addresses and usernames, the result is always generated in English regardless of your display language."
     },
     {
       "q": "Why use crypto.getRandomValues instead of Math.random?",

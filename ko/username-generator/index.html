@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>유저네임 생성기 - 영단어 조합 랜덤 아이디 생성 무료 | GetNiftyKit</title>
-  <meta name="description" content="형용사 2개와 명사 1개를 무작위로 조합해 이메일 아이디, 닉네임 아이디를 즉시 만들어주는 무료 도구입니다. 구분자, 대소문자 스타일, 숫자 추가 옵션까지 선택할 수 있어요." />
+  <meta name="description" content="이메일 아이디나 유저네임을 지을 때 쓰는 무료 영문 네이밍 도구입니다. 형용사 2개와 명사 1개를 무작위로 조합해 즉시 아이디어를 만들어주며, 결과는 언제나 영문으로만 생성됩니다." />
   <link rel="canonical" href="https://getniftykit.com/ko/username-generator/" />
   <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
   <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
@@ -60,6 +60,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "네. \"숫자 추가\" 체크박스를 끄면 선택한 구분자로만 연결된 세 단어만 나옵니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "화면이 한국어인데 결과도 한국어로 나오나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 이 도구는 이메일 아이디·유저네임 네이밍이 목적이라, 화면 언어와 상관없이 결과는 항상 영문으로만 생성됩니다."
       }
     },
     {
@@ -146,6 +154,7 @@
           data-copied-label="복사됨!"
         >복사</button>
       </div>
+      <p class="ug-result-note">이메일 아이디·유저네임에 바로 쓸 수 있도록, 결과는 화면 언어와 상관없이 항상 영문으로 생성됩니다.</p>
       <p class="ug-error" id="ug-error" hidden>단어 목록을 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p>
     </section>
 
@@ -154,7 +163,7 @@
     <article class="info-section">
       <h2>유저네임 생성기란?</h2>
       <p>
-        유저네임 생성기는 형용사 2개와 명사 1개를 무작위로 조합해 새로운 이름을 즉시 만들어주는 도구입니다. 새 이메일 주소를 만들 때, 게임이나 온라인 커뮤니티에서 쓸 닉네임이 필요할 때, 프로젝트나 저장소에 붙일 코드네임이 필요할 때 흔히 겪는 &quot;이름을 못 정하겠다&quot;는 문제를 바로 해결해줍니다. 수백 개씩 큐레이션한 형용사·명사 단어 뱅크에서 브라우저의 암호학적으로 안전한 난수 생성기(crypto.getRandomValues)로 골라 조합하기 때문에, 매번 진짜로 예측 불가능한 조합이 나옵니다.
+        유저네임 생성기는 이메일 주소나 아이디, 유저네임처럼 영문으로 지어야 하는 이름을 정할 때 쓰는 도구입니다. 형용사 2개와 명사 1개(옵션에 따라 조합 방식 변경 가능)를 무작위로 조합해 새로운 이름을 즉시 만들어주며, 새 이메일 주소를 만들 때, 게임이나 온라인 커뮤니티에서 쓸 닉네임이 필요할 때, 프로젝트나 저장소에 붙일 코드네임이 필요할 때 흔히 겪는 &quot;이름을 못 정하겠다&quot;는 문제를 바로 해결해줍니다. 수백 개씩 큐레이션한 형용사·명사 단어 뱅크에서 브라우저의 암호학적으로 안전한 난수 생성기(crypto.getRandomValues)로 골라 조합하기 때문에, 매번 진짜로 예측 불가능한 조합이 나옵니다. 화면 언어와 관계없이 생성되는 결과는 실제 이메일·아이디로 바로 쓸 수 있도록 항상 영문으로만 나옵니다.
       </p>
 
       <h2>사용 방법</h2>
@@ -185,6 +194,10 @@
         <div class="faq-item">
           <dt>숫자 없이 아이디를 받을 수 있나요?</dt>
           <dd>네. &quot;숫자 추가&quot; 체크박스를 끄면 선택한 구분자로만 연결된 세 단어만 나옵니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>화면이 한국어인데 결과도 한국어로 나오나요?</dt>
+          <dd>아니요. 이 도구는 이메일 아이디·유저네임 네이밍이 목적이라, 화면 언어와 상관없이 결과는 항상 영문으로만 생성됩니다.</dd>
         </div>
         <div class="faq-item">
           <dt>Math.random() 대신 crypto.getRandomValues()를 쓰는 이유는 무엇인가요?</dt>

@@ -804,6 +804,7 @@ async function buildTool(tool) {
         GENERATE_BTN_TEXT: escapeHtml(content.generateBtnText),
         COPY_BTN_TEXT: escapeHtml(content.copyBtnText),
         COPIED_TEXT: escapeHtml(content.copiedText),
+        RESULT_NOTE: escapeHtml(content.resultNote),
         LOAD_ERROR: escapeHtml(content.loadError),
       });
     }

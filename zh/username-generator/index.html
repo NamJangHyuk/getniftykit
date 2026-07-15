@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>用户名生成器 - 英文单词组合随机ID生成免费 | GetNiftyKit</title>
-  <meta name="description" content="组合两个形容词和一个名词，立即生成邮箱ID、昵称等创意用户名。可自由选择分隔符、大小写风格和是否添加数字，完全免费。" />
+  <meta name="description" content="一款用于为邮箱地址和用户名命名的免费工具。组合两个形容词和一个名词，立即生成创意ID，结果始终以英文生成。可自由选择分隔符、大小写风格和是否添加数字。" />
   <link rel="canonical" href="https://getniftykit.com/zh/username-generator/" />
   <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
   <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
@@ -60,6 +60,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "可以。关闭「添加数字」复选框后，只会显示按所选分隔符连接的单词部分。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我把页面设置成了中文，结果也会是中文吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。本工具的目的是为邮箱地址和用户名命名，因此无论界面显示语言是什么，结果始终以英文生成。"
       }
     },
     {
@@ -146,6 +154,7 @@
           data-copied-label="已复制！"
         >复制</button>
       </div>
+      <p class="ug-result-note">为了能直接用作邮箱ID或用户名，结果始终以英文生成，与显示语言无关。</p>
       <p class="ug-error" id="ug-error" hidden>无法加载单词列表，请刷新页面重试。</p>
     </section>
 
@@ -154,7 +163,7 @@
     <article class="info-section">
       <h2>什么是用户名生成器？</h2>
       <p>
-        用户名生成器是一款通过组合两个形容词和一个名词，立即创建全新名称的工具。无论是注册新邮箱时想不出ID、需要为游戏或社区账号取昵称，还是为新项目、代码仓库想代号，都能立即解决「想不出名字」的烦恼。工具从各含数百个词条、经过精心筛选的形容词与名词词库中，使用浏览器的密码学安全随机数生成器（crypto.getRandomValues）进行挑选组合，因此每次得到的组合都是真正不可预测的。
+        用户名生成器是一款专为邮箱地址、用户名等需要使用英文的场景设计的命名工具。它通过组合两个形容词和一个名词（组合方式可在选项中更改），立即创建全新名称。无论是注册新邮箱时想不出ID、需要为游戏或社区账号取昵称，还是为新项目、代码仓库想代号，都能立即解决「想不出名字」的烦恼。工具从各含数百个词条、经过精心筛选的形容词与名词词库中，使用浏览器的密码学安全随机数生成器（crypto.getRandomValues）进行挑选组合，因此每次得到的组合都是真正不可预测的。无论界面显示为哪种语言，生成结果始终以英文呈现，确保可以直接用作真实的邮箱ID或用户名。
       </p>
 
       <h2>使用方法</h2>
@@ -185,6 +194,10 @@
         <div class="faq-item">
           <dt>可以生成不带数字的用户名吗？</dt>
           <dd>可以。关闭「添加数字」复选框后，只会显示按所选分隔符连接的单词部分。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>我把页面设置成了中文，结果也会是中文吗？</dt>
+          <dd>不会。本工具的目的是为邮箱地址和用户名命名，因此无论界面显示语言是什么，结果始终以英文生成。</dd>
         </div>
         <div class="faq-item">
           <dt>为什么使用crypto.getRandomValues()而不是Math.random()？</dt>
