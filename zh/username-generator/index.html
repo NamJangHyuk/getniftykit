@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>用户名生成器 - 英文单词组合随机ID生成免费 | GetNiftyKit</title>
+  <meta name="description" content="组合两个形容词和一个名词，立即生成邮箱ID、昵称等创意用户名。可自由选择分隔符、大小写风格和是否添加数字，完全免费。" />
+  <link rel="canonical" href="https://getniftykit.com/zh/username-generator/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/username-generator/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/username-generator/" />
+  <base href="../../username-generator/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "用户名生成器",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (网页浏览器)",
+  "description": "组合两个形容词和一个名词，立即生成随机用户名的免费网页工具。使用浏览器的密码学安全随机数生成器（crypto.getRandomValues）。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "单词是如何组合的？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "会从各含数百个词条的精选词库中，随机挑选两个不同的形容词和一个名词（组合方式可在选项中更改）进行组合。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "生成的结果会发送到服务器吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。所有组合均使用Web Crypto API完全在浏览器内生成，不会发送或存储到服务器。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以生成不带数字的用户名吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。关闭「添加数字」复选框后，只会显示按所选分隔符连接的单词部分。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么使用crypto.getRandomValues()而不是Math.random()？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Math.random()是可预测的伪随机数生成器，不适合需要真正随机性的场景。crypto.getRandomValues()与浏览器用于安全相关操作的随机数来源相同，具有密码学安全性，因此组合不会遵循可预测的模式。"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../zh/" class="back-link">← 返回全部工具</a>
+  </div>
+
+  <header class="page-header">
+    <h1>用户名生成器</h1>
+    <p class="subtitle">随机组合英文单词，获取全新的用户名创意</p>
+    <p class="tagline-extra">可自由调整分隔符、大小写风格以及是否添加数字。</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="ug-options-section" aria-label="生成选项">
+      <div class="ug-option-field">
+        <label for="ug-pattern">单词组合</label>
+        <select id="ug-pattern">
+          <option value="adj2noun1" selected>2个形容词 + 1个名词</option>
+          <option value="adj1noun2">1个形容词 + 2个名词</option>
+          <option value="adj3">3个形容词</option>
+          <option value="noun3">3个名词</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-separator">分隔符</label>
+        <select id="ug-separator">
+          <option value="none" selected>无（直接连接）</option>
+          <option value=".">点 (.)</option>
+          <option value="_">下划线 (_)</option>
+          <option value="-">连字符 (-)</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-case">大小写风格</label>
+        <select id="ug-case">
+          <option value="lower">小写</option>
+          <option value="camel">camelCase</option>
+          <option value="pascal" selected>PascalCase</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field ug-option-field-inline">
+        <label class="ug-checkbox-item">
+          <input type="checkbox" id="ug-number-toggle" /> 添加数字
+        </label>
+        <select id="ug-number-digits">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="ug-generate-row">
+      <button type="button" id="ug-generate-btn" class="ug-generate-btn">重新生成</button>
+    </div>
+
+    <section class="ug-result-section" aria-label="生成的用户名">
+      <div class="ug-result-box">
+        <span id="ug-output" class="ug-output"></span>
+        <button
+          type="button"
+          id="ug-copy-btn"
+          class="ug-copy-btn"
+          data-copy-label="复制"
+          data-copied-label="已复制！"
+        >复制</button>
+      </div>
+      <p class="ug-error" id="ug-error" hidden>无法加载单词列表，请刷新页面重试。</p>
+    </section>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>什么是用户名生成器？</h2>
+      <p>
+        用户名生成器是一款通过组合两个形容词和一个名词，立即创建全新名称的工具。无论是注册新邮箱时想不出ID、需要为游戏或社区账号取昵称，还是为新项目、代码仓库想代号，都能立即解决「想不出名字」的烦恼。工具从各含数百个词条、经过精心筛选的形容词与名词词库中，使用浏览器的密码学安全随机数生成器（crypto.getRandomValues）进行挑选组合，因此每次得到的组合都是真正不可预测的。
+      </p>
+
+      <h2>使用方法</h2>
+      <p>
+        点击「重新生成」按钮即可立即获得随机组合。可在分隔符下拉菜单中选择点、下划线、连字符，也可以选择直接连接；还可以根据要注册的服务风格切换大小写样式（小写/camelCase/PascalCase）。开启「添加数字」后会在末尾附加随机数字——由于纯单词组合常常已被占用，建议开启此选项。满意后点击「复制」按钮即可复制到剪贴板。
+      </p>
+
+      <h2>适用场景</h2>
+      <ul>
+        <li>为新邮箱地址想ID时</li>
+        <li>需要为游戏或在线社区想昵称时</li>
+        <li>为新项目、代码仓库或代号命名时</li>
+        <li>心仪的ID已被占用，需要一些灵感时</li>
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">常见问题</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>单词是如何组合的？</dt>
+          <dd>会从各含数百个词条的精选词库中，随机挑选两个不同的形容词和一个名词（组合方式可在选项中更改）进行组合。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>生成的结果会发送到服务器吗？</dt>
+          <dd>不会。所有组合均使用Web Crypto API完全在浏览器内生成，不会发送或存储到服务器。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>可以生成不带数字的用户名吗？</dt>
+          <dd>可以。关闭「添加数字」复选框后，只会显示按所选分隔符连接的单词部分。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>为什么使用crypto.getRandomValues()而不是Math.random()？</dt>
+          <dd>Math.random()是可预测的伪随机数生成器，不适合需要真正随机性的场景。crypto.getRandomValues()与浏览器用于安全相关操作的随机数来源相同，具有密码学安全性，因此组合不会遵循可预测的模式。</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      本工具的所有用户名生成均在浏览器内处理，生成的结果不会被发送或存储到服务器。
+    </p>
+    <p class="footer-links">
+      <a href="../zh/privacy/">隐私政策</a>
+      <span aria-hidden="true">·</span>
+      <a href="../zh/about/">关于</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="回到顶部" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

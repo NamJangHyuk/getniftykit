@@ -39,6 +39,7 @@ const TOOLS = [
   "kiln-loading",
   "image-converter",
   "vector-converter",
+  "username-generator",
 ];
 const INFO_PAGES = ["privacy", "about"];
 
@@ -66,6 +67,9 @@ const TOOL_LANGS = {
   "kiln-loading": LANGS,
   "image-converter": LANGS,
   "vector-converter": LANGS,
+  // PM 요청으로 ja/zh 번역 완료(2026-07) — 처음부터 대칭 구조로 시작해 예전 bare 경로가
+  // 없으므로, 다른 4개 언어 도구들과 같은 이유로 키는 지우지 않고 LANGS로 남겨둡니다.
+  "username-generator": LANGS,
 };
 
 function langsFor(tool) {
@@ -778,6 +782,32 @@ async function buildTool(tool) {
       });
     }
 
+    if (tool === "username-generator") {
+      Object.assign(tokens, {
+        RESULT_SECTION_ARIA: escapeHtml(content.resultSectionAria),
+        OPTIONS_SECTION_ARIA: escapeHtml(content.optionsSectionAria),
+        PATTERN_LABEL: escapeHtml(content.patternLabel),
+        PATTERN_ADJ2NOUN1_OPTION: escapeHtml(content.patternAdj2Noun1Option),
+        PATTERN_ADJ1NOUN2_OPTION: escapeHtml(content.patternAdj1Noun2Option),
+        PATTERN_ADJ3_OPTION: escapeHtml(content.patternAdj3Option),
+        PATTERN_NOUN3_OPTION: escapeHtml(content.patternNoun3Option),
+        SEPARATOR_LABEL: escapeHtml(content.separatorLabel),
+        SEPARATOR_NONE_OPTION: escapeHtml(content.separatorNoneOption),
+        SEPARATOR_DOT_OPTION: escapeHtml(content.separatorDotOption),
+        SEPARATOR_UNDERSCORE_OPTION: escapeHtml(content.separatorUnderscoreOption),
+        SEPARATOR_HYPHEN_OPTION: escapeHtml(content.separatorHyphenOption),
+        CASE_STYLE_LABEL: escapeHtml(content.caseStyleLabel),
+        CASE_LOWER_OPTION: escapeHtml(content.caseLowerOption),
+        CASE_CAMEL_OPTION: escapeHtml(content.caseCamelOption),
+        CASE_PASCAL_OPTION: escapeHtml(content.casePascalOption),
+        NUMBER_TOGGLE_LABEL: escapeHtml(content.numberToggleLabel),
+        GENERATE_BTN_TEXT: escapeHtml(content.generateBtnText),
+        COPY_BTN_TEXT: escapeHtml(content.copyBtnText),
+        COPIED_TEXT: escapeHtml(content.copiedText),
+        LOAD_ERROR: escapeHtml(content.loadError),
+      });
+    }
+
     const html = render(template, tokens);
 
     const outPath = path.join(ROOT, lang, tool, "index.html");
@@ -827,6 +857,7 @@ const ALL_TOOLS = [
   { key: "kiln-loading", icon: "kiln-loading.svg", titleField: "kilnLoadingTitle", descField: "kilnLoadingDesc", category: "pro" },
   { key: "image-converter", icon: "image-converter.svg", titleField: "imageConverterTitle", descField: "imageConverterDesc", category: "image" },
   { key: "vector-converter", icon: "vector-converter.svg", titleField: "vectorConverterTitle", descField: "vectorConverterDesc", category: "image" },
+  { key: "username-generator", icon: "username-generator.svg", titleField: "usernameGeneratorTitle", descField: "usernameGeneratorDesc", category: "generators" },
 ];
 
 const CATEGORY_ORDER = ["resources", "generators", "time", "focus", "image", "pro"];

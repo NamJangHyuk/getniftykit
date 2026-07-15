@@ -1,0 +1,64 @@
+{
+  "htmlLang": "ko",
+  "pageTitle": "유저네임 생성기 - 영단어 조합 랜덤 아이디 생성 무료 | GetNiftyKit",
+  "metaDescription": "형용사 2개와 명사 1개를 무작위로 조합해 이메일 아이디, 닉네임 아이디를 즉시 만들어주는 무료 도구입니다. 구분자, 대소문자 스타일, 숫자 추가 옵션까지 선택할 수 있어요.",
+  "softwareAppName": "유저네임 생성기",
+  "softwareAppDescription": "형용사 2개와 명사 1개를 조합해 무작위 유저네임을 즉시 생성하는 무료 웹 도구입니다. 브라우저의 암호학적으로 안전한 난수 생성기(crypto.getRandomValues)를 사용합니다.",
+  "osLabel": "Any (웹 브라우저)",
+  "backLinkText": "← 전체 도구",
+  "h1": "유저네임 생성기",
+  "subtitle": "영단어를 무작위로 조합해서 새로운 아이디 아이디어를 얻어보세요",
+  "taglineExtra": "구분자, 대소문자 스타일, 숫자 추가 여부를 원하는 대로 조정할 수 있습니다.",
+  "resultSectionAria": "생성된 유저네임",
+  "optionsSectionAria": "생성 옵션",
+  "patternLabel": "단어 조합",
+  "patternAdj2Noun1Option": "형용사 2개 + 명사 1개",
+  "patternAdj1Noun2Option": "형용사 1개 + 명사 2개",
+  "patternAdj3Option": "형용사 3개",
+  "patternNoun3Option": "명사 3개",
+  "separatorLabel": "구분자",
+  "separatorNoneOption": "없음(붙여쓰기)",
+  "separatorDotOption": "점 (.)",
+  "separatorUnderscoreOption": "언더스코어 (_)",
+  "separatorHyphenOption": "하이픈 (-)",
+  "caseStyleLabel": "대소문자 스타일",
+  "caseLowerOption": "소문자",
+  "caseCamelOption": "camelCase",
+  "casePascalOption": "PascalCase",
+  "numberToggleLabel": "숫자 추가",
+  "generateBtnText": "다시 생성",
+  "copyBtnText": "복사",
+  "copiedText": "복사됨!",
+  "loadError": "단어 목록을 불러오지 못했습니다. 페이지를 새로고침해 주세요.",
+  "infoIntroH2": "유저네임 생성기란?",
+  "infoIntroP": "유저네임 생성기는 형용사 2개와 명사 1개를 무작위로 조합해 새로운 이름을 즉시 만들어주는 도구입니다. 새 이메일 주소를 만들 때, 게임이나 온라인 커뮤니티에서 쓸 닉네임이 필요할 때, 프로젝트나 저장소에 붙일 코드네임이 필요할 때 흔히 겪는 \"이름을 못 정하겠다\"는 문제를 바로 해결해줍니다. 수백 개씩 큐레이션한 형용사·명사 단어 뱅크에서 브라우저의 암호학적으로 안전한 난수 생성기(crypto.getRandomValues)로 골라 조합하기 때문에, 매번 진짜로 예측 불가능한 조합이 나옵니다.",
+  "infoHowtoH2": "사용 방법",
+  "infoHowtoP": "\"다시 생성\" 버튼을 누르면 바로 무작위 조합이 나옵니다. 구분자 드롭다운에서 점·언더스코어·하이픈 중 원하는 걸 고르거나 아예 붙여쓸 수도 있고, 가입하려는 서비스 성격에 맞게 대소문자 스타일(소문자/camelCase/PascalCase)도 바꿀 수 있습니다. \"숫자 추가\"를 켜면 뒤에 무작위 숫자가 붙는데, 단어 조합만으로는 이미 사용 중인 경우가 많아서 켜두는 걸 추천합니다. 마음에 드는 결과가 나오면 \"복사\" 버튼으로 클립보드에 바로 복사하세요.",
+  "infoUseCasesH2": "이럴 때 유용해요",
+  "infoUseCases": [
+    "새 이메일 주소의 아이디를 정할 때",
+    "게임이나 온라인 커뮤니티에서 쓸 닉네임이 필요할 때",
+    "새 프로젝트, 저장소, 코드네임을 지을 때",
+    "원하던 아이디가 이미 사용 중이어서 아이디어가 필요할 때"
+  ],
+  "faqHeading": "자주 묻는 질문",
+  "faq": [
+    {
+      "q": "단어는 어떻게 조합되나요?",
+      "a": "서로 다른 형용사 2개와 명사 1개를, 각각 수백 개씩 있는 큐레이션된 단어 뱅크에서 무작위로 골라 조합합니다."
+    },
+    {
+      "q": "생성된 결과가 서버로 전송되나요?",
+      "a": "아니요. 모든 조합은 Web Crypto API를 이용해 브라우저 안에서만 생성되며, 서버로 전송되거나 저장되지 않습니다."
+    },
+    {
+      "q": "숫자 없이 아이디를 받을 수 있나요?",
+      "a": "네. \"숫자 추가\" 체크박스를 끄면 선택한 구분자로만 연결된 세 단어만 나옵니다."
+    },
+    {
+      "q": "Math.random() 대신 crypto.getRandomValues()를 쓰는 이유는 무엇인가요?",
+      "a": "Math.random()은 예측 가능한 의사난수라 진짜 무작위성이 중요한 상황에는 적합하지 않습니다. crypto.getRandomValues()는 브라우저가 보안이 중요한 작업에 쓰는 것과 동일한 암호학적으로 안전한 난수 소스라, 조합이 특정 패턴으로 예측되지 않습니다."
+    }
+  ],
+  "privacyNote": "이 도구는 모든 유저네임 생성을 브라우저 안에서만 처리하며, 생성된 결과를 서버로 전송하거나 저장하지 않습니다."
+}

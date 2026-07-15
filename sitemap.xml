@@ -721,6 +721,42 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/vector-converter/" />
   </url>
   <url>
+    <loc>https://getniftykit.com/ko/username-generator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/en/username-generator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/ja/username-generator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/zh/username-generator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/username-generator/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
+  </url>
+  <url>
     <loc>https://getniftykit.com/ko/privacy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

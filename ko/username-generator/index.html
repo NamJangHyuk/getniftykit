@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>유저네임 생성기 - 영단어 조합 랜덤 아이디 생성 무료 | GetNiftyKit</title>
+  <meta name="description" content="형용사 2개와 명사 1개를 무작위로 조합해 이메일 아이디, 닉네임 아이디를 즉시 만들어주는 무료 도구입니다. 구분자, 대소문자 스타일, 숫자 추가 옵션까지 선택할 수 있어요." />
+  <link rel="canonical" href="https://getniftykit.com/ko/username-generator/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/username-generator/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/username-generator/" />
+  <base href="../../username-generator/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "유저네임 생성기",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (웹 브라우저)",
+  "description": "형용사 2개와 명사 1개를 조합해 무작위 유저네임을 즉시 생성하는 무료 웹 도구입니다. 브라우저의 암호학적으로 안전한 난수 생성기(crypto.getRandomValues)를 사용합니다.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "단어는 어떻게 조합되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "서로 다른 형용사 2개와 명사 1개를, 각각 수백 개씩 있는 큐레이션된 단어 뱅크에서 무작위로 골라 조합합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "생성된 결과가 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 모든 조합은 Web Crypto API를 이용해 브라우저 안에서만 생성되며, 서버로 전송되거나 저장되지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "숫자 없이 아이디를 받을 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. \"숫자 추가\" 체크박스를 끄면 선택한 구분자로만 연결된 세 단어만 나옵니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Math.random() 대신 crypto.getRandomValues()를 쓰는 이유는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Math.random()은 예측 가능한 의사난수라 진짜 무작위성이 중요한 상황에는 적합하지 않습니다. crypto.getRandomValues()는 브라우저가 보안이 중요한 작업에 쓰는 것과 동일한 암호학적으로 안전한 난수 소스라, 조합이 특정 패턴으로 예측되지 않습니다."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../ko/" class="back-link">← 전체 도구</a>
+  </div>
+
+  <header class="page-header">
+    <h1>유저네임 생성기</h1>
+    <p class="subtitle">영단어를 무작위로 조합해서 새로운 아이디 아이디어를 얻어보세요</p>
+    <p class="tagline-extra">구분자, 대소문자 스타일, 숫자 추가 여부를 원하는 대로 조정할 수 있습니다.</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="ug-options-section" aria-label="생성 옵션">
+      <div class="ug-option-field">
+        <label for="ug-pattern">단어 조합</label>
+        <select id="ug-pattern">
+          <option value="adj2noun1" selected>형용사 2개 + 명사 1개</option>
+          <option value="adj1noun2">형용사 1개 + 명사 2개</option>
+          <option value="adj3">형용사 3개</option>
+          <option value="noun3">명사 3개</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-separator">구분자</label>
+        <select id="ug-separator">
+          <option value="none" selected>없음(붙여쓰기)</option>
+          <option value=".">점 (.)</option>
+          <option value="_">언더스코어 (_)</option>
+          <option value="-">하이픈 (-)</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-case">대소문자 스타일</label>
+        <select id="ug-case">
+          <option value="lower">소문자</option>
+          <option value="camel">camelCase</option>
+          <option value="pascal" selected>PascalCase</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field ug-option-field-inline">
+        <label class="ug-checkbox-item">
+          <input type="checkbox" id="ug-number-toggle" /> 숫자 추가
+        </label>
+        <select id="ug-number-digits">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="ug-generate-row">
+      <button type="button" id="ug-generate-btn" class="ug-generate-btn">다시 생성</button>
+    </div>
+
+    <section class="ug-result-section" aria-label="생성된 유저네임">
+      <div class="ug-result-box">
+        <span id="ug-output" class="ug-output"></span>
+        <button
+          type="button"
+          id="ug-copy-btn"
+          class="ug-copy-btn"
+          data-copy-label="복사"
+          data-copied-label="복사됨!"
+        >복사</button>
+      </div>
+      <p class="ug-error" id="ug-error" hidden>단어 목록을 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p>
+    </section>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>유저네임 생성기란?</h2>
+      <p>
+        유저네임 생성기는 형용사 2개와 명사 1개를 무작위로 조합해 새로운 이름을 즉시 만들어주는 도구입니다. 새 이메일 주소를 만들 때, 게임이나 온라인 커뮤니티에서 쓸 닉네임이 필요할 때, 프로젝트나 저장소에 붙일 코드네임이 필요할 때 흔히 겪는 &quot;이름을 못 정하겠다&quot;는 문제를 바로 해결해줍니다. 수백 개씩 큐레이션한 형용사·명사 단어 뱅크에서 브라우저의 암호학적으로 안전한 난수 생성기(crypto.getRandomValues)로 골라 조합하기 때문에, 매번 진짜로 예측 불가능한 조합이 나옵니다.
+      </p>
+
+      <h2>사용 방법</h2>
+      <p>
+        &quot;다시 생성&quot; 버튼을 누르면 바로 무작위 조합이 나옵니다. 구분자 드롭다운에서 점·언더스코어·하이픈 중 원하는 걸 고르거나 아예 붙여쓸 수도 있고, 가입하려는 서비스 성격에 맞게 대소문자 스타일(소문자/camelCase/PascalCase)도 바꿀 수 있습니다. &quot;숫자 추가&quot;를 켜면 뒤에 무작위 숫자가 붙는데, 단어 조합만으로는 이미 사용 중인 경우가 많아서 켜두는 걸 추천합니다. 마음에 드는 결과가 나오면 &quot;복사&quot; 버튼으로 클립보드에 바로 복사하세요.
+      </p>
+
+      <h2>이럴 때 유용해요</h2>
+      <ul>
+        <li>새 이메일 주소의 아이디를 정할 때</li>
+        <li>게임이나 온라인 커뮤니티에서 쓸 닉네임이 필요할 때</li>
+        <li>새 프로젝트, 저장소, 코드네임을 지을 때</li>
+        <li>원하던 아이디가 이미 사용 중이어서 아이디어가 필요할 때</li>
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">자주 묻는 질문</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>단어는 어떻게 조합되나요?</dt>
+          <dd>서로 다른 형용사 2개와 명사 1개를, 각각 수백 개씩 있는 큐레이션된 단어 뱅크에서 무작위로 골라 조합합니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>생성된 결과가 서버로 전송되나요?</dt>
+          <dd>아니요. 모든 조합은 Web Crypto API를 이용해 브라우저 안에서만 생성되며, 서버로 전송되거나 저장되지 않습니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>숫자 없이 아이디를 받을 수 있나요?</dt>
+          <dd>네. &quot;숫자 추가&quot; 체크박스를 끄면 선택한 구분자로만 연결된 세 단어만 나옵니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Math.random() 대신 crypto.getRandomValues()를 쓰는 이유는 무엇인가요?</dt>
+          <dd>Math.random()은 예측 가능한 의사난수라 진짜 무작위성이 중요한 상황에는 적합하지 않습니다. crypto.getRandomValues()는 브라우저가 보안이 중요한 작업에 쓰는 것과 동일한 암호학적으로 안전한 난수 소스라, 조합이 특정 패턴으로 예측되지 않습니다.</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      이 도구는 모든 유저네임 생성을 브라우저 안에서만 처리하며, 생성된 결과를 서버로 전송하거나 저장하지 않습니다.
+    </p>
+    <p class="footer-links">
+      <a href="../ko/privacy/">개인정보 처리방침</a>
+      <span aria-hidden="true">·</span>
+      <a href="../ko/about/">소개</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="맨 위로 이동" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

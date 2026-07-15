@@ -41,5 +41,7 @@
   "imageConverterDesc": "이미지를 올리고 원하는 포맷 버튼만 누르면 PNG·JPG·WebP로 바로 변환해드려요",
   "vectorConverterTitle": "라인아트 벡터 변환기",
   "vectorConverterDesc": "이미지를 올리면 정교한 흑백 SVG 라인아트로 바로 변환해드려요",
+  "usernameGeneratorTitle": "유저네임 생성기",
+  "usernameGeneratorDesc": "영단어 두 개와 명사 하나를 무작위로 조합해 아이디 아이디어를 즉시 만들어드려요",
   "footerNote": "이 사이트의 모든 도구는 브라우저에서 로컬로 동작하며, 입력하신 데이터를 서버에 저장하지 않습니다."
 }

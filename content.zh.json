@@ -41,5 +41,7 @@
   "imageConverterDesc": "上传图片后点击想要的格式按钮，即可转换为PNG·JPG·WebP",
   "vectorConverterTitle": "线稿矢量转换器",
   "vectorConverterDesc": "上传图片后，立即转换为精细的黑白SVG线稿",
+  "usernameGeneratorTitle": "用户名生成器",
+  "usernameGeneratorDesc": "随机组合两个形容词和一个名词，立即生成用户名创意",
   "footerNote": "本站所有工具均在浏览器本地运行，不会将您输入的数据发送或存储到服务器。"
 }

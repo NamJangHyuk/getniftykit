@@ -1,0 +1,64 @@
+{
+  "htmlLang": "zh",
+  "pageTitle": "用户名生成器 - 英文单词组合随机ID生成免费 | GetNiftyKit",
+  "metaDescription": "组合两个形容词和一个名词，立即生成邮箱ID、昵称等创意用户名。可自由选择分隔符、大小写风格和是否添加数字，完全免费。",
+  "softwareAppName": "用户名生成器",
+  "softwareAppDescription": "组合两个形容词和一个名词，立即生成随机用户名的免费网页工具。使用浏览器的密码学安全随机数生成器（crypto.getRandomValues）。",
+  "osLabel": "Any (网页浏览器)",
+  "backLinkText": "← 返回全部工具",
+  "h1": "用户名生成器",
+  "subtitle": "随机组合英文单词，获取全新的用户名创意",
+  "taglineExtra": "可自由调整分隔符、大小写风格以及是否添加数字。",
+  "resultSectionAria": "生成的用户名",
+  "optionsSectionAria": "生成选项",
+  "patternLabel": "单词组合",
+  "patternAdj2Noun1Option": "2个形容词 + 1个名词",
+  "patternAdj1Noun2Option": "1个形容词 + 2个名词",
+  "patternAdj3Option": "3个形容词",
+  "patternNoun3Option": "3个名词",
+  "separatorLabel": "分隔符",
+  "separatorNoneOption": "无（直接连接）",
+  "separatorDotOption": "点 (.)",
+  "separatorUnderscoreOption": "下划线 (_)",
+  "separatorHyphenOption": "连字符 (-)",
+  "caseStyleLabel": "大小写风格",
+  "caseLowerOption": "小写",
+  "caseCamelOption": "camelCase",
+  "casePascalOption": "PascalCase",
+  "numberToggleLabel": "添加数字",
+  "generateBtnText": "重新生成",
+  "copyBtnText": "复制",
+  "copiedText": "已复制！",
+  "loadError": "无法加载单词列表，请刷新页面重试。",
+  "infoIntroH2": "什么是用户名生成器？",
+  "infoIntroP": "用户名生成器是一款通过组合两个形容词和一个名词，立即创建全新名称的工具。无论是注册新邮箱时想不出ID、需要为游戏或社区账号取昵称，还是为新项目、代码仓库想代号，都能立即解决「想不出名字」的烦恼。工具从各含数百个词条、经过精心筛选的形容词与名词词库中，使用浏览器的密码学安全随机数生成器（crypto.getRandomValues）进行挑选组合，因此每次得到的组合都是真正不可预测的。",
+  "infoHowtoH2": "使用方法",
+  "infoHowtoP": "点击「重新生成」按钮即可立即获得随机组合。可在分隔符下拉菜单中选择点、下划线、连字符，也可以选择直接连接；还可以根据要注册的服务风格切换大小写样式（小写/camelCase/PascalCase）。开启「添加数字」后会在末尾附加随机数字——由于纯单词组合常常已被占用，建议开启此选项。满意后点击「复制」按钮即可复制到剪贴板。",
+  "infoUseCasesH2": "适用场景",
+  "infoUseCases": [
+    "为新邮箱地址想ID时",
+    "需要为游戏或在线社区想昵称时",
+    "为新项目、代码仓库或代号命名时",
+    "心仪的ID已被占用，需要一些灵感时"
+  ],
+  "faqHeading": "常见问题",
+  "faq": [
+    {
+      "q": "单词是如何组合的？",
+      "a": "会从各含数百个词条的精选词库中，随机挑选两个不同的形容词和一个名词（组合方式可在选项中更改）进行组合。"
+    },
+    {
+      "q": "生成的结果会发送到服务器吗？",
+      "a": "不会。所有组合均使用Web Crypto API完全在浏览器内生成，不会发送或存储到服务器。"
+    },
+    {
+      "q": "可以生成不带数字的用户名吗？",
+      "a": "可以。关闭「添加数字」复选框后，只会显示按所选分隔符连接的单词部分。"
+    },
+    {
+      "q": "为什么使用crypto.getRandomValues()而不是Math.random()？",
+      "a": "Math.random()是可预测的伪随机数生成器，不适合需要真正随机性的场景。crypto.getRandomValues()与浏览器用于安全相关操作的随机数来源相同，具有密码学安全性，因此组合不会遵循可预测的模式。"
+    }
+  ],
+  "privacyNote": "本工具的所有用户名生成均在浏览器内处理，生成的结果不会被发送或存储到服务器。"
+}

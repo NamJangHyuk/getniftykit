@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ユーザーネーム生成 - 英単語組み合わせランダムID作成無料 | GetNiftyKit</title>
+  <meta name="description" content="形容詞2つと名詞1つを組み合わせて、メールアドレスやニックネームのIDを即座に生成する無料ツールです。区切り文字、大文字・小文字スタイル、数字追加まで自由に選べます。" />
+  <link rel="canonical" href="https://getniftykit.com/ja/username-generator/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/username-generator/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/username-generator/" />
+  <base href="../../username-generator/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ユーザーネーム生成",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (Webブラウザ)",
+  "description": "形容詞2つと名詞1つを組み合わせてランダムなユーザーネームを即座に生成する無料のウェブツールです。ブラウザの暗号学的に安全な乱数生成機能（crypto.getRandomValues）を使用します。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "単語はどのように組み合わされますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "それぞれ数百個ずつある厳選された単語バンクから、異なる形容詞2つと名詞1つ（設定によって変更可能）をランダムに選んで組み合わせます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "生成された結果はサーバーに送信されますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。すべての組み合わせはWeb Crypto APIを使ってブラウザ内でのみ生成され、サーバーに送信・保存されることはありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "数字なしでIDを作ることはできますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。「数字を追加」のチェックを外せば、選んだ区切り文字だけで連結された単語のみが表示されます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Math.random()の代わりにcrypto.getRandomValues()を使う理由は何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Math.random()は予測可能な疑似乱数であり、本当のランダム性が重要な場面には適していません。crypto.getRandomValues()はブラウザがセキュリティ関連の処理で使うのと同じ暗号学的に安全な乱数ソースなので、組み合わせが特定のパターンで予測されることがありません。"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../ja/" class="back-link">← ツール一覧に戻る</a>
+  </div>
+
+  <header class="page-header">
+    <h1>ユーザーネーム生成</h1>
+    <p class="subtitle">英単語をランダムに組み合わせて、新しいIDのアイデアを見つけましょう</p>
+    <p class="tagline-extra">区切り文字、大文字・小文字スタイル、数字追加の有無を自由に調整できます。</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="ug-options-section" aria-label="生成オプション">
+      <div class="ug-option-field">
+        <label for="ug-pattern">単語の組み合わせ</label>
+        <select id="ug-pattern">
+          <option value="adj2noun1" selected>形容詞2つ + 名詞1つ</option>
+          <option value="adj1noun2">形容詞1つ + 名詞2つ</option>
+          <option value="adj3">形容詞3つ</option>
+          <option value="noun3">名詞3つ</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-separator">区切り文字</label>
+        <select id="ug-separator">
+          <option value="none" selected>なし（連結）</option>
+          <option value=".">ドット (.)</option>
+          <option value="_">アンダースコア (_)</option>
+          <option value="-">ハイフン (-)</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-case">大文字・小文字スタイル</label>
+        <select id="ug-case">
+          <option value="lower">小文字</option>
+          <option value="camel">camelCase</option>
+          <option value="pascal" selected>PascalCase</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field ug-option-field-inline">
+        <label class="ug-checkbox-item">
+          <input type="checkbox" id="ug-number-toggle" /> 数字を追加
+        </label>
+        <select id="ug-number-digits">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="ug-generate-row">
+      <button type="button" id="ug-generate-btn" class="ug-generate-btn">再生成</button>
+    </div>
+
+    <section class="ug-result-section" aria-label="生成されたユーザーネーム">
+      <div class="ug-result-box">
+        <span id="ug-output" class="ug-output"></span>
+        <button
+          type="button"
+          id="ug-copy-btn"
+          class="ug-copy-btn"
+          data-copy-label="コピー"
+          data-copied-label="コピーしました！"
+        >コピー</button>
+      </div>
+      <p class="ug-error" id="ug-error" hidden>単語リストを読み込めませんでした。ページを再読み込みしてください。</p>
+    </section>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>ユーザーネーム生成とは？</h2>
+      <p>
+        ユーザーネーム生成は、形容詞2つと名詞1つを組み合わせて新しい名前を即座に作成するツールです。新しいメールアドレスを作るとき、ゲームやオンラインコミュニティで使うニックネームが必要なとき、プロジェクトやリポジトリに付けるコードネームが必要なときによくある「名前が決まらない」という悩みをすぐに解決してくれます。数百個ずつ厳選した形容詞・名詞の単語バンクから、ブラウザの暗号学的に安全な乱数生成機能（crypto.getRandomValues）で選んで組み合わせるため、毎回本当に予測不可能な組み合わせが得られます。
+      </p>
+
+      <h2>使い方</h2>
+      <p>
+        「再生成」ボタンを押すと、すぐにランダムな組み合わせが表示されます。区切り文字のドロップダウンでドット・アンダースコア・ハイフンから選んだり、連結だけにすることもでき、登録したいサービスの雰囲気に合わせて大文字・小文字スタイル（小文字/camelCase/PascalCase）も変更できます。「数字を追加」をオンにすると末尾にランダムな数字が付きます。単語の組み合わせだけではすでに使われていることも多いため、オンにしておくのがおすすめです。気に入った結果が出たら「コピー」ボタンでクリップボードにコピーしてください。
+      </p>
+
+      <h2>こんなときに便利です</h2>
+      <ul>
+        <li>新しいメールアドレスのIDを決めるとき</li>
+        <li>ゲームやオンラインコミュニティで使うニックネームが必要なとき</li>
+        <li>新しいプロジェクト、リポジトリ、コードネームを付けるとき</li>
+        <li>希望していたIDがすでに使われていてアイデアが必要なとき</li>
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">よくある質問</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>単語はどのように組み合わされますか？</dt>
+          <dd>それぞれ数百個ずつある厳選された単語バンクから、異なる形容詞2つと名詞1つ（設定によって変更可能）をランダムに選んで組み合わせます。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>生成された結果はサーバーに送信されますか？</dt>
+          <dd>いいえ。すべての組み合わせはWeb Crypto APIを使ってブラウザ内でのみ生成され、サーバーに送信・保存されることはありません。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>数字なしでIDを作ることはできますか？</dt>
+          <dd>はい。「数字を追加」のチェックを外せば、選んだ区切り文字だけで連結された単語のみが表示されます。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Math.random()の代わりにcrypto.getRandomValues()を使う理由は何ですか？</dt>
+          <dd>Math.random()は予測可能な疑似乱数であり、本当のランダム性が重要な場面には適していません。crypto.getRandomValues()はブラウザがセキュリティ関連の処理で使うのと同じ暗号学的に安全な乱数ソースなので、組み合わせが特定のパターンで予測されることがありません。</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      このツールはユーザーネームの生成をすべてブラウザ内で処理し、生成された結果をサーバーに送信・保存することはありません。
+    </p>
+    <p class="footer-links">
+      <a href="../ja/privacy/">プライバシーポリシー</a>
+      <span aria-hidden="true">·</span>
+      <a href="../ja/about/">概要</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="トップに戻る" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

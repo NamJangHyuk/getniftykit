@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="{{HTML_LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+{{HREFLANG_LINKS}}
+{{BASE_TAG}}  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{{SOFTWAREAPP_JSONLD}}
+  </script>
+  <script type="application/ld+json">
+{{FAQ_JSONLD}}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="{{BACK_LINK_HREF}}" class="back-link">{{BACK_LINK_TEXT}}</a>
+  </div>
+
+  <header class="page-header">
+    <h1>{{H1}}</h1>
+    <p class="subtitle">{{SUBTITLE}}</p>
+    <p class="tagline-extra">{{TAGLINE_EXTRA}}</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="ug-options-section" aria-label="{{OPTIONS_SECTION_ARIA}}">
+      <div class="ug-option-field">
+        <label for="ug-pattern">{{PATTERN_LABEL}}</label>
+        <select id="ug-pattern">
+          <option value="adj2noun1" selected>{{PATTERN_ADJ2NOUN1_OPTION}}</option>
+          <option value="adj1noun2">{{PATTERN_ADJ1NOUN2_OPTION}}</option>
+          <option value="adj3">{{PATTERN_ADJ3_OPTION}}</option>
+          <option value="noun3">{{PATTERN_NOUN3_OPTION}}</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-separator">{{SEPARATOR_LABEL}}</label>
+        <select id="ug-separator">
+          <option value="none" selected>{{SEPARATOR_NONE_OPTION}}</option>
+          <option value=".">{{SEPARATOR_DOT_OPTION}}</option>
+          <option value="_">{{SEPARATOR_UNDERSCORE_OPTION}}</option>
+          <option value="-">{{SEPARATOR_HYPHEN_OPTION}}</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-case">{{CASE_STYLE_LABEL}}</label>
+        <select id="ug-case">
+          <option value="lower">{{CASE_LOWER_OPTION}}</option>
+          <option value="camel">{{CASE_CAMEL_OPTION}}</option>
+          <option value="pascal" selected>{{CASE_PASCAL_OPTION}}</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field ug-option-field-inline">
+        <label class="ug-checkbox-item">
+          <input type="checkbox" id="ug-number-toggle" /> {{NUMBER_TOGGLE_LABEL}}
+        </label>
+        <select id="ug-number-digits">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="ug-generate-row">
+      <button type="button" id="ug-generate-btn" class="ug-generate-btn">{{GENERATE_BTN_TEXT}}</button>
+    </div>
+
+    <section class="ug-result-section" aria-label="{{RESULT_SECTION_ARIA}}">
+      <div class="ug-result-box">
+        <span id="ug-output" class="ug-output"></span>
+        <button
+          type="button"
+          id="ug-copy-btn"
+          class="ug-copy-btn"
+          data-copy-label="{{COPY_BTN_TEXT}}"
+          data-copied-label="{{COPIED_TEXT}}"
+        >{{COPY_BTN_TEXT}}</button>
+      </div>
+      <p class="ug-error" id="ug-error" hidden>{{LOAD_ERROR}}</p>
+    </section>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>{{INFO_INTRO_H2}}</h2>
+      <p>
+        {{INFO_INTRO_P}}
+      </p>
+
+      <h2>{{INFO_HOWTO_H2}}</h2>
+      <p>
+        {{INFO_HOWTO_P}}
+      </p>
+
+      <h2>{{INFO_USECASES_H2}}</h2>
+      <ul>
+{{INFO_USECASES_HTML}}
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">{{FAQ_HEADING}}</h2>
+      <dl class="faq-list">
+{{FAQ_HTML}}
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      {{PRIVACY_NOTE}}
+    </p>
+    <p class="footer-links">
+      <a href="{{FOOTER_PRIVACY_HREF}}">{{FOOTER_PRIVACY_TEXT}}</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{FOOTER_ABOUT_HREF}}">{{FOOTER_ABOUT_TEXT}}</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="{{SCROLL_TOP_ARIA}}" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

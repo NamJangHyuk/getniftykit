@@ -41,5 +41,7 @@
   "imageConverterDesc": "画像をアップロードして希望のフォーマットボタンを押すだけでPNG・JPG・WebPに変換します",
   "vectorConverterTitle": "ラインアートベクター変換",
   "vectorConverterDesc": "画像をアップロードすると、精密な白黒SVGラインアートにすぐ変換されます",
+  "usernameGeneratorTitle": "ユーザーネーム生成",
+  "usernameGeneratorDesc": "形容詞2つと名詞1つをランダムに組み合わせて、IDのアイデアを即座に作成します",
   "footerNote": "このサイトのすべてのツールはブラウザ上でローカルに動作し、入力されたデータをサーバーに送信・保存することはありません。"
 }

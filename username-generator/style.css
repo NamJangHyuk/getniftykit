@@ -1,0 +1,373 @@
+/* 유저네임 생성기 도구 전용 스타일
+   테마: 발랄한 티얼(청록) 계열 — "단어를 조합해 새 이름을 만든다"는 창의적인 느낌을 주면서,
+   기존 도구들(인디고/블루/오렌지 등)과 겹치지 않는 색을 골랐습니다. */
+
+:root {
+  --ug-primary: #0d9488;
+  --ug-primary-dark: #0f766e;
+  --ug-bg: #f7f7f7;
+  --ug-card-bg: #ffffff;
+  --ug-border: #e2e8f0;
+  --ug-text: #212529;
+  --ug-text-muted: #53575e;
+  --ug-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--ug-bg);
+  color: var(--ug-text);
+  line-height: 1.6;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  background: var(--ug-bg);
+}
+
+/* PC처럼 넓은 화면에서는 스크롤을 올렸을 때 상단바 전체가 화면을 가리지 않도록,
+   막대(.top-bar) 자체를 폭 전체가 아니라 버튼 크기만큼만 남기고 배경도 지웁니다.
+   .back-link 자체가 이미 불투명한 배경(pill 버튼)을 갖고 있어서 겹침 문제 없이
+   버튼만 떠 있는 것처럼 보입니다. */
+@media (min-width: 768px) {
+  .top-bar {
+    width: fit-content;
+    height: auto;
+    padding: 12px 16px 0;
+    background: transparent;
+  }
+}
+
+.back-link {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--ug-card-bg);
+  border: 1px solid var(--ug-border);
+  border-radius: 999px;
+  color: var(--ug-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+
+.back-link:hover {
+  color: var(--ug-primary);
+}
+
+.page-header {
+  text-align: center;
+  padding: 10px 16px 16px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  font-family: "Encode Sans Expanded", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+  color: var(--ug-primary-dark);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--ug-text-muted);
+  font-size: 1.1rem;
+}
+
+.tagline-extra {
+  margin: 6px 0 0;
+  color: var(--ug-text-muted);
+  font-size: 0.9rem;
+}
+
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+.ug-result-section {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ug-generate-row {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.ug-result-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ug-card-bg);
+  border: 2px solid var(--ug-border);
+  border-radius: var(--ug-radius);
+  padding: 18px 20px;
+}
+
+.ug-output {
+  flex: 1;
+  min-width: 0;
+  font-family: "SF Mono", "Consolas", "Menlo", monospace;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ug-text);
+  word-break: break-all;
+}
+
+.ug-copy-btn {
+  flex: 0 0 auto;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  background: var(--ug-primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.ug-copy-btn:hover:not(:disabled) {
+  background: var(--ug-primary-dark);
+}
+
+.ug-copy-btn:disabled {
+  background: var(--ug-border);
+  color: var(--ug-text-muted);
+  cursor: not-allowed;
+}
+
+.ug-generate-btn {
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  background: var(--ug-primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+
+.ug-generate-btn:hover {
+  background: var(--ug-primary-dark);
+}
+
+.ug-generate-btn:active {
+  transform: scale(0.98);
+}
+
+.ug-error {
+  margin: 14px 0 0;
+  padding: 10px 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #b91c1c;
+  font-size: 0.85rem;
+}
+
+.ug-options-section {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--ug-card-bg);
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius);
+  padding: 20px;
+}
+
+/* 옵션 필드 4개의 라벨 높이가 서로 다릅니다(체크박스가 있는 "숫자 추가"는 아이콘 때문에
+   일반 텍스트 라벨보다 줄 높이가 다름). ug-options-section이 flex-wrap이라 한 줄에 있는
+   필드들의 높이는 제일 큰 필드에 맞춰 늘어나는데(기본 align-items: stretch), 늘어난
+   여백을 각 필드 내부에서 어떻게 쓰느냐가 달라서 select들의 세로 위치가 어긋나 보였습니다.
+   모든 필드를 flex-column + justify-content: flex-end로 통일해서, 라벨 높이가 달라도
+   select는 항상 필드 하단에 맞춰지도록(=가로로 나란히 정렬되도록) 만듭니다. */
+.ug-option-field {
+  flex: 1 1 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ug-option-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ug-text-muted);
+  margin-bottom: 8px;
+}
+
+.ug-option-field select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border: 1px solid var(--ug-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ug-text);
+  cursor: pointer;
+}
+
+.ug-option-field-inline .ug-checkbox-item {
+  margin-bottom: 8px;
+}
+
+.ug-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ug-text-muted);
+  cursor: pointer;
+}
+
+.ug-checkbox-item input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--ug-primary);
+  cursor: pointer;
+}
+
+.ads-container {
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ug-card-bg);
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius);
+  color: var(--ug-text-muted);
+  font-size: 0.85rem;
+}
+
+.ads-rail {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  margin: 0;
+  display: none;
+  z-index: 5;
+}
+
+.ads-rail-left {
+  left: 16px;
+}
+
+.ads-rail-right {
+  right: 16px;
+}
+
+@media (min-width: 972px) {
+  .ads-rail {
+    display: flex;
+  }
+}
+
+.info-section {
+  margin-top: 24px;
+}
+
+.info-section h2 {
+  color: var(--ug-primary-dark);
+  font-size: 1.35rem;
+  margin-top: 32px;
+}
+
+.faq-list .faq-item {
+  margin-bottom: 16px;
+}
+
+.faq-list dt {
+  font-weight: 600;
+  color: var(--ug-text);
+  margin-bottom: 4px;
+}
+
+.faq-list dd {
+  margin: 0;
+  color: var(--ug-text-muted);
+}
+
+.footer-links {
+  margin: 8px 0 0;
+}
+
+.footer-links a {
+  color: var(--ug-text-muted);
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  color: var(--ug-primary);
+}
+
+.page-footer {
+  text-align: center;
+  padding: 24px 16px 40px;
+  color: var(--ug-text-muted);
+  font-size: 0.85rem;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--ug-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(13, 148, 136, 0.3);
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.scroll-top-btn:hover {
+  background: var(--ug-primary-dark);
+  transform: translateY(-2px);
+}
+
+.scroll-top-btn[hidden] {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .ug-result-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ug-output {
+    text-align: center;
+  }
+}

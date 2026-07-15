@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Username Generator - Random Word Combination Generator Free | GetNiftyKit</title>
+  <meta name="description" content="Instantly generate a random username or email name idea by combining two adjectives and a noun. Choose your separator, casing style, and optional number suffix — free, no sign-up." />
+  <link rel="canonical" href="https://getniftykit.com/en/username-generator/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/username-generator/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/username-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/username-generator/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/username-generator/" />
+  <base href="../../username-generator/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Username Generator",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "description": "A free web tool that instantly generates a random username by combining two adjectives and a noun, using your browser's cryptographically secure random number generator (crypto.getRandomValues).",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How are the words combined?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each result combines two different adjectives and one noun, drawn randomly from a curated word bank of several hundred entries each."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the result sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every combination is generated entirely in your browser using the Web Crypto API — nothing is sent to or stored on a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a username without numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Turn off the \"Add number\" checkbox and the result will only contain the three words, joined with whatever separator you chose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use crypto.getRandomValues instead of Math.random?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Math.random() is a predictable pseudo-random generator, not intended for cases where genuine unpredictability matters. crypto.getRandomValues() is the same cryptographically secure random source browsers use for security-sensitive operations, so combinations don't follow a guessable pattern."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../en/" class="back-link">← All Tools</a>
+  </div>
+
+  <header class="page-header">
+    <h1>Username Generator</h1>
+    <p class="subtitle">Combine random words to get a fresh username or email name idea</p>
+    <p class="tagline-extra">Adjust the separator, casing, and number suffix to fit exactly what you need.</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="ug-options-section" aria-label="Generator options">
+      <div class="ug-option-field">
+        <label for="ug-pattern">Word combination</label>
+        <select id="ug-pattern">
+          <option value="adj2noun1" selected>2 adjectives + 1 noun</option>
+          <option value="adj1noun2">1 adjective + 2 nouns</option>
+          <option value="adj3">3 adjectives</option>
+          <option value="noun3">3 nouns</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-separator">Separator</label>
+        <select id="ug-separator">
+          <option value="none" selected>None (joined)</option>
+          <option value=".">Dot (.)</option>
+          <option value="_">Underscore (_)</option>
+          <option value="-">Hyphen (-)</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field">
+        <label for="ug-case">Letter case</label>
+        <select id="ug-case">
+          <option value="lower">lowercase</option>
+          <option value="camel">camelCase</option>
+          <option value="pascal" selected>PascalCase</option>
+        </select>
+      </div>
+
+      <div class="ug-option-field ug-option-field-inline">
+        <label class="ug-checkbox-item">
+          <input type="checkbox" id="ug-number-toggle" /> Add number
+        </label>
+        <select id="ug-number-digits">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="ug-generate-row">
+      <button type="button" id="ug-generate-btn" class="ug-generate-btn">Generate new</button>
+    </div>
+
+    <section class="ug-result-section" aria-label="Generated username">
+      <div class="ug-result-box">
+        <span id="ug-output" class="ug-output"></span>
+        <button
+          type="button"
+          id="ug-copy-btn"
+          class="ug-copy-btn"
+          data-copy-label="Copy"
+          data-copied-label="Copied!"
+        >Copy</button>
+      </div>
+      <p class="ug-error" id="ug-error" hidden>Couldn't load the word list. Please reload the page.</p>
+    </section>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>What is Username Generator?</h2>
+      <p>
+        Username Generator instantly creates a fresh, random name by combining two adjectives and a noun — useful when you're stuck picking a name for a new email address, a game handle, a project codename, or any account that needs a unique identifier. It draws from a curated bank of hundreds of adjectives and nouns and uses your browser's cryptographically secure random number generator (crypto.getRandomValues), so every combination is genuinely unpredictable rather than following an obvious pattern.
+      </p>
+
+      <h2>How to use it</h2>
+      <p>
+        Click &quot;Generate new&quot; to get a random combination right away. Use the separator dropdown to join the words with a dot, underscore, hyphen, or nothing at all, and pick a letter case style (lowercase, camelCase, or PascalCase) to match the platform you're signing up for. Turn on &quot;Add number&quot; if you want a random number suffix — handy since plain word combinations are often already taken. Once you like the result, click &quot;Copy&quot; to copy it to your clipboard.
+      </p>
+
+      <h2>When it comes in handy</h2>
+      <ul>
+        <li>Picking a name for a new email address</li>
+        <li>Coming up with a username for a game or online community</li>
+        <li>Naming a new project, repository, or codename</li>
+        <li>Getting inspiration when your first-choice username is already taken</li>
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>How are the words combined?</dt>
+          <dd>Each result combines two different adjectives and one noun, drawn randomly from a curated word bank of several hundred entries each.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is the result sent to a server?</dt>
+          <dd>No. Every combination is generated entirely in your browser using the Web Crypto API — nothing is sent to or stored on a server.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I get a username without numbers?</dt>
+          <dd>Yes. Turn off the &quot;Add number&quot; checkbox and the result will only contain the three words, joined with whatever separator you chose.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Why use crypto.getRandomValues instead of Math.random?</dt>
+          <dd>Math.random() is a predictable pseudo-random generator, not intended for cases where genuine unpredictability matters. crypto.getRandomValues() is the same cryptographically secure random source browsers use for security-sensitive operations, so combinations don't follow a guessable pattern.</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      This tool generates every username entirely in your browser. Nothing you generate is ever sent to or stored on a server.
+    </p>
+    <p class="footer-links">
+      <a href="../en/privacy/">Privacy Policy</a>
+      <span aria-hidden="true">·</span>
+      <a href="../en/about/">About</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>
