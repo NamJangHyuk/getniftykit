@@ -40,6 +40,7 @@ const TOOLS = [
   "image-converter",
   "vector-converter",
   "username-generator",
+  "svg-cleaner",
 ];
 const INFO_PAGES = ["privacy", "about"];
 
@@ -70,6 +71,9 @@ const TOOL_LANGS = {
   // PM 요청으로 ja/zh 번역 완료(2026-07) — 처음부터 대칭 구조로 시작해 예전 bare 경로가
   // 없으므로, 다른 4개 언어 도구들과 같은 이유로 키는 지우지 않고 LANGS로 남겨둡니다.
   "username-generator": LANGS,
+  // PM 요청으로 ja/zh 번역 완료(2026-07). 처음부터 대칭 구조로 시작해 예전 bare 경로가
+  // 없으므로 다른 도구들과 같은 이유로 키는 지우지 않고 LANGS로 남겨둡니다.
+  "svg-cleaner": LANGS,
 };
 
 function langsFor(tool) {
@@ -756,6 +760,42 @@ async function buildTool(tool) {
       });
     }
 
+    if (tool === "svg-cleaner") {
+      Object.assign(tokens, {
+        UPLOAD_ARIA: escapeHtml(content.uploadAria),
+        DROPZONE_TEXT: escapeHtml(content.dropzoneText),
+        DROPZONE_HINT: escapeHtml(content.dropzoneHint),
+        CHOOSE_FILE_BTN_TEXT: escapeHtml(content.chooseFileBtnText),
+        FILE_LIST_ARIA: escapeHtml(content.fileListAria),
+        FILE_COUNT_TEMPLATE: escapeHtml(content.fileCountTemplate),
+        SAVE_BTN_TEXT: escapeHtml(content.saveBtnText),
+        REMOVE_BTN_TEXT: escapeHtml(content.removeBtnText),
+        CLEAR_ALL_BTN_TEXT: escapeHtml(content.clearAllBtnText),
+        SIZE_CHANGE_TEMPLATE: escapeHtml(content.sizeChangeTemplate),
+        UNSUPPORTED_FILE_ERROR: escapeHtml(content.unsupportedFileError),
+        INVALID_SVG_ERROR: escapeHtml(content.invalidSvgError),
+        ALREADY_CLEAN_TEXT: escapeHtml(content.alreadyCleanText),
+        REMOVED_LABEL: escapeHtml(content.removedLabel),
+        REMOVED_XML_DECL: escapeHtml(content.removedXmlDecl),
+        REMOVED_DOCTYPE: escapeHtml(content.removedDoctype),
+        REMOVED_COMMENTS: escapeHtml(content.removedComments),
+        VIEW_CODE_BTN_TEXT: escapeHtml(content.viewCodeBtnText),
+        HIDE_CODE_BTN_TEXT: escapeHtml(content.hideCodeBtnText),
+        CODE_AREA_LABEL: escapeHtml(content.codeAreaLabel),
+        CODE_COPY_BTN_TEXT: escapeHtml(content.codeCopyBtnText),
+        CODE_COPIED_TEXT: escapeHtml(content.codeCopiedText),
+        PASTE_TOGGLE_TEXT: escapeHtml(content.pasteToggleText),
+        PASTE_INPUT_LABEL: escapeHtml(content.pasteInputLabel),
+        PASTE_INPUT_PLACEHOLDER: escapeHtml(content.pasteInputPlaceholder),
+        PASTE_CLEAN_BTN_TEXT: escapeHtml(content.pasteCleanBtnText),
+        PASTE_OUTPUT_LABEL: escapeHtml(content.pasteOutputLabel),
+        PASTE_COPY_BTN_TEXT: escapeHtml(content.pasteCopyBtnText),
+        PASTE_COPIED_TEXT: escapeHtml(content.pasteCopiedText),
+        PASTE_EMPTY_ERROR: escapeHtml(content.pasteEmptyError),
+        PASTE_INVALID_ERROR: escapeHtml(content.pasteInvalidError),
+      });
+    }
+
     if (tool === "vector-converter") {
       Object.assign(tokens, {
         UPLOAD_ARIA: escapeHtml(content.uploadAria),
@@ -858,16 +898,17 @@ const ALL_TOOLS = [
   { key: "kiln-loading", icon: "kiln-loading.svg", titleField: "kilnLoadingTitle", descField: "kilnLoadingDesc", category: "pro" },
   { key: "image-converter", icon: "image-converter.svg", titleField: "imageConverterTitle", descField: "imageConverterDesc", category: "image" },
   { key: "vector-converter", icon: "vector-converter.svg", titleField: "vectorConverterTitle", descField: "vectorConverterDesc", category: "image" },
+  { key: "svg-cleaner", icon: "svg-cleaner.svg", titleField: "svgCleanerTitle", descField: "svgCleanerDesc", category: "image" },
   { key: "username-generator", icon: "username-generator.svg", titleField: "usernameGeneratorTitle", descField: "usernameGeneratorDesc", category: "generators" },
 ];
 
 const CATEGORY_ORDER = ["resources", "generators", "time", "focus", "image", "pro"];
 
 const CATEGORY_LABELS = {
-  ko: { resources: "이미지 자료", generators: "생성기", time: "시간", focus: "학습", image: "이미지 변환", pro: "전문가용 계산기" },
-  en: { resources: "Image Resources", generators: "Generators", time: "Time", focus: "Focus & Study", image: "Image Conversion", pro: "Professional Calculators" },
-  ja: { resources: "画像素材", generators: "ジェネレーター", time: "時間", focus: "学習", image: "画像変換", pro: "専門計算機" },
-  zh: { resources: "图片素材", generators: "生成器", time: "时间", focus: "学习", image: "图片转换", pro: "专业计算器" },
+  ko: { resources: "이미지 자료", generators: "생성기", time: "시간", focus: "학습", image: "변환툴", pro: "전문가용 계산기" },
+  en: { resources: "Image Resources", generators: "Generators", time: "Time", focus: "Focus & Study", image: "Conversion Tools", pro: "Professional Calculators" },
+  ja: { resources: "画像素材", generators: "ジェネレーター", time: "時間", focus: "学習", image: "変換ツール", pro: "専門計算機" },
+  zh: { resources: "图片素材", generators: "生成器", time: "时间", focus: "学习", image: "转换工具", pro: "专业计算器" },
 };
 
 // 도구를 category 순서대로 묶어서 각각 <section>으로 만듭니다. 그 언어를 지원하는

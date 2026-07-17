@@ -41,6 +41,8 @@
   "imageConverterDesc": "Upload an image and click the format you want to convert it to PNG, JPG, or WebP instantly",
   "vectorConverterTitle": "Line Art Vector Converter",
   "vectorConverterDesc": "Upload an image and get a precise black-and-white SVG line art instantly",
+  "svgCleanerTitle": "SVG Cleaner",
+  "svgCleanerDesc": "Strip the XML declaration, DOCTYPE, and leading comments from SVG files to fix upload errors",
   "usernameGeneratorTitle": "Username Generator",
   "usernameGeneratorDesc": "Combine two random adjectives and a noun to get an instant username idea",
   "footerNote": "Every tool on this site runs locally in your browser. Your data is never sent to or stored on a server."

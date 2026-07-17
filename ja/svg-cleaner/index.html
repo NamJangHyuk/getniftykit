@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SVGクリーナー - XML宣言・DOCTYPE削除の無料ツール | GetNiftyKit</title>
+  <meta name="description" content="SVGファイルからXML宣言、DOCTYPE、先頭のコメントを削除して、純粋なSVGコードにする無料ツールです。BloggerなどでSVGのアップロードが失敗するときにお使いください。ブラウザ上でそのまま処理され、サーバーアップロードはありません。" />
+  <link rel="canonical" href="https://getniftykit.com/ja/svg-cleaner/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/svg-cleaner/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/svg-cleaner/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/svg-cleaner/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/svg-cleaner/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/svg-cleaner/" />
+  <base href="../../svg-cleaner/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SVGクリーナー",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (Webブラウザ)",
+  "description": "SVGファイルからXML宣言、DOCTYPE、先頭のコメントを削除して、純粋なSVGコードにする無料ツールです。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "なぜSVGファイルがBloggerや一部のCMSにアップロードできないのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "一部のプラットフォームは、SVGファイルの先頭に<?xml version=\"1.0\"?>宣言や<!DOCTYPE svg ...>コード、コメントがあるとアップロードを拒否します。svgrepo.comやFlaticonなどのアイコンサイトやイラストレーターから書き出したSVGは、ほとんどの場合こうしたメタデータを自動的に含んでいるため、この問題がよく発生します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "このツールはSVGの実際の図形（パス）も壊してしまいますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。XML宣言、DOCTYPE、先頭のコメントのみを削除し、<svg>タグ内の実際の図形・パス・色のデータには一切手を加えません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "複数のファイルを一度に整理できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、複数のSVGファイルをまとめてアップロードすると、ファイルごとに個別に整理され、それぞれ別々に保存できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "アップロードしたSVGはサーバーに送信されますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。すべての処理はブラウザ内でのみ行われ、ファイルがサーバーに送信・保存されることはありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "すでにきれいなSVGを入れるとどうなりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "削除する項目がないという案内が表示されるだけで、元の内容と同じものを保存することもできます。"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../ja/" class="back-link">← ツール一覧に戻る</a>
+  </div>
+
+  <header class="page-header">
+    <h1>SVGクリーナー</h1>
+    <p class="subtitle">XML宣言・DOCTYPE・コメントを削除して、純粋なSVGコードだけを残します</p>
+    <p class="tagline-extra">BloggerなどでSVGのアップロードができないとき、原因となるメタデータだけを選んで削除します。</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="svgc-card" aria-label="SVGファイルのアップロード">
+      <div class="svgc-dropzone" id="svgc-dropzone" tabindex="0" role="button" aria-label="SVGファイルのアップロード">
+        <svg class="svgc-dropzone-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 15V3M12 3l-4 4M12 3l4 4" />
+          <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+        </svg>
+        <p class="svgc-dropzone-text">ここにSVGファイルをドラッグ＆ドロップするか、クリックして選択してください</p>
+        <p class="svgc-dropzone-hint">SVGファイルのみ対応（複数ファイル同時アップロード可）</p>
+        <button type="button" class="svgc-choose-btn" id="svgc-choose-btn">ファイルを選択</button>
+        <input type="file" id="svgc-file-input" accept=".svg,image/svg+xml" multiple hidden />
+      </div>
+      <p class="svgc-error" id="svgc-global-error" hidden></p>
+    </section>
+
+    <section
+      class="svgc-file-list-section"
+      aria-label="添付されたファイル一覧"
+      id="svgc-file-list-section"
+      hidden
+      data-save-btn-text="保存"
+      data-remove-btn-text="削除"
+      data-size-change-template="{fromSize} → {toSize}"
+      data-unsupported-file-error="SVGファイルのみ添付できます。"
+      data-invalid-svg-error="正しいSVGファイルではありません。&lt;svg&gt;タグが見つかりませんでした。"
+      data-already-clean-text="すでに純粋なSVGです。削除する項目はありません。"
+      data-removed-label="削除済み:"
+      data-removed-xml-decl="XML宣言"
+      data-removed-doctype="DOCTYPE"
+      data-removed-comments="先頭のコメント"
+      data-file-count-template="ファイル{count}個"
+      data-view-code-btn-text="コードを見る"
+      data-hide-code-btn-text="コードを隠す"
+      data-code-area-label="整理されたSVGコード"
+      data-code-copy-btn-text="コピー"
+      data-code-copied-text="コピーしました！"
+    >
+      <div class="svgc-file-list-header">
+        <span class="svgc-file-count" id="svgc-file-count"></span>
+        <button type="button" class="svgc-clear-all-btn" id="svgc-clear-all-btn">すべて削除</button>
+      </div>
+
+      <div class="svgc-file-list" id="svgc-file-list"></div>
+    </section>
+
+    <details class="svgc-paste-card">
+      <summary>コードを直接貼り付け</summary>
+      <div class="svgc-paste-body" data-empty-error="貼り付けられたコードがありません。" data-invalid-error="正しいSVGコードではありません。&lt;svg&gt;タグが見つかりませんでした。">
+        <label for="svgc-paste-input">整理するSVGコード</label>
+        <textarea id="svgc-paste-input" rows="6" placeholder="&lt;?xml version=&quot;1.0&quot;?&gt; &lt;svg ...&gt;...&lt;/svg&gt; のコードをここに貼り付けてください" spellcheck="false"></textarea>
+        <button type="button" class="svgc-paste-clean-btn" id="svgc-paste-clean-btn">整理する</button>
+        <p class="svgc-error" id="svgc-paste-error" hidden></p>
+        <div class="svgc-paste-result" id="svgc-paste-result" hidden>
+          <div class="svgc-paste-result-header">
+            <span class="svgc-paste-result-summary" id="svgc-paste-result-summary"></span>
+            <button type="button" class="svgc-paste-copy-btn" id="svgc-paste-copy-btn" data-copied-text="コピーしました！">コピー</button>
+          </div>
+          <label for="svgc-paste-output" class="svgc-sr-only">整理されたSVGコード</label>
+          <textarea id="svgc-paste-output" rows="6" readonly spellcheck="false"></textarea>
+        </div>
+      </div>
+    </details>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>SVGクリーナーとは？</h2>
+      <p>
+        SVGクリーナーは、SVGファイルの先頭に付くXML宣言（&lt;?xml version=&quot;1.0&quot;?&gt;）、DOCTYPE宣言、先頭のコメントのように、実際の図形には不要でも一部のアップロードシステムではエラーの原因になるコードを削除してくれる無料ツールです。Illustrator、Figma、svgrepo.com、Flaticonのようなプログラム・サイトから書き出されたSVGファイルは、こうしたメタデータを自動的に含んでいることが多く、Bloggerのようにこれらがあると画像のアップロード自体を拒否するプラットフォームもあります。このツールはその原因となるコードだけを正確に見分けて削除し、実際の図形データはそのまま保持します。
+      </p>
+
+      <h2>使い方</h2>
+      <p>
+        整理したいSVGファイルをドラッグ＆ドロップするか、ファイル選択ボタンで添付してください。複数枚を一度にアップロードできます。ファイルをアップロードすると自動で解析と整理が行われ、どの項目が削除されたか（XML宣言、DOCTYPE、先頭のコメント）とファイル容量の変化がすぐに表示されます。保存ボタンを押すと、整理されたSVGファイルが元のファイル名のままダウンロードされます。ファイルではなくコードの断片だけをお持ちの場合は、下の「コードを直接貼り付け」を開くとテキストでも整理できます。
+      </p>
+
+      <h2>こんなときに便利です</h2>
+      <ul>
+        <li>svgrepo.comやFlaticonなどで入手したSVGアイコンがBloggerにアップロードできないとき</li>
+        <li>イラストレーターやInkscapeから書き出したSVGが特定のCMSでプレビューできないとき</li>
+        <li>SVGコードをウェブページにインラインで貼り付ける前に、不要なメタデータを整理したいとき</li>
+        <li>複数のSVGアイコンファイルを一度に整理する必要があるとき</li>
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">よくある質問</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>なぜSVGファイルがBloggerや一部のCMSにアップロードできないのですか？</dt>
+          <dd>一部のプラットフォームは、SVGファイルの先頭に&lt;?xml version=&quot;1.0&quot;?&gt;宣言や&lt;!DOCTYPE svg ...&gt;コード、コメントがあるとアップロードを拒否します。svgrepo.comやFlaticonなどのアイコンサイトやイラストレーターから書き出したSVGは、ほとんどの場合こうしたメタデータを自動的に含んでいるため、この問題がよく発生します。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>このツールはSVGの実際の図形（パス）も壊してしまいますか？</dt>
+          <dd>いいえ。XML宣言、DOCTYPE、先頭のコメントのみを削除し、&lt;svg&gt;タグ内の実際の図形・パス・色のデータには一切手を加えません。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>複数のファイルを一度に整理できますか？</dt>
+          <dd>はい、複数のSVGファイルをまとめてアップロードすると、ファイルごとに個別に整理され、それぞれ別々に保存できます。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>アップロードしたSVGはサーバーに送信されますか？</dt>
+          <dd>いいえ。すべての処理はブラウザ内でのみ行われ、ファイルがサーバーに送信・保存されることはありません。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>すでにきれいなSVGを入れるとどうなりますか？</dt>
+          <dd>削除する項目がないという案内が表示されるだけで、元の内容と同じものを保存することもできます。</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      このツールはすべての整理作業をブラウザ上でのみ処理し、アップロードしたSVGファイルをサーバーに送信・保存することはありません。
+    </p>
+    <p class="footer-links">
+      <a href="../ja/privacy/">プライバシーポリシー</a>
+      <span aria-hidden="true">·</span>
+      <a href="../ja/about/">概要</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="トップに戻る" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="{{HTML_LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+{{HREFLANG_LINKS}}
+{{BASE_TAG}}  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{{SOFTWAREAPP_JSONLD}}
+  </script>
+  <script type="application/ld+json">
+{{FAQ_JSONLD}}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="{{BACK_LINK_HREF}}" class="back-link">{{BACK_LINK_TEXT}}</a>
+  </div>
+
+  <header class="page-header">
+    <h1>{{H1}}</h1>
+    <p class="subtitle">{{SUBTITLE}}</p>
+    <p class="tagline-extra">{{TAGLINE_EXTRA}}</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="svgc-card" aria-label="{{UPLOAD_ARIA}}">
+      <div class="svgc-dropzone" id="svgc-dropzone" tabindex="0" role="button" aria-label="{{UPLOAD_ARIA}}">
+        <svg class="svgc-dropzone-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 15V3M12 3l-4 4M12 3l4 4" />
+          <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+        </svg>
+        <p class="svgc-dropzone-text">{{DROPZONE_TEXT}}</p>
+        <p class="svgc-dropzone-hint">{{DROPZONE_HINT}}</p>
+        <button type="button" class="svgc-choose-btn" id="svgc-choose-btn">{{CHOOSE_FILE_BTN_TEXT}}</button>
+        <input type="file" id="svgc-file-input" accept=".svg,image/svg+xml" multiple hidden />
+      </div>
+      <p class="svgc-error" id="svgc-global-error" hidden></p>
+    </section>
+
+    <section
+      class="svgc-file-list-section"
+      aria-label="{{FILE_LIST_ARIA}}"
+      id="svgc-file-list-section"
+      hidden
+      data-save-btn-text="{{SAVE_BTN_TEXT}}"
+      data-remove-btn-text="{{REMOVE_BTN_TEXT}}"
+      data-size-change-template="{{SIZE_CHANGE_TEMPLATE}}"
+      data-unsupported-file-error="{{UNSUPPORTED_FILE_ERROR}}"
+      data-invalid-svg-error="{{INVALID_SVG_ERROR}}"
+      data-already-clean-text="{{ALREADY_CLEAN_TEXT}}"
+      data-removed-label="{{REMOVED_LABEL}}"
+      data-removed-xml-decl="{{REMOVED_XML_DECL}}"
+      data-removed-doctype="{{REMOVED_DOCTYPE}}"
+      data-removed-comments="{{REMOVED_COMMENTS}}"
+      data-file-count-template="{{FILE_COUNT_TEMPLATE}}"
+      data-view-code-btn-text="{{VIEW_CODE_BTN_TEXT}}"
+      data-hide-code-btn-text="{{HIDE_CODE_BTN_TEXT}}"
+      data-code-area-label="{{CODE_AREA_LABEL}}"
+      data-code-copy-btn-text="{{CODE_COPY_BTN_TEXT}}"
+      data-code-copied-text="{{CODE_COPIED_TEXT}}"
+    >
+      <div class="svgc-file-list-header">
+        <span class="svgc-file-count" id="svgc-file-count"></span>
+        <button type="button" class="svgc-clear-all-btn" id="svgc-clear-all-btn">{{CLEAR_ALL_BTN_TEXT}}</button>
+      </div>
+
+      <div class="svgc-file-list" id="svgc-file-list"></div>
+    </section>
+
+    <details class="svgc-paste-card">
+      <summary>{{PASTE_TOGGLE_TEXT}}</summary>
+      <div class="svgc-paste-body" data-empty-error="{{PASTE_EMPTY_ERROR}}" data-invalid-error="{{PASTE_INVALID_ERROR}}">
+        <label for="svgc-paste-input">{{PASTE_INPUT_LABEL}}</label>
+        <textarea id="svgc-paste-input" rows="6" placeholder="{{PASTE_INPUT_PLACEHOLDER}}" spellcheck="false"></textarea>
+        <button type="button" class="svgc-paste-clean-btn" id="svgc-paste-clean-btn">{{PASTE_CLEAN_BTN_TEXT}}</button>
+        <p class="svgc-error" id="svgc-paste-error" hidden></p>
+        <div class="svgc-paste-result" id="svgc-paste-result" hidden>
+          <div class="svgc-paste-result-header">
+            <span class="svgc-paste-result-summary" id="svgc-paste-result-summary"></span>
+            <button type="button" class="svgc-paste-copy-btn" id="svgc-paste-copy-btn" data-copied-text="{{PASTE_COPIED_TEXT}}">{{PASTE_COPY_BTN_TEXT}}</button>
+          </div>
+          <label for="svgc-paste-output" class="svgc-sr-only">{{PASTE_OUTPUT_LABEL}}</label>
+          <textarea id="svgc-paste-output" rows="6" readonly spellcheck="false"></textarea>
+        </div>
+      </div>
+    </details>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>{{INFO_INTRO_H2}}</h2>
+      <p>
+        {{INFO_INTRO_P}}
+      </p>
+
+      <h2>{{INFO_HOWTO_H2}}</h2>
+      <p>
+        {{INFO_HOWTO_P}}
+      </p>
+
+      <h2>{{INFO_USECASES_H2}}</h2>
+      <ul>
+{{INFO_USECASES_HTML}}
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">{{FAQ_HEADING}}</h2>
+      <dl class="faq-list">
+{{FAQ_HTML}}
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      {{PRIVACY_NOTE}}
+    </p>
+    <p class="footer-links">
+      <a href="{{FOOTER_PRIVACY_HREF}}">{{FOOTER_PRIVACY_TEXT}}</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{FOOTER_ABOUT_HREF}}">{{FOOTER_ABOUT_TEXT}}</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="{{SCROLL_TOP_ARIA}}" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

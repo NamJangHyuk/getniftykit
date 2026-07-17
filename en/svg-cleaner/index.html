@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SVG Cleaner - Remove XML Declaration &amp; DOCTYPE for Free | GetNiftyKit</title>
+  <meta name="description" content="Free tool that strips the XML declaration, DOCTYPE, and leading comments from SVG files, leaving pure SVG code. Fixes SVG upload failures on Blogger and other platforms — processed entirely in your browser, no server upload." />
+  <link rel="canonical" href="https://getniftykit.com/en/svg-cleaner/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/svg-cleaner/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/svg-cleaner/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/svg-cleaner/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/svg-cleaner/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/svg-cleaner/" />
+  <base href="../../svg-cleaner/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SVG Cleaner",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "description": "A free tool that removes the XML declaration, DOCTYPE, and leading comments from SVG files, leaving clean, pure SVG code.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why won't my SVG upload to Blogger or some CMS platforms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some platforms reject SVG files that start with an XML declaration (<?xml version=\"1.0\"?>), a <!DOCTYPE svg ...> declaration, or leading comments. SVGs exported from icon sites like svgrepo.com and Flaticon, or from illustration software, almost always include this metadata automatically, which is why the problem shows up so often."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool damage the actual artwork in my SVG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It only removes the XML declaration, DOCTYPE, and leading comments — the shapes, paths, and colors inside the <svg> tag are left completely untouched."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I clean multiple files at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Upload several SVG files together and each one is cleaned independently, with its own save button."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my uploaded SVG sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything is processed entirely in your browser — files are never uploaded or stored anywhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I upload an already-clean SVG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You'll just see a message that there's nothing to remove, and you can still save an identical copy if you'd like."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../en/" class="back-link">← All Tools</a>
+  </div>
+
+  <header class="page-header">
+    <h1>SVG Cleaner</h1>
+    <p class="subtitle">Strip the XML declaration, DOCTYPE, and comments, and keep only pure SVG code</p>
+    <p class="tagline-extra">When SVG uploads fail on Blogger and similar platforms, this removes exactly the metadata causing it.</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="svgc-card" aria-label="Upload SVG file">
+      <div class="svgc-dropzone" id="svgc-dropzone" tabindex="0" role="button" aria-label="Upload SVG file">
+        <svg class="svgc-dropzone-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 15V3M12 3l-4 4M12 3l4 4" />
+          <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+        </svg>
+        <p class="svgc-dropzone-text">Drag and drop your SVG files here, or click to choose</p>
+        <p class="svgc-dropzone-hint">SVG files only (multiple files supported)</p>
+        <button type="button" class="svgc-choose-btn" id="svgc-choose-btn">Choose File</button>
+        <input type="file" id="svgc-file-input" accept=".svg,image/svg+xml" multiple hidden />
+      </div>
+      <p class="svgc-error" id="svgc-global-error" hidden></p>
+    </section>
+
+    <section
+      class="svgc-file-list-section"
+      aria-label="Attached file list"
+      id="svgc-file-list-section"
+      hidden
+      data-save-btn-text="Save"
+      data-remove-btn-text="Remove"
+      data-size-change-template="{fromSize} → {toSize}"
+      data-unsupported-file-error="Only SVG files can be added."
+      data-invalid-svg-error="This isn't a valid SVG file — no &lt;svg&gt; tag was found."
+      data-already-clean-text="Already a pure SVG — nothing to remove."
+      data-removed-label="Removed:"
+      data-removed-xml-decl="XML declaration"
+      data-removed-doctype="DOCTYPE"
+      data-removed-comments="Leading comments"
+      data-file-count-template="{count} file(s)"
+      data-view-code-btn-text="View Code"
+      data-hide-code-btn-text="Hide Code"
+      data-code-area-label="Cleaned SVG code"
+      data-code-copy-btn-text="Copy"
+      data-code-copied-text="Copied!"
+    >
+      <div class="svgc-file-list-header">
+        <span class="svgc-file-count" id="svgc-file-count"></span>
+        <button type="button" class="svgc-clear-all-btn" id="svgc-clear-all-btn">Clear All</button>
+      </div>
+
+      <div class="svgc-file-list" id="svgc-file-list"></div>
+    </section>
+
+    <details class="svgc-paste-card">
+      <summary>Paste code directly</summary>
+      <div class="svgc-paste-body" data-empty-error="There's no code to clean." data-invalid-error="This isn't valid SVG code — no &lt;svg&gt; tag was found.">
+        <label for="svgc-paste-input">SVG code to clean</label>
+        <textarea id="svgc-paste-input" rows="6" placeholder="Paste your &lt;?xml version=&quot;1.0&quot;?&gt; &lt;svg ...&gt;...&lt;/svg&gt; code here" spellcheck="false"></textarea>
+        <button type="button" class="svgc-paste-clean-btn" id="svgc-paste-clean-btn">Clean</button>
+        <p class="svgc-error" id="svgc-paste-error" hidden></p>
+        <div class="svgc-paste-result" id="svgc-paste-result" hidden>
+          <div class="svgc-paste-result-header">
+            <span class="svgc-paste-result-summary" id="svgc-paste-result-summary"></span>
+            <button type="button" class="svgc-paste-copy-btn" id="svgc-paste-copy-btn" data-copied-text="Copied!">Copy</button>
+          </div>
+          <label for="svgc-paste-output" class="svgc-sr-only">Cleaned SVG code</label>
+          <textarea id="svgc-paste-output" rows="6" readonly spellcheck="false"></textarea>
+        </div>
+      </div>
+    </details>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>What is SVG Cleaner?</h2>
+      <p>
+        SVG Cleaner is a free tool that strips the XML declaration (&lt;?xml version=&quot;1.0&quot;?&gt;), DOCTYPE declaration, and leading comments from the top of an SVG file — metadata that isn't needed for the actual artwork but breaks uploads on some platforms. SVG files exported from tools like Illustrator, Figma, svgrepo.com, or Flaticon often include this metadata automatically, and platforms like Blogger can flatly reject an image upload if it's present. This tool picks out exactly that problematic code and removes it while leaving the real artwork untouched.
+      </p>
+
+      <h2>How to Use</h2>
+      <p>
+        Drag and drop the SVG files you want to clean, or use the choose file button — you can upload several at once. Each file is analyzed and cleaned automatically the moment it's added, showing exactly what was removed (XML declaration, DOCTYPE, leading comments) and how the file size changed. Click Save to download the cleaned file under its original name. If you only have a code snippet rather than a file, expand &quot;Paste code directly&quot; below to clean text instead.
+      </p>
+
+      <h2>When This Comes in Handy</h2>
+      <ul>
+        <li>When an SVG icon from svgrepo.com or Flaticon won't upload to Blogger</li>
+        <li>When an SVG exported from Illustrator or Inkscape won't preview on a particular CMS</li>
+        <li>When you want to strip unnecessary metadata before pasting SVG code inline on a webpage</li>
+        <li>When you need to clean up a batch of SVG icon files at once</li>
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>Why won't my SVG upload to Blogger or some CMS platforms?</dt>
+          <dd>Some platforms reject SVG files that start with an XML declaration (&lt;?xml version=&quot;1.0&quot;?&gt;), a &lt;!DOCTYPE svg ...&gt; declaration, or leading comments. SVGs exported from icon sites like svgrepo.com and Flaticon, or from illustration software, almost always include this metadata automatically, which is why the problem shows up so often.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does this tool damage the actual artwork in my SVG?</dt>
+          <dd>No. It only removes the XML declaration, DOCTYPE, and leading comments — the shapes, paths, and colors inside the &lt;svg&gt; tag are left completely untouched.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I clean multiple files at once?</dt>
+          <dd>Yes. Upload several SVG files together and each one is cleaned independently, with its own save button.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is my uploaded SVG sent to a server?</dt>
+          <dd>No. Everything is processed entirely in your browser — files are never uploaded or stored anywhere.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>What happens if I upload an already-clean SVG?</dt>
+          <dd>You'll just see a message that there's nothing to remove, and you can still save an identical copy if you'd like.</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      This tool processes everything in your browser — your uploaded SVG files are never sent to or stored on a server.
+    </p>
+    <p class="footer-links">
+      <a href="../en/privacy/">Privacy Policy</a>
+      <span aria-hidden="true">·</span>
+      <a href="../en/about/">About</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

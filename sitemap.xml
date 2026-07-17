@@ -757,6 +757,42 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/username-generator/" />
   </url>
   <url>
+    <loc>https://getniftykit.com/ko/svg-cleaner/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/svg-cleaner/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/en/svg-cleaner/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/svg-cleaner/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/ja/svg-cleaner/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/svg-cleaner/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/zh/svg-cleaner/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/svg-cleaner/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/svg-cleaner/" />
+  </url>
+  <url>
     <loc>https://getniftykit.com/ko/privacy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

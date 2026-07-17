@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SVG清理工具 - 免费删除XML声明和DOCTYPE | GetNiftyKit</title>
+  <meta name="description" content="从SVG文件中删除XML声明、DOCTYPE和开头注释，生成纯净SVG代码的免费工具。当SVG在Blogger等平台上传失败时可以使用。完全在浏览器中处理，无需上传服务器。" />
+  <link rel="canonical" href="https://getniftykit.com/zh/svg-cleaner/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/svg-cleaner/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/svg-cleaner/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/svg-cleaner/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/svg-cleaner/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/svg-cleaner/" />
+  <base href="../../svg-cleaner/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SVG清理工具",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (网页浏览器)",
+  "description": "从SVG文件中删除XML声明、DOCTYPE和开头注释，生成纯净SVG代码的免费工具。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "为什么我的SVG无法上传到Blogger或部分CMS平台？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "部分平台会拒绝以XML声明（<?xml version=\"1.0\"?>）、<!DOCTYPE svg ...>声明或注释开头的SVG文件。从svgrepo.com、Flaticon等图标网站或插画软件导出的SVG几乎都会自动包含这些元数据，因此这个问题经常出现。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这个工具会破坏SVG中实际的图形（路径）吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。它只删除XML声明、DOCTYPE和开头注释，<svg>标签内的实际图形、路径和颜色数据完全不受影响。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以一次整理多个文件吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。一次上传多个SVG文件时，每个文件都会独立整理，并可分别保存。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "上传的SVG会发送到服务器吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。所有处理都仅在浏览器中完成，文件不会被发送或存储到服务器。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如果上传已经很干净的SVG会怎样？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "只会显示没有需要删除的内容的提示，您仍然可以保存与原文件相同的内容。"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../zh/" class="back-link">← 返回全部工具</a>
+  </div>
+
+  <header class="page-header">
+    <h1>SVG清理工具</h1>
+    <p class="subtitle">删除XML声明·DOCTYPE·注释，只保留纯净的SVG代码</p>
+    <p class="tagline-extra">当SVG无法上传到Blogger等平台时，精准删除导致问题的元数据。</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="svgc-card" aria-label="上传SVG文件">
+      <div class="svgc-dropzone" id="svgc-dropzone" tabindex="0" role="button" aria-label="上传SVG文件">
+        <svg class="svgc-dropzone-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 15V3M12 3l-4 4M12 3l4 4" />
+          <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+        </svg>
+        <p class="svgc-dropzone-text">将SVG文件拖放到此处，或点击选择文件</p>
+        <p class="svgc-dropzone-hint">仅支持SVG文件（可同时上传多个）</p>
+        <button type="button" class="svgc-choose-btn" id="svgc-choose-btn">选择文件</button>
+        <input type="file" id="svgc-file-input" accept=".svg,image/svg+xml" multiple hidden />
+      </div>
+      <p class="svgc-error" id="svgc-global-error" hidden></p>
+    </section>
+
+    <section
+      class="svgc-file-list-section"
+      aria-label="已添加的文件列表"
+      id="svgc-file-list-section"
+      hidden
+      data-save-btn-text="保存"
+      data-remove-btn-text="删除"
+      data-size-change-template="{fromSize} → {toSize}"
+      data-unsupported-file-error="只能添加SVG文件。"
+      data-invalid-svg-error="不是有效的SVG文件，未找到&lt;svg&gt;标签。"
+      data-already-clean-text="已经是纯净的SVG，没有需要删除的内容。"
+      data-removed-label="已删除:"
+      data-removed-xml-decl="XML声明"
+      data-removed-doctype="DOCTYPE"
+      data-removed-comments="开头注释"
+      data-file-count-template="{count}个文件"
+      data-view-code-btn-text="查看代码"
+      data-hide-code-btn-text="隐藏代码"
+      data-code-area-label="整理后的SVG代码"
+      data-code-copy-btn-text="复制"
+      data-code-copied-text="已复制！"
+    >
+      <div class="svgc-file-list-header">
+        <span class="svgc-file-count" id="svgc-file-count"></span>
+        <button type="button" class="svgc-clear-all-btn" id="svgc-clear-all-btn">全部清除</button>
+      </div>
+
+      <div class="svgc-file-list" id="svgc-file-list"></div>
+    </section>
+
+    <details class="svgc-paste-card">
+      <summary>直接粘贴代码</summary>
+      <div class="svgc-paste-body" data-empty-error="没有可整理的代码。" data-invalid-error="不是有效的SVG代码，未找到&lt;svg&gt;标签。">
+        <label for="svgc-paste-input">要整理的SVG代码</label>
+        <textarea id="svgc-paste-input" rows="6" placeholder="请将&lt;?xml version=&quot;1.0&quot;?&gt; &lt;svg ...&gt;...&lt;/svg&gt;代码粘贴到这里" spellcheck="false"></textarea>
+        <button type="button" class="svgc-paste-clean-btn" id="svgc-paste-clean-btn">整理</button>
+        <p class="svgc-error" id="svgc-paste-error" hidden></p>
+        <div class="svgc-paste-result" id="svgc-paste-result" hidden>
+          <div class="svgc-paste-result-header">
+            <span class="svgc-paste-result-summary" id="svgc-paste-result-summary"></span>
+            <button type="button" class="svgc-paste-copy-btn" id="svgc-paste-copy-btn" data-copied-text="已复制！">复制</button>
+          </div>
+          <label for="svgc-paste-output" class="svgc-sr-only">整理后的SVG代码</label>
+          <textarea id="svgc-paste-output" rows="6" readonly spellcheck="false"></textarea>
+        </div>
+      </div>
+    </details>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>什么是SVG清理工具？</h2>
+      <p>
+        SVG清理工具是一款免费工具，可以删除SVG文件开头的XML声明（&lt;?xml version=&quot;1.0&quot;?&gt;）、DOCTYPE声明和开头注释——这些内容对实际图形而言并非必需，但会导致部分上传系统出错。从Illustrator、Figma、svgrepo.com、Flaticon等软件或网站导出的SVG文件通常会自动包含这些元数据，而Blogger等平台一旦检测到这些内容，可能会直接拒绝图片上传。这个工具会精准识别并删除这些问题代码，同时完整保留实际的图形数据。
+      </p>
+
+      <h2>使用方法</h2>
+      <p>
+        将要整理的SVG文件拖放进来，或通过选择文件按钮添加，可以一次添加多个文件。文件上传后会自动进行分析和整理，并立即显示删除了哪些内容（XML声明、DOCTYPE、开头注释）以及文件大小的变化。点击保存按钮，即可以原文件名下载整理后的SVG文件。如果您只有代码片段而不是文件，可以展开下方的「直接粘贴代码」以文本形式进行整理。
+      </p>
+
+      <h2>适用场景</h2>
+      <ul>
+        <li>从svgrepo.com、Flaticon等网站获取的SVG图标无法上传到Blogger时</li>
+        <li>从Illustrator或Inkscape导出的SVG在特定CMS中无法预览时</li>
+        <li>在将SVG代码内联粘贴到网页之前，想要清理不必要的元数据时</li>
+        <li>需要一次性整理多个SVG图标文件时</li>
+      </ul>
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">常见问题</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>为什么我的SVG无法上传到Blogger或部分CMS平台？</dt>
+          <dd>部分平台会拒绝以XML声明（&lt;?xml version=&quot;1.0&quot;?&gt;）、&lt;!DOCTYPE svg ...&gt;声明或注释开头的SVG文件。从svgrepo.com、Flaticon等图标网站或插画软件导出的SVG几乎都会自动包含这些元数据，因此这个问题经常出现。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>这个工具会破坏SVG中实际的图形（路径）吗？</dt>
+          <dd>不会。它只删除XML声明、DOCTYPE和开头注释，&lt;svg&gt;标签内的实际图形、路径和颜色数据完全不受影响。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>可以一次整理多个文件吗？</dt>
+          <dd>可以。一次上传多个SVG文件时，每个文件都会独立整理，并可分别保存。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>上传的SVG会发送到服务器吗？</dt>
+          <dd>不会。所有处理都仅在浏览器中完成，文件不会被发送或存储到服务器。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>如果上传已经很干净的SVG会怎样？</dt>
+          <dd>只会显示没有需要删除的内容的提示，您仍然可以保存与原文件相同的内容。</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      本工具的所有整理操作均在浏览器中处理，不会将您上传的SVG文件发送或存储到服务器。
+    </p>
+    <p class="footer-links">
+      <a href="../zh/privacy/">隐私政策</a>
+      <span aria-hidden="true">·</span>
+      <a href="../zh/about/">关于</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="回到顶部" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>
