@@ -327,7 +327,12 @@ function renderRecent() {
       visual.appendChild(fallback);
     }
 
-    const open = () => jumpToEmoji(item);
+    // 자주 사용한 이모지 카드를 누르면 복사도 되고(핵심 기능), 본문 목록에서
+    // 어디 있는지도 보여주도록(기존 기능) 두 동작을 함께 실행합니다.
+    const open = () => {
+      copyEmoji(item);
+      jumpToEmoji(item);
+    };
     card.addEventListener("click", open);
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {

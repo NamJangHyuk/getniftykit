@@ -266,7 +266,12 @@ function renderRecent() {
     visual.className = "recent-card-fallback";
     visual.textContent = item.char;
 
-    const open = () => jumpToChar(item);
+    // 자주 사용한 문자 카드를 누르면 복사도 되고(핵심 기능), 본문 목록에서
+    // 어디 있는지도 보여주도록(기존 기능) 두 동작을 함께 실행합니다.
+    const open = () => {
+      copyChar(item);
+      jumpToChar(item);
+    };
     card.addEventListener("click", open);
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
