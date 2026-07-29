@@ -40,6 +40,15 @@
     "Checking exact positions before adding shelves to existing furniture",
     "Comparing different shelf counts to see which layout is most practical"
   ],
+  "deepDiveH2": "Why does skipping shelf thickness throw off the spacing?",
+  "deepDiveP": "It's easy to overlook that shelves themselves take up space equal to their thickness — the compartments aren't the only thing filling the case. For example, fitting 4 shelves (each 1.8cm thick) into 180cm leaves only 172.8cm of usable space after subtracting the 7.2cm the shelves themselves occupy, and that remaining space needs to be divided into 5 compartments (shelf count + 1) to get the correct gap. If you ignore thickness and just divide 180 by 5, every compartment ends up slightly narrower than calculated once it's actually built.",
+  "deepDiveListH2": "Good to know for real-world shelf installation",
+  "deepDiveList": [
+    "Actual board thickness for MDF, particleboard, etc. can differ from the labeled value by 0.1-0.3mm — for critical work, it's worth measuring with calipers first",
+    "For compartments holding heavy items like books, using a tighter spacing than the rest can help reduce shelf sag over time",
+    "The bracket, pin, or dowel system holding the shelves may take up some of that space too, so the real usable gap can end up slightly smaller than the calculated value depending on your support method",
+    "If you want deliberately uneven spacing (like a larger bottom compartment) rather than evenly spaced shelves, it's more accurate to calculate and mark those positions manually instead of using this tool"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -53,6 +62,18 @@
     {
       "q": "What are the calculated positions measured from?",
       "a": "The very bottom of the case (bookcase or cabinet) is treated as position 0, and each shelf's position is the distance from there to the bottom face of that shelf."
+    },
+    {
+      "q": "How do I prevent a shelf from sagging?",
+      "a": "This tool only calculates positions — preventing sag depends on shelf thickness, material, and support spacing. If you're planning to hold heavy items, consider a thicker shelf or adding a mid-span support."
+    },
+    {
+      "q": "Does this account for shelf width too?",
+      "a": "No, this tool only calculates vertical (height) spacing. Use the shelf's own width for the horizontal dimension."
+    },
+    {
+      "q": "Should I include the case's own thickness in the total length?",
+      "a": "Enter the actual interior dimension — the distance between the inner faces of the case's top and bottom panels. The case's own material thickness should already be excluded from that number."
     }
   ],
   "privacyNote": "This tool performs all calculations entirely in your browser. Nothing you enter is sent to or stored on a server."

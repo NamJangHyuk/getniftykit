@@ -38,6 +38,15 @@
     "Managing your own set of custom question-and-answer cards",
     "Studying quickly with no login required, saved only in your browser"
   ],
+  "deepDiveH2": "Why does random order actually build real recall?",
+  "deepDiveP": "If you always flip through cards in the same order, your brain often ends up memorizing the sequence rather than the actual answer — you might unconsciously learn that card 4 always follows card 3, then suddenly blank when the order is shuffled, like on a real exam. Fisher-Yates shuffle is an algorithm that gives every card an exactly equal chance of landing in any position, so you get a genuinely new order every time and avoid order-dependent \"fake\" memorization.",
+  "deepDiveListH2": "Tips for more effective flashcard study",
+  "deepDiveList": [
+    "Following the spaced repetition principle, reviewing a little over several days tends to build longer-lasting memory than cramming everything in one sitting",
+    "Keep questions concise and avoid embedding hints toward the answer within the question itself",
+    "Cards you already know well still stay in the shuffle — resist the urge to skip them, since actually recalling them each time strengthens the memory further",
+    "If a card set grows too large (50+), splitting it into separate topic-based sets can make studying more effective"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -51,6 +60,18 @@
     {
       "q": "I made a mistake on a card. Can I edit it?",
       "a": "There's no edit feature yet — delete the card from the card list and add it again with the correct content."
+    },
+    {
+      "q": "How many cards can I save?",
+      "a": "There's no specific limit, but localStorage has a per-browser storage cap (typically 5-10MB), which is enough for thousands of cards in practice — plenty for normal use."
+    },
+    {
+      "q": "Can I view cards in the order I added them, without shuffling?",
+      "a": "No — preventing order-based memorization is this tool's core purpose, so it's designed to always study in random order."
+    },
+    {
+      "q": "Can I add images to a card?",
+      "a": "Currently only text (question and answer) is supported. If you need to memorize something visual, we'd suggest describing it in words instead."
     }
   ],
   "privacyNote": "This tool stores card data only in your browser's local storage. Nothing is sent to a server."

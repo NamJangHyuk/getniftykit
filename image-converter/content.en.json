@@ -30,13 +30,25 @@
   "originalSizeLabel": "Original",
   "unsupportedFileError": "Unsupported file type. Please attach an image file.",
   "decodeErrorText": "Couldn't load this image. The file may be corrupted.",
+  "deepDiveH2": "PNG vs. JPG vs. WebP — what's actually different?",
+  "deepDiveP": "PNG uses lossless compression, so it preserves the original quality exactly and supports transparency, but that comes at the cost of a larger file size. JPG uses lossy compression to shrink file size significantly, but it doesn't support transparency, and pushing the compression higher starts to introduce visible quality loss (blocky artifacts). WebP is a relatively newer format developed by Google specifically for the web — it supports both lossy and lossless compression, and at the same visual quality, it can produce files roughly 25-35% smaller than JPG, which is why it's become increasingly popular on modern websites.",
+  "deepDiveListH2": "Which format to pick, and when",
+  "deepDiveList": [
+    "Need a transparent background (logos, icons)? Choose PNG or WebP — JPG doesn't support transparency",
+    "If website loading speed matters most, WebP is usually the best choice — though very old browsers (pre-2020) may not support it",
+    "Photos with smooth, continuous color transitions compress efficiently with JPG or WebP's lossy compression, while text or sharp-edged graphics stay crisper in PNG",
+    "If you plan to edit the image again later, saving as PNG is safer — lossy formats lose a little more quality each time they're re-saved"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     { "q": "Can I convert multiple images at once?", "a": "Yes — you can add several files at once, and choose a different output format for each one individually." },
     { "q": "Is my image uploaded to a server?", "a": "No. Everything happens right in your browser — nothing is uploaded or stored on a server." },
     { "q": "What formats are supported?", "a": "You can convert to PNG, JPG (JPEG), or WebP." },
     { "q": "Will the quality get worse?", "a": "PNG is lossless, so there's no quality loss. JPG and WebP use light lossy compression, but for everyday use the difference is barely noticeable." },
-    { "q": "Does it just rename the file extension, or actually convert the format?", "a": "It doesn't just rename the extension — the image is redrawn on a canvas and re-encoded using the real encoding of the format you picked. That's why the file size actually changes before and after conversion." }
+    { "q": "Does it just rename the file extension, or actually convert the format?", "a": "It doesn't just rename the extension — the image is redrawn on a canvas and re-encoded using the real encoding of the format you picked. That's why the file size actually changes before and after conversion." },
+    { "q": "Does quality keep degrading if I convert the same image multiple times?", "a": "PNG is lossless, so converting it any number of times causes no quality loss. But repeatedly converting between lossy formats like JPG or WebP loses a bit of quality each time, so we'd recommend keeping the original file safe separately." },
+    { "q": "If I shrink the image dimensions (pixels), does file size shrink proportionally?", "a": "Yes, generally reducing the width and height in pixels significantly reduces file size as well. Combining that with the quality slider lets you fine-tune closer to a target file size." },
+    { "q": "Can this convert animated GIFs too?", "a": "This tool is optimized for still images — uploading an animated GIF will only convert its first frame into a still image." }
   ],
   "infoIntroH2": "What is an Image Converter?",
   "infoIntroP": "The Image Converter is a free tool that converts image files between formats like PNG, JPG, and WebP right in your browser. There's nothing to install and nothing to upload to a server — just add an image, click the format button you want, and download the converted file instantly. It's useful for shrinking image size with WebP for a website, switching a photo to JPG when you don't need transparency, or converting back to lossless PNG for further editing.",

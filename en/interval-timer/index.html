@@ -61,6 +61,30 @@
         "@type": "Answer",
         "text": "No. The session ends as soon as the final set's work phase is complete — rest periods only occur between sets."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I close the browser tab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Closing the tab resets the timer completely. To keep a session running, leave the tab open — switching to another tab or turning off your screen is fine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I view the same timer on multiple devices at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, the timer runs independently within each browser, so it doesn't sync across devices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a limit on the number of sets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There's no hard cap, but setting too many sets at once makes for a very long session — we'd suggest staying within a realistic range (usually under 20 sets)."
+      }
     }
   ]
 }
@@ -147,6 +171,18 @@
         <li>Reproducing a specific set/rest structure from a PT or group class</li>
       </ul>
 
+      <h2>Why the timer stays accurate even with the screen off</h2>
+      <p>A typical setInterval-based timer gets throttled once the browser tab goes into the background (most browsers do this to save battery), so after just a few minutes the displayed time can drift noticeably from real time. This tool instead recalculates the elapsed time — the gap between the start timestamp and the current timestamp — at every moment, so even if screen updates paused while you were on another tab, it snaps back to the exact correct point the instant you return.</p>
+
+      <h2>Tips for interval training</h2>
+      <ul>
+        <li>Match rest time to intensity — high-intensity interval training (HIIT) typically uses a 1:1 or 2:1 work-to-rest ratio, while strength training benefits from longer rest (1:3 or more)</li>
+        <li>Well-known protocols like Tabata (20s work / 10s rest × 8 rounds) can be recreated exactly using this tool's set count and time inputs</li>
+        <li>If it's hard to tell phases apart by sound alone, the on-screen color change gives a visual cue too</li>
+        <li>If a rest period feels too short, you can always pause and resume whenever you need a moment</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -162,6 +198,18 @@
         <div class="faq-item">
           <dt>Does the session include a rest period after the last set?</dt>
           <dd>No. The session ends as soon as the final set's work phase is complete — rest periods only occur between sets.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>What happens if I close the browser tab?</dt>
+          <dd>Closing the tab resets the timer completely. To keep a session running, leave the tab open — switching to another tab or turning off your screen is fine.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I view the same timer on multiple devices at once?</dt>
+          <dd>No, the timer runs independently within each browser, so it doesn't sync across devices.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is there a limit on the number of sets?</dt>
+          <dd>There's no hard cap, but setting too many sets at once makes for a very long session — we'd suggest staying within a realistic range (usually under 20 sets).</dd>
         </div>
       </dl>
     </article>

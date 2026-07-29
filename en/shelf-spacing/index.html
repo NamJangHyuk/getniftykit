@@ -61,6 +61,30 @@
         "@type": "Answer",
         "text": "The very bottom of the case (bookcase or cabinet) is treated as position 0, and each shelf's position is the distance from there to the bottom face of that shelf."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I prevent a shelf from sagging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool only calculates positions — preventing sag depends on shelf thickness, material, and support spacing. If you're planning to hold heavy items, consider a thicker shelf or adding a mid-span support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this account for shelf width too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, this tool only calculates vertical (height) spacing. Use the shelf's own width for the horizontal dimension."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I include the case's own thickness in the total length?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter the actual interior dimension — the distance between the inner faces of the case's top and bottom panels. The case's own material thickness should already be excluded from that number."
+      }
     }
   ]
 }
@@ -162,6 +186,18 @@
         <li>Comparing different shelf counts to see which layout is most practical</li>
       </ul>
 
+      <h2>Why does skipping shelf thickness throw off the spacing?</h2>
+      <p>It's easy to overlook that shelves themselves take up space equal to their thickness — the compartments aren't the only thing filling the case. For example, fitting 4 shelves (each 1.8cm thick) into 180cm leaves only 172.8cm of usable space after subtracting the 7.2cm the shelves themselves occupy, and that remaining space needs to be divided into 5 compartments (shelf count + 1) to get the correct gap. If you ignore thickness and just divide 180 by 5, every compartment ends up slightly narrower than calculated once it's actually built.</p>
+
+      <h2>Good to know for real-world shelf installation</h2>
+      <ul>
+        <li>Actual board thickness for MDF, particleboard, etc. can differ from the labeled value by 0.1-0.3mm — for critical work, it's worth measuring with calipers first</li>
+        <li>For compartments holding heavy items like books, using a tighter spacing than the rest can help reduce shelf sag over time</li>
+        <li>The bracket, pin, or dowel system holding the shelves may take up some of that space too, so the real usable gap can end up slightly smaller than the calculated value depending on your support method</li>
+        <li>If you want deliberately uneven spacing (like a larger bottom compartment) rather than evenly spaced shelves, it's more accurate to calculate and mark those positions manually instead of using this tool</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -177,6 +213,18 @@
         <div class="faq-item">
           <dt>What are the calculated positions measured from?</dt>
           <dd>The very bottom of the case (bookcase or cabinet) is treated as position 0, and each shelf's position is the distance from there to the bottom face of that shelf.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>How do I prevent a shelf from sagging?</dt>
+          <dd>This tool only calculates positions — preventing sag depends on shelf thickness, material, and support spacing. If you're planning to hold heavy items, consider a thicker shelf or adding a mid-span support.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does this account for shelf width too?</dt>
+          <dd>No, this tool only calculates vertical (height) spacing. Use the shelf's own width for the horizontal dimension.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Should I include the case's own thickness in the total length?</dt>
+          <dd>Enter the actual interior dimension — the distance between the inner faces of the case's top and bottom panels. The case's own material thickness should already be excluded from that number.</dd>
         </div>
       </dl>
     </article>

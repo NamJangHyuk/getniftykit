@@ -61,6 +61,30 @@
         "@type": "Answer",
         "text": "将复制的代码直接粘贴为CSS的background属性值即可。例如：background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "生成的CSS代码在所有浏览器中都能正常使用吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。linear-gradient和radial-gradient是所有现代浏览器（Chrome、Firefox、Safari、Edge）都标准支持的功能。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以为渐变添加透明度吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "本工具针对纯色组合进行了优化，暂不支持透明度输入，但您可以手动将生成的颜色值改为rgba()格式来添加透明度。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以将渐变应用到文字上吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以，在生成的background代码基础上添加background-clip: text和color: transparent，即可将渐变效果应用到文字上。"
+      }
     }
   ]
 }
@@ -144,6 +168,18 @@
         <li>需要从设计稿中直接获取精确的CSS渐变代码时</li>
       </ul>
 
+      <h2>怎样才能让渐变看起来更自然？</h2>
+      <p>渐变看起来不自然的最常见原因，是直接连接色轮上正对的两种颜色（互补色）——例如从红色直接过渡到绿色，中间往往会产生浑浊的棕褐色。使用色轮上相邻的颜色（类似色），或在两色之间再加一个过渡色，会让渐变平滑得多。同时，两种颜色的明度差过大也会造成强烈对比，容易造成视觉疲劳，因此用于背景的渐变最好将明度差控制在适中范围。</p>
+
+      <h2>渐变使用小技巧</h2>
+      <ul>
+        <li>背景用渐变降低饱和度，按钮或强调元素提高饱和度，能让层次更分明</li>
+        <li>135度（对角线）角度在大多数界面中显得比较自然</li>
+        <li>以品牌色为基础，第二种颜色使用略浅或略深的同色调，整体色调会更统一</li>
+        <li>一次使用过多颜色（4~5种）容易显得杂乱，建议先从2~3种颜色开始尝试</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">常见问题</h2>
@@ -159,6 +195,18 @@
         <div class="faq-item">
           <dt>生成的代码怎么使用？</dt>
           <dd>将复制的代码直接粘贴为CSS的background属性值即可。例如：background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);</dd>
+        </div>
+        <div class="faq-item">
+          <dt>生成的CSS代码在所有浏览器中都能正常使用吗？</dt>
+          <dd>可以。linear-gradient和radial-gradient是所有现代浏览器（Chrome、Firefox、Safari、Edge）都标准支持的功能。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>可以为渐变添加透明度吗？</dt>
+          <dd>本工具针对纯色组合进行了优化，暂不支持透明度输入，但您可以手动将生成的颜色值改为rgba()格式来添加透明度。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>可以将渐变应用到文字上吗？</dt>
+          <dd>可以，在生成的background代码基础上添加background-clip: text和color: transparent，即可将渐变效果应用到文字上。</dd>
         </div>
       </dl>
     </article>

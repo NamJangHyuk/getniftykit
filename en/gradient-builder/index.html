@@ -61,6 +61,30 @@
         "@type": "Answer",
         "text": "Paste the copied code directly as the value of a CSS background property. For example: background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the generated CSS work in every browser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. linear-gradient and radial-gradient are standard, well-supported features in all modern browsers (Chrome, Firefox, Safari, Edge)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I apply transparency to the gradient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool is optimized for solid color combinations and doesn't have a transparency input, but you can manually convert the generated color values to rgba() to add transparency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I apply a gradient to text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — add background-clip: text and color: transparent to the generated background code to apply the gradient effect to text."
+      }
     }
   ]
 }
@@ -144,6 +168,18 @@
         <li>Getting exact CSS gradient code straight from a design mockup</li>
       </ul>
 
+      <h2>What makes a gradient look natural, not off?</h2>
+      <p>The most common reason a gradient looks awkward is combining two colors directly opposite each other on the color wheel (complementary colors) — red straight into green, for example, tends to produce a muddy brownish tone in the middle. Using colors that sit closer together on the wheel (analogous colors), or adding a third color in between, blends much more smoothly. A large brightness (lightness) gap between the two colors also creates harsh contrast that can strain the eyes, so for background gradients it helps to keep the lightness difference modest.</p>
+
+      <h2>Tips for using gradients</h2>
+      <ul>
+        <li>Lower saturation for backgrounds, higher saturation for buttons or accents — this creates clear visual hierarchy</li>
+        <li>A 135-degree (diagonal) angle tends to feel natural in most UI contexts</li>
+        <li>Pairing one brand color with a slightly lighter or darker version of itself as the second color keeps the tone cohesive</li>
+        <li>Using too many colors at once (4-5) can look busy — starting with 2-3 is usually a safer bet</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -159,6 +195,18 @@
         <div class="faq-item">
           <dt>How do I use the generated code?</dt>
           <dd>Paste the copied code directly as the value of a CSS background property. For example: background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does the generated CSS work in every browser?</dt>
+          <dd>Yes. linear-gradient and radial-gradient are standard, well-supported features in all modern browsers (Chrome, Firefox, Safari, Edge).</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I apply transparency to the gradient?</dt>
+          <dd>This tool is optimized for solid color combinations and doesn't have a transparency input, but you can manually convert the generated color values to rgba() to add transparency.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I apply a gradient to text?</dt>
+          <dd>Yes — add background-clip: text and color: transparent to the generated background code to apply the gradient effect to text.</dd>
         </div>
       </dl>
     </article>

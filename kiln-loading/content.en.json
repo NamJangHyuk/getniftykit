@@ -76,6 +76,15 @@
     "Comparing different piece sizes or spacing to see which layout is most efficient",
     "Planning firing schedules and production capacity for a studio"
   ],
+  "deepDiveH2": "Why might more pieces actually fit than the calculated number?",
+  "deepDiveP": "This calculator uses a grid layout — pieces arranged in straight rows and columns. In real-world practice, though, potters sometimes use a staggered, hexagonal packing arrangement instead, which can fit up to about 15% more round pieces into the same area (because circles pack more densely in a hexagonal arrangement than in a square grid). So the number this calculator gives you is a safe lower bound — \"you can definitely fit at least this many\" — and with clever arranging, the real number may come out higher.",
+  "deepDiveListH2": "Good to know when planning a kiln load",
+  "deepDiveList": [
+    "When placing multiple shelves side by side in one layer, don't forget the gaps between shelves also eat into usable space — the more shelves per layer, the more that adds up",
+    "If your pieces vary in height, the layer spacing needs to accommodate the tallest one — grouping similar-height pieces onto the same layer uses space more efficiently",
+    "Temperature can vary slightly near the kiln walls, so many potters prefer keeping their most important pieces toward the center — a generous edge margin naturally builds that buffer in",
+    "If you're accounting for firing shrinkage when calculating clearance, remember to enter the pre-fired (greenware) piece size into this tool, not the expected fired size"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -89,6 +98,18 @@
     {
       "q": "Could more pieces actually fit than the calculated number?",
       "a": "Yes. This calculator is an approximation based on a grid layout, so depending on piece shape and how you actually arrange them, more may fit than the calculated value."
+    },
+    {
+      "q": "If the kiln and shelf are the same size, can I leave the margin at 0?",
+      "a": "Unless the shelf fits the kiln's interior walls with zero tolerance, we'd recommend leaving some margin. Setting it to 0 removes any allowance for real-world construction variance or the clearance needed to slide the shelf in and out."
+    },
+    {
+      "q": "Can this calculate a kiln load with mixed piece sizes?",
+      "a": "This tool calculates for one piece size at a time. If you're planning to fire mixed sizes, we'd suggest grouping pieces by size and running the calculation separately for each group."
+    },
+    {
+      "q": "When would I set boards per layer higher than 1?",
+      "a": "That's for larger kilns where the floor is too wide for a single shelf to cover, so multiple shelves need to sit side by side. Smaller kilns usually only need 1."
     }
   ],
   "privacyNote": "This tool performs all calculations entirely in your browser. Nothing you enter is sent to or stored on a server."

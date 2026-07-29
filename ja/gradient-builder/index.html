@@ -61,6 +61,30 @@
         "@type": "Answer",
         "text": "コピーしたコードをCSSのbackgroundプロパティの値としてそのまま貼り付けてください。例: background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "生成されたCSSコードはどのブラウザでも動作しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。linear-gradientとradial-gradientはすべての主要なブラウザ(Chrome、Firefox、Safari、Edge)で標準サポートされています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "グラデーションに透明度を適用できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "このツールは単色の組み合わせに最適化されているため透明度の入力機能はありませんが、生成されたコードの色の値を直接rgba()に書き換えることで透明度を追加できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "テキストにもグラデーションを適用できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、生成されたbackgroundコードにbackground-clip: textとcolor: transparentを追加すると、テキストにもグラデーション効果を適用できます。"
+      }
     }
   ]
 }
@@ -144,6 +168,18 @@
         <li>デザイン案から正確なCSSグラデーションコードがすぐに必要なとき</li>
       </ul>
 
+      <h2>グラデーションを自然に見せるコツとは？</h2>
+      <p>グラデーションが不自然に見える最も多い原因は、色相環で正反対にある2色(補色)をそのままつなげてしまうことです。例えば赤から緑へ直接つなぐと、中間に濁った茶色っぽい色が生まれやすくなります。色相環で近い色(類似色)を使ったり、2色の間に中間色をもう1つ加えたりすると、はるかに滑らかにつながります。また明度差が大きすぎる2色を使うとコントラストが強くなり目が疲れやすくなるため、背景用グラデーションは明度差を適度に抑えるのが安全です。</p>
+
+      <h2>グラデーション活用のコツ</h2>
+      <ul>
+        <li>背景用は彩度を下げ、ボタンや強調要素は彩度を上げると階層がはっきりします</li>
+        <li>角度135度(対角線)はほとんどのUIで自然に感じられる方向です</li>
+        <li>ブランドカラー1色に白や黒を少し混ぜた色を2色目に使うとトーンがまとまります</li>
+        <li>一度に多くの色(4〜5色)を使うと散らかって見えるため、まずは2〜3色から試すのがおすすめです</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">よくある質問</h2>
@@ -159,6 +195,18 @@
         <div class="faq-item">
           <dt>生成されたコードはどうやって使いますか？</dt>
           <dd>コピーしたコードをCSSのbackgroundプロパティの値としてそのまま貼り付けてください。例: background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);</dd>
+        </div>
+        <div class="faq-item">
+          <dt>生成されたCSSコードはどのブラウザでも動作しますか？</dt>
+          <dd>はい。linear-gradientとradial-gradientはすべての主要なブラウザ(Chrome、Firefox、Safari、Edge)で標準サポートされています。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>グラデーションに透明度を適用できますか？</dt>
+          <dd>このツールは単色の組み合わせに最適化されているため透明度の入力機能はありませんが、生成されたコードの色の値を直接rgba()に書き換えることで透明度を追加できます。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>テキストにもグラデーションを適用できますか？</dt>
+          <dd>はい、生成されたbackgroundコードにbackground-clip: textとcolor: transparentを追加すると、テキストにもグラデーション効果を適用できます。</dd>
         </div>
       </dl>
     </article>

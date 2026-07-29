@@ -38,6 +38,15 @@
     "Blocking out office or café noise",
     "Providing a steady background sound while putting a baby to sleep or meditating"
   ],
+  "deepDiveH2": "Why does white noise actually help you focus?",
+  "deepDiveP": "Our brains evolved to react sharply to sudden, unpredictable sounds — a conversation starting, a door slamming. A steady, predictable background sound like white, pink, or brown noise acoustically \"masks\" those sudden changes so they stand out less — this is called the masking effect. Research suggests that a little steady background noise can actually be less distracting than total silence, which is exactly this principle at work. The three noise types differ in how much bass they carry: white noise has every frequency at equal strength, pink noise emphasizes the low end a bit more, and brown noise emphasizes it even further, giving it a deep, ocean-wave-like sound.",
+  "deepDiveListH2": "Finding the noise that works for you",
+  "deepDiveList": [
+    "If you're sensitive to high frequencies or find white noise's \"hiss\" grating, try pink or brown noise instead",
+    "White noise tends to mask office chatter and keyboard clatter well, while brown noise is often more effective against low rumbling sounds like AC units or road noise",
+    "For sleep, a lower volume than you'd expect usually works best; for focus, aim for a level that fades into the background rather than demanding attention",
+    "Playing it at the same time every day can train your brain to associate the sound with \"focus time\" or \"sleep time,\" making it more effective over time"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -51,6 +60,18 @@
     {
       "q": "How does the auto-stop timer work?",
       "a": "Choose an auto-stop time before you press Play, and playback stops automatically once that much time has passed. Leave it set to \"Off\" and it keeps playing until you press Stop yourself."
+    },
+    {
+      "q": "Which is more effective, earbuds or a speaker?",
+      "a": "Both work, but earbuds or headphones are more effective if you want to fully block out surrounding noise. A speaker works better if you just want a gentle ambient layer across the whole room."
+    },
+    {
+      "q": "Does this sound exactly like real nature documentary audio?",
+      "a": "No — this tool synthesizes the noise mathematically rather than recording real nature, so it's not the same as specific sounds like waves or rainfall. In exchange, it can loop forever without gaps and has zero copyright concerns."
+    },
+    {
+      "q": "Does playing it for hours strain my computer?",
+      "a": "No. The Web Audio API generates the sound with very lightweight computation, so even hours of playback barely affects anything else you're doing."
     }
   ],
   "privacyNote": "This tool handles all sound synthesis and playback entirely in your browser. No data is sent to or stored on a server."

@@ -77,6 +77,30 @@
         "@type": "Answer",
         "text": "It doesn't just rename the extension — the image is redrawn on a canvas and re-encoded using the real encoding of the format you picked. That's why the file size actually changes before and after conversion."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does quality keep degrading if I convert the same image multiple times?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PNG is lossless, so converting it any number of times causes no quality loss. But repeatedly converting between lossy formats like JPG or WebP loses a bit of quality each time, so we'd recommend keeping the original file safe separately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If I shrink the image dimensions (pixels), does file size shrink proportionally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, generally reducing the width and height in pixels significantly reduces file size as well. Combining that with the quality slider lets you fine-tune closer to a target file size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this convert animated GIFs too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool is optimized for still images — uploading an animated GIF will only convert its first frame into a still image."
+      }
     }
   ]
 }
@@ -168,6 +192,18 @@
         <li>Converting back to lossless PNG for further editing</li>
       </ul>
 
+      <h2>PNG vs. JPG vs. WebP — what's actually different?</h2>
+      <p>PNG uses lossless compression, so it preserves the original quality exactly and supports transparency, but that comes at the cost of a larger file size. JPG uses lossy compression to shrink file size significantly, but it doesn't support transparency, and pushing the compression higher starts to introduce visible quality loss (blocky artifacts). WebP is a relatively newer format developed by Google specifically for the web — it supports both lossy and lossless compression, and at the same visual quality, it can produce files roughly 25-35% smaller than JPG, which is why it's become increasingly popular on modern websites.</p>
+
+      <h2>Which format to pick, and when</h2>
+      <ul>
+        <li>Need a transparent background (logos, icons)? Choose PNG or WebP — JPG doesn't support transparency</li>
+        <li>If website loading speed matters most, WebP is usually the best choice — though very old browsers (pre-2020) may not support it</li>
+        <li>Photos with smooth, continuous color transitions compress efficiently with JPG or WebP's lossy compression, while text or sharp-edged graphics stay crisper in PNG</li>
+        <li>If you plan to edit the image again later, saving as PNG is safer — lossy formats lose a little more quality each time they're re-saved</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -191,6 +227,18 @@
         <div class="faq-item">
           <dt>Does it just rename the file extension, or actually convert the format?</dt>
           <dd>It doesn't just rename the extension — the image is redrawn on a canvas and re-encoded using the real encoding of the format you picked. That's why the file size actually changes before and after conversion.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does quality keep degrading if I convert the same image multiple times?</dt>
+          <dd>PNG is lossless, so converting it any number of times causes no quality loss. But repeatedly converting between lossy formats like JPG or WebP loses a bit of quality each time, so we'd recommend keeping the original file safe separately.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>If I shrink the image dimensions (pixels), does file size shrink proportionally?</dt>
+          <dd>Yes, generally reducing the width and height in pixels significantly reduces file size as well. Combining that with the quality slider lets you fine-tune closer to a target file size.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can this convert animated GIFs too?</dt>
+          <dd>This tool is optimized for still images — uploading an animated GIF will only convert its first frame into a still image.</dd>
         </div>
       </dl>
     </article>

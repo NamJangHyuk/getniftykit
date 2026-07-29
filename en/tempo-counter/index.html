@@ -69,6 +69,30 @@
         "@type": "Answer",
         "text": "No. Picking an exercise just fills in a sensible default BPM for it — you can still edit the BPM field freely afterward."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the beat still accurate with earbuds or a Bluetooth speaker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Bluetooth devices can add a bit of output latency, but that's a delay in the sound's travel path, not a change in the interval between beats. If the Bluetooth delay bothers you, wired earbuds give a more immediate feel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I start without picking an exercise type?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — choose \"Custom,\" or pick any category and simply change the BPM value to whatever you want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the sound stop if the browser tab is in the background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, the Web Audio API is designed to keep playing in the background, so you can keep hearing the beat while doing something else."
+      }
     }
   ]
 }
@@ -147,6 +171,18 @@
         <li>Following the beat by sound alone, without watching the screen</li>
       </ul>
 
+      <h2>Why AudioContext scheduling beats setInterval for timing</h2>
+      <p>Generating a beat with a plain setInterval() call means each tick can get delayed by a few milliseconds whenever the JavaScript engine is busy with something else (rendering, garbage collection, etc.), and those small delays accumulate into noticeable drift after just a few minutes. This tool instead uses look-ahead scheduling based on the browser's audio clock (AudioContext's currentTime), queuing up several upcoming beats in advance. Because the audio clock runs on its own precise timer separate from other JavaScript work, the beat never drifts no matter how long it plays.</p>
+
+      <h2>Ways to use exercise tempo</h2>
+      <ul>
+        <li>For strength training, the eccentric (lowering) phase is generally recommended to be slower than the concentric (lifting) phase — a common tempo is about 2-3 seconds down, 1 second up</li>
+        <li>Beginners often benefit from starting at a lower BPM to nail the form first, then gradually increasing tempo as it feels natural</li>
+        <li>Even for exercises not in the list, you can freely set any BPM with the &quot;Custom&quot; option</li>
+        <li>If you lose track of your reps, the on-screen counter keeps tallying automatically — just check the final number</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -166,6 +202,18 @@
         <div class="faq-item">
           <dt>Does picking an exercise lock the BPM?</dt>
           <dd>No. Picking an exercise just fills in a sensible default BPM for it — you can still edit the BPM field freely afterward.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is the beat still accurate with earbuds or a Bluetooth speaker?</dt>
+          <dd>Yes — Bluetooth devices can add a bit of output latency, but that's a delay in the sound's travel path, not a change in the interval between beats. If the Bluetooth delay bothers you, wired earbuds give a more immediate feel.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I start without picking an exercise type?</dt>
+          <dd>Yes — choose &quot;Custom,&quot; or pick any category and simply change the BPM value to whatever you want.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does the sound stop if the browser tab is in the background?</dt>
+          <dd>No, the Web Audio API is designed to keep playing in the background, so you can keep hearing the beat while doing something else.</dd>
         </div>
       </dl>
     </article>

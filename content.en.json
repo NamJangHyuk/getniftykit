@@ -45,5 +45,33 @@
   "svgCleanerDesc": "Strip the XML declaration, DOCTYPE, and leading comments from SVG files to fix upload errors",
   "usernameGeneratorTitle": "Username Generator",
   "usernameGeneratorDesc": "Combine two random adjectives and a noun to get an instant username idea",
-  "footerNote": "Every tool on this site runs locally in your browser. Your data is never sent to or stored on a server."
+  "footerNote": "Every tool on this site runs locally in your browser. Your data is never sent to or stored on a server.",
+  "aboutH2": "What is GetNiftyKit?",
+  "aboutP": "GetNiftyKit is a collection of free, single-purpose web tools — from flag downloads, emoji search, and QR code generation to professional calculators like the stair and kiln-loading calculators. Every tool opens instantly in your browser with no sign-up or app install required, so you can get your result and move on.",
+  "whyH2": "Why GetNiftyKit?",
+  "whyItems": [
+    "No sign-up, no login — open a tool and get your result right away",
+    "Your input stays in your browser — most tools calculate and process everything locally, with nothing sent to a server",
+    "Free, ad-supported — no subscription or payment required",
+    "From simple utilities like flags and emoji to professional tools like the stair and kiln-loading calculators, new tools are added regularly"
+  ],
+  "faqHeading": "Frequently Asked Questions",
+  "faq": [
+    {
+      "q": "Do I really not need to sign up?",
+      "a": "Correct — every tool on GetNiftyKit works instantly without any sign-up or login."
+    },
+    {
+      "q": "Where is my data stored?",
+      "a": "Most tools process everything locally in your browser; nothing is sent to or stored on a server. See our Privacy Policy for details."
+    },
+    {
+      "q": "Does it work on mobile?",
+      "a": "Yes, every tool is fully responsive and works the same way on phones and tablets."
+    },
+    {
+      "q": "How often are new tools added?",
+      "a": "We regularly add new tools based on user feedback and real search demand."
+    }
+  ]
 }

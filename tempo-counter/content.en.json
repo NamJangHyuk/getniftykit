@@ -40,6 +40,15 @@
     "Counting reps accurately while training at a fixed tempo",
     "Following the beat by sound alone, without watching the screen"
   ],
+  "deepDiveH2": "Why AudioContext scheduling beats setInterval for timing",
+  "deepDiveP": "Generating a beat with a plain setInterval() call means each tick can get delayed by a few milliseconds whenever the JavaScript engine is busy with something else (rendering, garbage collection, etc.), and those small delays accumulate into noticeable drift after just a few minutes. This tool instead uses look-ahead scheduling based on the browser's audio clock (AudioContext's currentTime), queuing up several upcoming beats in advance. Because the audio clock runs on its own precise timer separate from other JavaScript work, the beat never drifts no matter how long it plays.",
+  "deepDiveListH2": "Ways to use exercise tempo",
+  "deepDiveList": [
+    "For strength training, the eccentric (lowering) phase is generally recommended to be slower than the concentric (lifting) phase — a common tempo is about 2-3 seconds down, 1 second up",
+    "Beginners often benefit from starting at a lower BPM to nail the form first, then gradually increasing tempo as it feels natural",
+    "Even for exercises not in the list, you can freely set any BPM with the \"Custom\" option",
+    "If you lose track of your reps, the on-screen counter keeps tallying automatically — just check the final number"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -57,6 +66,18 @@
     {
       "q": "Does picking an exercise lock the BPM?",
       "a": "No. Picking an exercise just fills in a sensible default BPM for it — you can still edit the BPM field freely afterward."
+    },
+    {
+      "q": "Is the beat still accurate with earbuds or a Bluetooth speaker?",
+      "a": "Yes — Bluetooth devices can add a bit of output latency, but that's a delay in the sound's travel path, not a change in the interval between beats. If the Bluetooth delay bothers you, wired earbuds give a more immediate feel."
+    },
+    {
+      "q": "Can I start without picking an exercise type?",
+      "a": "Yes — choose \"Custom,\" or pick any category and simply change the BPM value to whatever you want."
+    },
+    {
+      "q": "Does the sound stop if the browser tab is in the background?",
+      "a": "No, the Web Audio API is designed to keep playing in the background, so you can keep hearing the beat while doing something else."
     }
   ],
   "privacyNote": "This tool handles sound playback and counting entirely in your browser. No data is sent to or stored on a server."

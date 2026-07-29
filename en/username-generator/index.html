@@ -77,6 +77,30 @@
         "@type": "Answer",
         "text": "Math.random() is a predictable pseudo-random generator, not intended for cases where genuine unpredictability matters. crypto.getRandomValues() is the same cryptographically secure random source browsers use for security-sensitive operations, so combinations don't follow a guessable pattern."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Could the generated username already be taken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool only suggests random combinations and doesn't check real-world availability. Check directly on the platform you plan to use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I include my real name or birthday?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can, but it's not recommended due to privacy risk — especially for public accounts, avoid anything that could identify you personally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support Korean usernames?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool generates usernames from English word combinations, since most platforms require Latin-alphabet usernames."
+      }
     }
   ]
 }
@@ -179,6 +203,18 @@
         <li>Getting inspiration when your first-choice username is already taken</li>
       </ul>
 
+      <h2>What makes a good username</h2>
+      <p>Usernames are often hard to change once an account is created, so it's worth choosing carefully from the start. Avoid anything that could identify you personally, like your birthdate, real name, or phone number, and keep in mind that character limits vary by platform (e.g. X/Twitter caps usernames at 15 characters) — a short, generic combination works best if you want to reuse it across multiple services.</p>
+
+      <h2>Tips for picking a username</h2>
+      <ul>
+        <li>Avoid numbers that could identify you, like a birthdate or the last digits of a phone number</li>
+        <li>If you want the same username across platforms, check availability on each service first</li>
+        <li>A username that's too long may get truncated or rejected on some platforms (e.g. 15-character limits)</li>
+        <li>Adding numbers or symbols reduces the chance of colliding with an already-taken username</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -202,6 +238,18 @@
         <div class="faq-item">
           <dt>Why use crypto.getRandomValues instead of Math.random?</dt>
           <dd>Math.random() is a predictable pseudo-random generator, not intended for cases where genuine unpredictability matters. crypto.getRandomValues() is the same cryptographically secure random source browsers use for security-sensitive operations, so combinations don't follow a guessable pattern.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Could the generated username already be taken?</dt>
+          <dd>Yes — this tool only suggests random combinations and doesn't check real-world availability. Check directly on the platform you plan to use.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Should I include my real name or birthday?</dt>
+          <dd>You can, but it's not recommended due to privacy risk — especially for public accounts, avoid anything that could identify you personally.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does it support Korean usernames?</dt>
+          <dd>This tool generates usernames from English word combinations, since most platforms require Latin-alphabet usernames.</dd>
         </div>
       </dl>
     </article>

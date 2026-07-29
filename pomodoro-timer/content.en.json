@@ -46,6 +46,15 @@
     "Tracking how many pomodoros you've completed today for a sense of progress",
     "Getting notified of phase changes even while working in another tab"
   ],
+  "deepDiveH2": "Why did 25/5 become the standard?",
+  "deepDiveP": "The Pomodoro Technique's default of 25 minutes of focus and 5 minutes of rest came from founder Francesco Cirillo's own trial and error using a kitchen timer shaped like a tomato (pomodoro in Italian) — it's not a scientifically \"optimal\" number so much as a practical balance: short enough to start without dread, long enough to actually get into a task. In practice, the right rhythm varies by person and task type, and plenty of people use longer cycles like 50 minutes focus / 10 minutes rest. This tool doesn't lock you into the default — you can set any rhythm you want down to the hour, minute, and second.",
+  "deepDiveListH2": "Tips for using the Pomodoro Technique well",
+  "deepDiveList": [
+    "The real key is turning off notifications and avoiding distractions (like checking messages) during focus time — that principle matters more than the timer itself",
+    "During breaks, actually step away from the screen — stretch, get water, something that counts as genuine rest",
+    "On a low-focus day, don't force a longer session — starting with a short pomodoro (like 15 minutes) to build momentum works better",
+    "Watching your completed pomodoro count add up gives you a concrete sense of how much focused work you actually did today"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -59,6 +68,18 @@
     {
       "q": "Can I customize the focus and break lengths?",
       "a": "Yes. You can set the focus time, short break, long break, and the number of rounds before a long break exactly how you like."
+    },
+    {
+      "q": "How many pomodoros should I aim for?",
+      "a": "There's no fixed answer, but a common pattern is taking a long break after every 4 focus pomodoros. Use this tool's \"rounds before long break\" setting to build whatever rhythm works for you."
+    },
+    {
+      "q": "I allowed browser notifications, but they're not showing up.",
+      "a": "Check that this site's notifications aren't blocked in your browser or OS notification settings. You can re-check notification permissions from the lock (or info) icon on the left side of your browser's address bar."
+    },
+    {
+      "q": "What happens if my computer goes to sleep mid-pomodoro?",
+      "a": "If the device fully sleeps, timer calculation can pause. It recalculates from real elapsed time once it wakes up, but for long absences we'd recommend pausing the timer manually."
     }
   ],
   "privacyNote": "This tool handles all timing and notifications entirely in your browser. No data is sent to or stored on a server."

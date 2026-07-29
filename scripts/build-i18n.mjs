@@ -335,6 +335,7 @@ async function buildTool(tool) {
       INFO_HOWTO_P: escapeHtml(content.infoHowtoP),
       INFO_USECASES_H2: escapeHtml(content.infoUseCasesH2),
       INFO_USECASES_HTML: buildUseCasesHtml(content.infoUseCases),
+      DEEP_DIVE_HTML: buildDeepDiveHtml(content),
       FAQ_HTML: buildFaqHtml(content.faq),
       PRIVACY_NOTE: escapeHtml(content.privacyNote),
       RECENT_SECTION_ARIA: escapeHtml(content.recentSectionAria),
@@ -911,6 +912,46 @@ const CATEGORY_LABELS = {
   zh: { resources: "图片素材", generators: "生成器", time: "时间", focus: "学习", image: "转换工具", pro: "专业计算器" },
 };
 
+// 대시보드 도구 목록 아래에 들어가는 소개/FAQ 콘텐츠입니다. 도구 카드 목록은 그대로
+// 최상단에 남겨두고(사용자 UX상 목록이 먼저 보여야 함), 이 섹션은 그 아래에 배치해
+// 목록 탐색을 방해하지 않으면서도 실질적인 설명 텍스트를 더합니다. 아직 content.json에
+// aboutH2 등의 필드가 없는 언어(ja/zh, PM 요청 전)는 빈 문자열을 반환해 섹션 자체를
+// 건너뜁니다 — 9-1 규칙과 동일한 "미번역 언어는 빈 문자열로 안전 처리" 패턴입니다.
+function buildAboutSectionHtml(content) {
+  if (!content.aboutH2) return "";
+  return `    <article class="info-section">
+      <h2>${escapeHtml(content.aboutH2)}</h2>
+      <p>${escapeHtml(content.aboutP)}</p>
+
+      <h2>${escapeHtml(content.whyH2)}</h2>
+      <ul>
+${buildUseCasesHtml(content.whyItems)}
+      </ul>
+
+      <h2>${escapeHtml(content.faqHeading)}</h2>
+      <dl class="faq-list">
+${buildFaqHtml(content.faq)}
+      </dl>
+    </article>`;
+}
+
+// 도구 페이지 하단, 사용법과 FAQ 사이에 선택적으로 들어가는 심화 콘텐츠입니다. 이미
+// 어디에나 있는 흔한 도구(비밀번호 생성기, QR코드 등)가 다른 사이트와 차별화된 실질적
+// 가치를 보여주기 위한 섹션으로, content.json에 deepDiveH2가 없는 언어(번역 전 ja/zh 등)는
+// 빈 문자열을 반환해 섹션을 통째로 건너뜁니다 — buildAboutSectionHtml과 동일한 패턴입니다.
+function buildDeepDiveHtml(content) {
+  if (!content.deepDiveH2) return "";
+  return `      <h2>${escapeHtml(content.deepDiveH2)}</h2>
+      <p>${escapeHtml(content.deepDiveP)}</p>
+
+      <h2>${escapeHtml(content.deepDiveListH2)}</h2>
+      <ul>
+${buildUseCasesHtml(content.deepDiveList)}
+      </ul>
+
+`;
+}
+
 // 도구를 category 순서대로 묶어서 각각 <section>으로 만듭니다. 그 언어를 지원하는
 // 도구가 하나도 없는 카테고리(예: ja/zh 대시보드의 "시간" 카테고리)는 빈 섹션
 // 제목만 뜨지 않도록 통째로 건너뜁니다.
@@ -973,6 +1014,7 @@ async function buildRoot() {
       BASE_TAG: baseTag,
       HERO_SUBTITLE: escapeHtml(content.heroSubtitle),
       TOOL_SECTIONS_HTML: buildToolSectionsHtml(lang, content),
+      ABOUT_SECTION_HTML: buildAboutSectionHtml(content),
       FOOTER_NOTE: escapeHtml(content.footerNote),
       FOOTER_PRIVACY_HREF: `${lang}/privacy/`,
       FOOTER_PRIVACY_TEXT: escapeHtml(FOOTER_LABELS[lang].privacy),

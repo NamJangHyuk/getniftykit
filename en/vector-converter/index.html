@@ -77,6 +77,30 @@
         "@type": "Answer",
         "text": "Click the download button to save the SVG file. You can open and edit it directly in vector design software like Illustrator or Figma, or use it with equipment that requires vector files, like laser engravers or cutting machines."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can photorealistic images be vectorized at photo quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool is specialized for black-and-white line-art vectorization, so it isn't suited for vectorizing a photo's full range of colors and subtle tonal gradients realistically. It gives the best results on images with clear edges, like logos, sketches, and stamps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change the colors of the converted SVG later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — SVG is text-based code, so you can edit the color values directly in a program like Illustrator or Figma, or even in a code editor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it matter if my original image has low resolution?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the resolution is too low, the contrast boundaries become unclear and the conversion result can come out rough. We'd recommend using a sharp, high-resolution original if possible."
+      }
     }
   ]
 }
@@ -187,6 +211,18 @@
         <li>Freely editing a pixel image line by line in design software like Illustrator or Figma</li>
       </ul>
 
+      <h2>How does raster-to-vector conversion actually work?</h2>
+      <p>A raster (pixel) image like a PNG or JPG is made of a grid of small colored squares, which is why zooming in reveals those squares and breaks down the image quality. Vectorizing traces the contrast boundaries in that pixel image and redraws them as mathematical curves (Bézier curves) instead — coordinates rather than pixels. A line defined by coordinates stays smooth no matter how far you zoom in, which is why vector output works well for logos or print material that needs to scale freely. That said, this approach works most accurately on images with few colors and clear edges (logos, sketches, stamps) — photos with subtle, continuous color gradients can't be reproduced perfectly this way.</p>
+
+      <h2>Tips for getting cleaner vector results</h2>
+      <ul>
+        <li>The sharper the contrast in your original image (a clear line against the background), the cleaner the conversion result</li>
+        <li>If you're scanning a hand drawing, using a dark pen or marker before scanning boosts contrast and gives a more accurate conversion</li>
+        <li>Shadows or smudges in the background can get picked up as stray lines, so it's best to start with a clean background if possible</li>
+        <li>If the result looks too jagged, nudge the slider toward &quot;smooth&quot;; if it looks too blurry, nudge it toward &quot;crisp,&quot; adjusting gradually to find the right spot for your image</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -210,6 +246,18 @@
         <div class="faq-item">
           <dt>How do I use the converted SVG?</dt>
           <dd>Click the download button to save the SVG file. You can open and edit it directly in vector design software like Illustrator or Figma, or use it with equipment that requires vector files, like laser engravers or cutting machines.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can photorealistic images be vectorized at photo quality?</dt>
+          <dd>This tool is specialized for black-and-white line-art vectorization, so it isn't suited for vectorizing a photo's full range of colors and subtle tonal gradients realistically. It gives the best results on images with clear edges, like logos, sketches, and stamps.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I change the colors of the converted SVG later?</dt>
+          <dd>Yes — SVG is text-based code, so you can edit the color values directly in a program like Illustrator or Figma, or even in a code editor.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does it matter if my original image has low resolution?</dt>
+          <dd>If the resolution is too low, the contrast boundaries become unclear and the conversion result can come out rough. We'd recommend using a sharp, high-resolution original if possible.</dd>
         </div>
       </dl>
     </article>

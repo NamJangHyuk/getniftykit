@@ -69,6 +69,30 @@
         "@type": "Answer",
         "text": "Yes. Pick Wi-Fi, Contact, Email, Phone, SMS, Event, or Location from the category tabs at the top to create a QR code for that specific purpose. For example, a Wi-Fi QR code will connect the device to that network as soon as it's scanned."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do QR codes expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The QR code itself never expires. However, a URL-type QR code stops working if the linked page is deleted or its address changes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my QR code scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually it's printed too small, has too little margin, or the logo covers too much of the code. Try regenerating with a higher error-correction level and more margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the data in my QR code sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. QR codes are generated instantly in your browser — the URL or text you enter is never sent to or stored on a server."
+      }
     }
   ]
 }
@@ -189,6 +213,18 @@
         <li>Creating a QR code that starts a phone call or text message</li>
       </ul>
 
+      <h2>QR code types and print-ready tips</h2>
+      <p>What happens after a scan depends on the QR code's data type. A URL QR code opens a website instantly, a Wi-Fi QR code connects to the network automatically without typing the password, and a vCard (business card) QR code saves the contact directly into the scanner's contacts app. Picking the right type for your purpose means the user gets exactly the outcome they expect right after scanning.</p>
+
+      <h2>Checklist for printing</h2>
+      <ul>
+        <li>Leave a quiet zone of at least 4 modules around the code — without enough margin, scanners can't detect its edges</li>
+        <li>Keep strong contrast between foreground and background colors — low contrast significantly hurts scan rates</li>
+        <li>Print at least 1/10th the size of the scanning distance — for a 1m scan distance, aim for at least 10cm</li>
+        <li>If you add a logo, use a high error-correction level (H) so the covered area can still be reconstructed</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -208,6 +244,18 @@
         <div class="faq-item">
           <dt>Can I make a QR code for Wi-Fi or a business card?</dt>
           <dd>Yes. Pick Wi-Fi, Contact, Email, Phone, SMS, Event, or Location from the category tabs at the top to create a QR code for that specific purpose. For example, a Wi-Fi QR code will connect the device to that network as soon as it's scanned.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Do QR codes expire?</dt>
+          <dd>The QR code itself never expires. However, a URL-type QR code stops working if the linked page is deleted or its address changes.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Why won't my QR code scan?</dt>
+          <dd>Usually it's printed too small, has too little margin, or the logo covers too much of the code. Try regenerating with a higher error-correction level and more margin.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is the data in my QR code sent to a server?</dt>
+          <dd>No. QR codes are generated instantly in your browser — the URL or text you enter is never sent to or stored on a server.</dd>
         </div>
       </dl>
     </article>

@@ -42,6 +42,15 @@
     "Working out a diagonal length in advance for furniture or woodworking frames",
     "Quickly back-calculating a missing side from two measurements you already have"
   ],
+  "deepDiveH2": "Why is the 3:4:5 rule so common on job sites?",
+  "deepDiveP": "Plugging 3, 4, and 5 into the Pythagorean theorem (a²+b²=c²) gives 3²+4²=9+16=25=5² exactly — no rounding needed. It's the smallest, simplest combination made entirely of whole numbers, so it's been a longstanding practice in carpentry, landscaping, and tile work to square up a corner with nothing more than a tape measure. Without a protractor, you're relying on the fact that getting the three side lengths in exactly that ratio forces the angle between them to be exactly 90 degrees. Any whole-number multiple of the same ratio — 6:8:10, 9:12:15, and so on — squares a corner just as well.",
+  "deepDiveListH2": "Good to know when squaring a corner on-site",
+  "deepDiveList": [
+    "Scaling the sides up (say, 6:8:10 instead of 3:4:5) reduces the relative impact of measurement error, giving a more precise right angle",
+    "When measuring with a tape, make sure it's pulled taut with the 0 mark exactly at the starting point — a loose tape reads longer than the true distance",
+    "For larger areas (like a deck floor), also measuring both diagonals and checking they match adds an extra layer of accuracy",
+    "You're not locked into 3:4:5 — just enter any two real measured side lengths and it calculates the third, whatever the ratio"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -55,6 +64,18 @@
     {
       "q": "What's the tolerance for the on-site verification check?",
       "a": "A difference within about 0.5% of the ideal hypotenuse length is treated as \"very close to a true right angle\" — a margin that accounts for typical tape-measure accuracy on a job site."
+    },
+    {
+      "q": "Why specifically 3:4:5? Would other ratios work?",
+      "a": "3:4:5 is simply the smallest Pythagorean triple made of whole numbers, which makes it easy to calculate and measure — that's why it's so widely used. There are infinitely many combinations that form a right triangle, including other whole-number triples like 5:12:13 or 8:15:17."
+    },
+    {
+      "q": "My real-world measurement keeps coming up off. What's causing that?",
+      "a": "The most common cause is a tape that wasn't pulled taut, or a starting point that isn't precisely at the corner where the two sides meet. Try re-aligning both sides to the exact same reference point and measuring again."
+    },
+    {
+      "q": "Is this method actually more accurate than using a protractor?",
+      "a": "It can be. A small protractor's markings tend to introduce larger relative error, whereas scaling up to longer sides (like 3m, 4m, 5m) for this method shrinks the error's relative impact."
     }
   ],
   "privacyNote": "This tool performs all calculations entirely in your browser. Nothing you enter is sent to or stored on a server."

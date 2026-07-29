@@ -77,6 +77,30 @@
         "@type": "Answer",
         "text": "只会显示没有需要删除的内容的提示，您仍然可以保存与原文件相同的内容。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "用本工具清理后，SVG文件会变小吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "会的，XML声明、DOCTYPE、注释少则占几个字节，多则可达数百字节，移除后文件体积会相应减小。不过本工具的主要目的是解决上传错误，而非优化文件体积。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "清理后还能重新编辑SVG吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。XML声明和DOCTYPE并不是编辑软件（Illustrator、Inkscape等）打开文件所必需的信息，因此清理后的SVG依然可以正常打开编辑。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么有些SVG没有这个问题？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "像Figma这样的工具从一开始导出的就是不含XML声明的纯<svg>标签。文件是否存在这个问题，完全取决于它是用什么工具制作的。"
+      }
     }
   ]
 }
@@ -179,6 +203,18 @@
         <li>需要一次性整理多个SVG图标文件时</li>
       </ul>
 
+      <h2>XML声明和DOCTYPE最初为什么会被添加进去？</h2>
+      <p>SVG本质上是更庞大的XML标准的一种，因此Illustrator和图标网站为了严格遵循规范，会自动在文件开头添加「本文档为XML 1.0版本」的声明，以及为兼容旧版浏览器而设的DOCTYPE定义。用&lt;img&gt;标签在浏览器中显示，或直接打开文件时都没有问题，但部分CMS平台（如Blogger）在对上传文件进行安全检查时，会把这段前导代码判定为异常格式，从而直接拒绝上传。本工具完全不会触碰&lt;svg&gt;标签内的实际图形数据，只会精确找出并移除造成问题的这段开头元数据。</p>
+
+      <h2>SVG文件经常出问题的情况</h2>
+      <ul>
+        <li>在Illustrator中不使用「存储为web所用格式」而用常规保存导出时，往往会附带更多不必要的元数据</li>
+        <li>从svgrepo.com、Flaticon等图标网站下载的文件，常常在文件开头包含来源注释</li>
+        <li>同一个SVG在某些地方（如邮件签名、Word文档）显示正常，但在另一些地方（如特定CMS）却无法显示，很可能就是这段前导代码导致的</li>
+        <li>如果计划以内联SVG方式使用（直接嵌入HTML代码中），只要存在XML声明，浏览器就会直接拒绝渲染，因此养成每次内联嵌入前都用本工具清理一遍的习惯会很有帮助</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">常见问题</h2>
@@ -202,6 +238,18 @@
         <div class="faq-item">
           <dt>如果上传已经很干净的SVG会怎样？</dt>
           <dd>只会显示没有需要删除的内容的提示，您仍然可以保存与原文件相同的内容。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>用本工具清理后，SVG文件会变小吗？</dt>
+          <dd>会的，XML声明、DOCTYPE、注释少则占几个字节，多则可达数百字节，移除后文件体积会相应减小。不过本工具的主要目的是解决上传错误，而非优化文件体积。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>清理后还能重新编辑SVG吗？</dt>
+          <dd>可以。XML声明和DOCTYPE并不是编辑软件（Illustrator、Inkscape等）打开文件所必需的信息，因此清理后的SVG依然可以正常打开编辑。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>为什么有些SVG没有这个问题？</dt>
+          <dd>像Figma这样的工具从一开始导出的就是不含XML声明的纯&lt;svg&gt;标签。文件是否存在这个问题，完全取决于它是用什么工具制作的。</dd>
         </div>
       </dl>
     </article>

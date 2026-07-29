@@ -34,6 +34,15 @@
     "Keeping track of anniversaries and birthdays so you never miss one",
     "Managing multiple project or assignment deadlines at a glance"
   ],
+  "deepDiveH2": "How exactly is D-Day calculated?",
+  "deepDiveP": "The part people often find confusing about D-Day counters isn't hours remaining — it's that the count is based on calendar days from midnight, not a running clock. If your target date is tomorrow, it shows D-1 whether it's 11pm or 1am right now. This matches how we naturally think about dates in everyday life (\"the exam is tomorrow\"), and avoids the awkwardness of an hour-based count (like showing D-2 when only 23 hours and 59 minutes remain).",
+  "deepDiveListH2": "Good to know when managing goals",
+  "deepDiveList": [
+    "Registering multiple target dates lets you scan them by soonest D-Day, so you won't miss an urgent one",
+    "You can register past dates too, useful for things like tracking how many days have passed since an anniversary",
+    "Since goals are stored in your browser's local storage, switching devices or clearing browser data will remove your list — keep that in mind",
+    "You can register multiple goals with the same name; each is still managed independently"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -47,6 +56,18 @@
     {
       "q": "How is D-Day calculated?",
       "a": "It's calculated from midnight today to the target date, counting whole days rather than hours — so if your goal is tomorrow, it shows D-1 no matter what time of day you check."
+    },
+    {
+      "q": "Will the same goal list show up on another browser or device?",
+      "a": "No. Goals are stored only in that browser's local storage, so you'll need to add them again on a different device or browser."
+    },
+    {
+      "q": "Does a different timezone change the D-Day calculation?",
+      "a": "Yes — D-Day is calculated based on midnight in your device's local timezone. If you access it from a different region, it uses that region's midnight."
+    },
+    {
+      "q": "I accidentally deleted a goal. Can I recover it?",
+      "a": "There's no recovery feature. For anything important, we'd recommend noting the date somewhere else as a backup."
     }
   ],
   "privacyNote": "This tool stores your goals only in this browser's local storage. Nothing is sent to a server."

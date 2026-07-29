@@ -35,6 +35,15 @@
     "Adding a calendar QR code to an event invitation",
     "Creating a QR code that starts a phone call or text message"
   ],
+  "deepDiveH2": "QR code types and print-ready tips",
+  "deepDiveP": "What happens after a scan depends on the QR code's data type. A URL QR code opens a website instantly, a Wi-Fi QR code connects to the network automatically without typing the password, and a vCard (business card) QR code saves the contact directly into the scanner's contacts app. Picking the right type for your purpose means the user gets exactly the outcome they expect right after scanning.",
+  "deepDiveListH2": "Checklist for printing",
+  "deepDiveList": [
+    "Leave a quiet zone of at least 4 modules around the code — without enough margin, scanners can't detect its edges",
+    "Keep strong contrast between foreground and background colors — low contrast significantly hurts scan rates",
+    "Print at least 1/10th the size of the scanning distance — for a 1m scan distance, aim for at least 10cm",
+    "If you add a logo, use a high error-correction level (H) so the covered area can still be reconstructed"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -52,6 +61,18 @@
     {
       "q": "Can I make a QR code for Wi-Fi or a business card?",
       "a": "Yes. Pick Wi-Fi, Contact, Email, Phone, SMS, Event, or Location from the category tabs at the top to create a QR code for that specific purpose. For example, a Wi-Fi QR code will connect the device to that network as soon as it's scanned."
+    },
+    {
+      "q": "Do QR codes expire?",
+      "a": "The QR code itself never expires. However, a URL-type QR code stops working if the linked page is deleted or its address changes."
+    },
+    {
+      "q": "Why won't my QR code scan?",
+      "a": "Usually it's printed too small, has too little margin, or the logo covers too much of the code. Try regenerating with a higher error-correction level and more margin."
+    },
+    {
+      "q": "Is the data in my QR code sent to a server?",
+      "a": "No. QR codes are generated instantly in your browser — the URL or text you enter is never sent to or stored on a server."
     }
   ],
   "privacyNote": "This tool generates QR codes entirely in your browser. Your input is never sent to or stored on a server."

@@ -61,6 +61,30 @@
         "@type": "Answer",
         "text": "It's calculated from midnight today to the target date, counting whole days rather than hours — so if your goal is tomorrow, it shows D-1 no matter what time of day you check."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the same goal list show up on another browser or device?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Goals are stored only in that browser's local storage, so you'll need to add them again on a different device or browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a different timezone change the D-Day calculation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — D-Day is calculated based on midnight in your device's local timezone. If you access it from a different region, it uses that region's midnight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I accidentally deleted a goal. Can I recover it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There's no recovery feature. For anything important, we'd recommend noting the date somewhere else as a backup."
+      }
     }
   ]
 }
@@ -149,6 +173,18 @@
         <li>Managing multiple project or assignment deadlines at a glance</li>
       </ul>
 
+      <h2>How exactly is D-Day calculated?</h2>
+      <p>The part people often find confusing about D-Day counters isn't hours remaining — it's that the count is based on calendar days from midnight, not a running clock. If your target date is tomorrow, it shows D-1 whether it's 11pm or 1am right now. This matches how we naturally think about dates in everyday life (&quot;the exam is tomorrow&quot;), and avoids the awkwardness of an hour-based count (like showing D-2 when only 23 hours and 59 minutes remain).</p>
+
+      <h2>Good to know when managing goals</h2>
+      <ul>
+        <li>Registering multiple target dates lets you scan them by soonest D-Day, so you won't miss an urgent one</li>
+        <li>You can register past dates too, useful for things like tracking how many days have passed since an anniversary</li>
+        <li>Since goals are stored in your browser's local storage, switching devices or clearing browser data will remove your list — keep that in mind</li>
+        <li>You can register multiple goals with the same name; each is still managed independently</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -164,6 +200,18 @@
         <div class="faq-item">
           <dt>How is D-Day calculated?</dt>
           <dd>It's calculated from midnight today to the target date, counting whole days rather than hours — so if your goal is tomorrow, it shows D-1 no matter what time of day you check.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Will the same goal list show up on another browser or device?</dt>
+          <dd>No. Goals are stored only in that browser's local storage, so you'll need to add them again on a different device or browser.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does a different timezone change the D-Day calculation?</dt>
+          <dd>Yes — D-Day is calculated based on midnight in your device's local timezone. If you access it from a different region, it uses that region's midnight.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>I accidentally deleted a goal. Can I recover it?</dt>
+          <dd>There's no recovery feature. For anything important, we'd recommend noting the date somewhere else as a backup.</dd>
         </div>
       </dl>
     </article>

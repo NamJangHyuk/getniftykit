@@ -28,6 +28,14 @@
     "Inserting math or Greek letter symbols into a paper or report",
     "Numbering a list with circled numbers (①②③)"
   ],
+  "deepDiveH2": "Why do special characters sometimes look broken on other sites?",
+  "deepDiveP": "Like emoji, special characters are standard Unicode text — but unlike emoji, most are plain black-and-white glyphs, so they're less affected by font differences. Still, older systems or certain programs that don't support a given character may show a box (□) or question mark instead. A character that pastes fine into a word processor can still break in an old forum or a code environment using a legacy encoding like EUC-KR, so it's worth checking in the actual place you plan to use it.",
+  "deepDiveListH2": "Easy to mix up",
+  "deepDiveList": [
+    "× (multiplication sign, U+00D7) vs. x (the letter X) — often confused in formulas or product names because they look nearly identical",
+    "– (en dash) vs. — (em dash) vs. - (hyphen) — each has a different use in a sentence",
+    "Curly quotes (' ') vs. straight quotes (\" \") — word processors auto-convert to curly quotes, but code usually needs straight quotes"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -41,6 +49,18 @@
     {
       "q": "Do I need to sign up?",
       "a": "No. You can search and copy symbols immediately, no account required."
+    },
+    {
+      "q": "A character I copied looks broken in another program",
+      "a": "This usually means that program or font doesn't support the Unicode character. Try switching fonts or checking that your app is up to date."
+    },
+    {
+      "q": "Do I need HTML entity codes to use these in a webpage?",
+      "a": "Not necessarily. Most modern webpages use UTF-8 encoding, so pasting the character directly usually displays correctly."
+    },
+    {
+      "q": "Are these special characters copyrighted?",
+      "a": "No — these are standard Unicode text characters, free for anyone to use."
     }
   ],
   "privacyNote": "This tool processes every search and copy locally in your browser. Your search terms and personal data are never sent to or stored on a server."

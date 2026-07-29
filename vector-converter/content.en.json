@@ -30,13 +30,25 @@
   "conversionErrorText": "Something went wrong during conversion. Please try a different image.",
   "engineLoadErrorText": "Couldn't load the conversion engine. Please check your internet connection and reload.",
   "tooLargeWarning": "The image was large, so it was automatically resized before converting",
+  "deepDiveH2": "How does raster-to-vector conversion actually work?",
+  "deepDiveP": "A raster (pixel) image like a PNG or JPG is made of a grid of small colored squares, which is why zooming in reveals those squares and breaks down the image quality. Vectorizing traces the contrast boundaries in that pixel image and redraws them as mathematical curves (Bézier curves) instead — coordinates rather than pixels. A line defined by coordinates stays smooth no matter how far you zoom in, which is why vector output works well for logos or print material that needs to scale freely. That said, this approach works most accurately on images with few colors and clear edges (logos, sketches, stamps) — photos with subtle, continuous color gradients can't be reproduced perfectly this way.",
+  "deepDiveListH2": "Tips for getting cleaner vector results",
+  "deepDiveList": [
+    "The sharper the contrast in your original image (a clear line against the background), the cleaner the conversion result",
+    "If you're scanning a hand drawing, using a dark pen or marker before scanning boosts contrast and gives a more accurate conversion",
+    "Shadows or smudges in the background can get picked up as stray lines, so it's best to start with a clean background if possible",
+    "If the result looks too jagged, nudge the slider toward \"smooth\"; if it looks too blurry, nudge it toward \"crisp,\" adjusting gradually to find the right spot for your image"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     { "q": "What kind of images does this tool convert?", "a": "It converts images with clear light/dark contrast into black-and-white SVG vectors made entirely of lines. It works especially well for hand-drawn art, pen sketches, logos, and stamp-style images." },
     { "q": "Is my uploaded image sent to a server?", "a": "No. All conversion happens entirely in your browser, and your image is never sent to or stored on a server." },
     { "q": "Can I upload a color image?", "a": "Yes — a color image is automatically converted based on brightness. Keep in mind this tool always produces a black-and-white line art result; it does not preserve colors." },
     { "q": "What if the lines look jagged, or too blobby?", "a": "Drag the 'Line Smoothness' slider below the result — it converts again instantly. Slide toward Smooth if the lines look jagged and angular; slide toward Crisp if fine lines look merged or blobby. The right spot depends on your image, so it's worth trying a few positions." },
-    { "q": "How do I use the converted SVG?", "a": "Click the download button to save the SVG file. You can open and edit it directly in vector design software like Illustrator or Figma, or use it with equipment that requires vector files, like laser engravers or cutting machines." }
+    { "q": "How do I use the converted SVG?", "a": "Click the download button to save the SVG file. You can open and edit it directly in vector design software like Illustrator or Figma, or use it with equipment that requires vector files, like laser engravers or cutting machines." },
+    { "q": "Can photorealistic images be vectorized at photo quality?", "a": "This tool is specialized for black-and-white line-art vectorization, so it isn't suited for vectorizing a photo's full range of colors and subtle tonal gradients realistically. It gives the best results on images with clear edges, like logos, sketches, and stamps." },
+    { "q": "Can I change the colors of the converted SVG later?", "a": "Yes — SVG is text-based code, so you can edit the color values directly in a program like Illustrator or Figma, or even in a code editor." },
+    { "q": "Does it matter if my original image has low resolution?", "a": "If the resolution is too low, the contrast boundaries become unclear and the conversion result can come out rough. We'd recommend using a sharp, high-resolution original if possible." }
   ],
   "infoIntroH2": "What is a Line Art Vector Converter?",
   "infoIntroP": "A line art vector converter is a free tool that turns pixel-based (raster) images like PNG and JPG into black-and-white SVG vector files made entirely of lines, right in your browser. Pixel images lose quality when zoomed in, but vector images made of mathematical lines and curves stay smooth no matter how much you zoom. There's nothing to install and nothing to upload to a server — just add your image and download a precise SVG file instantly.",

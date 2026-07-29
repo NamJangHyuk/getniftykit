@@ -61,6 +61,30 @@
         "@type": "Answer",
         "text": "No. You can search and copy symbols immediately, no account required."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "A character I copied looks broken in another program",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This usually means that program or font doesn't support the Unicode character. Try switching fonts or checking that your app is up to date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need HTML entity codes to use these in a webpage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. Most modern webpages use UTF-8 encoding, so pasting the character directly usually displays correctly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these special characters copyrighted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — these are standard Unicode text characters, free for anyone to use."
+      }
     }
   ]
 }
@@ -136,6 +160,17 @@
         <li>Numbering a list with circled numbers (①②③)</li>
       </ul>
 
+      <h2>Why do special characters sometimes look broken on other sites?</h2>
+      <p>Like emoji, special characters are standard Unicode text — but unlike emoji, most are plain black-and-white glyphs, so they're less affected by font differences. Still, older systems or certain programs that don't support a given character may show a box (□) or question mark instead. A character that pastes fine into a word processor can still break in an old forum or a code environment using a legacy encoding like EUC-KR, so it's worth checking in the actual place you plan to use it.</p>
+
+      <h2>Easy to mix up</h2>
+      <ul>
+        <li>× (multiplication sign, U+00D7) vs. x (the letter X) — often confused in formulas or product names because they look nearly identical</li>
+        <li>– (en dash) vs. — (em dash) vs. - (hyphen) — each has a different use in a sentence</li>
+        <li>Curly quotes (' ') vs. straight quotes (&quot; &quot;) — word processors auto-convert to curly quotes, but code usually needs straight quotes</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -151,6 +186,18 @@
         <div class="faq-item">
           <dt>Do I need to sign up?</dt>
           <dd>No. You can search and copy symbols immediately, no account required.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>A character I copied looks broken in another program</dt>
+          <dd>This usually means that program or font doesn't support the Unicode character. Try switching fonts or checking that your app is up to date.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Do I need HTML entity codes to use these in a webpage?</dt>
+          <dd>Not necessarily. Most modern webpages use UTF-8 encoding, so pasting the character directly usually displays correctly.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Are these special characters copyrighted?</dt>
+          <dd>No — these are standard Unicode text characters, free for anyone to use.</dd>
         </div>
       </dl>
     </article>

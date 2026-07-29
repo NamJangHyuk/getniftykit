@@ -77,6 +77,30 @@
         "@type": "Answer",
         "text": "You'll just see a message that there's nothing to remove, and you can still save an identical copy if you'd like."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cleaning with this tool make the SVG file smaller?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — the XML declaration, DOCTYPE, and comments can take up anywhere from a few bytes to a few hundred, and removing them shrinks the file by that much. That said, this tool's main purpose is fixing upload errors, not file size optimization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I still edit the SVG after cleaning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The XML declaration and DOCTYPE aren't needed for editing software (Illustrator, Inkscape, etc.) to open a file, so a cleaned SVG opens and edits just fine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some SVG files not have this problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some tools, like Figma, export a pure <svg> tag without an XML declaration from the start. Whether a file has this issue depends entirely on what software created it."
+      }
     }
   ]
 }
@@ -179,6 +203,18 @@
         <li>When you need to clean up a batch of SVG icon files at once</li>
       </ul>
 
+      <h2>Why do the XML declaration and DOCTYPE get added in the first place?</h2>
+      <p>SVG is technically a type of the broader XML standard, so software like Illustrator and icon sites tend to strictly follow spec by automatically prepending a declaration (&quot;this document is XML version 1.0&quot;) and a DOCTYPE definition for older browser compatibility. That's harmless when the browser displays it via an &lt;img&gt; tag or you open the file directly, but some CMS platforms (like Blogger) treat this prologue as an unexpected format during upload security checks and reject the file outright. This tool never touches the actual artwork data inside the &lt;svg&gt; tag — it precisely identifies and removes only the leading metadata causing the problem.</p>
+
+      <h2>When SVG files tend to run into this problem</h2>
+      <ul>
+        <li>Exporting from Illustrator using a regular save instead of &quot;Save for Web&quot; tends to attach even more unnecessary metadata</li>
+        <li>Files downloaded from icon sites like svgrepo.com or Flaticon often include an attribution comment right at the top of the file</li>
+        <li>If the same SVG displays fine in one place (an email signature, a Word doc) but not another (a specific CMS), this prologue code is a likely culprit</li>
+        <li>If you're planning to use inline SVG (embedded directly in HTML), an XML declaration will make the browser refuse to render it entirely — it's worth making a habit of cleaning with this tool before every inline embed</li>
+      </ul>
+
+
       <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
 
       <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -202,6 +238,18 @@
         <div class="faq-item">
           <dt>What happens if I upload an already-clean SVG?</dt>
           <dd>You'll just see a message that there's nothing to remove, and you can still save an identical copy if you'd like.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does cleaning with this tool make the SVG file smaller?</dt>
+          <dd>Yes — the XML declaration, DOCTYPE, and comments can take up anywhere from a few bytes to a few hundred, and removing them shrinks the file by that much. That said, this tool's main purpose is fixing upload errors, not file size optimization.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I still edit the SVG after cleaning?</dt>
+          <dd>Yes. The XML declaration and DOCTYPE aren't needed for editing software (Illustrator, Inkscape, etc.) to open a file, so a cleaned SVG opens and edits just fine.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Why do some SVG files not have this problem?</dt>
+          <dd>Some tools, like Figma, export a pure &lt;svg&gt; tag without an XML declaration from the start. Whether a file has this issue depends entirely on what software created it.</dd>
         </div>
       </dl>
     </article>

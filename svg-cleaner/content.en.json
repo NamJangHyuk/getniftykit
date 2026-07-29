@@ -40,13 +40,25 @@
   "pasteCopiedText": "Copied!",
   "pasteEmptyError": "There's no code to clean.",
   "pasteInvalidError": "This isn't valid SVG code — no <svg> tag was found.",
+  "deepDiveH2": "Why do the XML declaration and DOCTYPE get added in the first place?",
+  "deepDiveP": "SVG is technically a type of the broader XML standard, so software like Illustrator and icon sites tend to strictly follow spec by automatically prepending a declaration (\"this document is XML version 1.0\") and a DOCTYPE definition for older browser compatibility. That's harmless when the browser displays it via an <img> tag or you open the file directly, but some CMS platforms (like Blogger) treat this prologue as an unexpected format during upload security checks and reject the file outright. This tool never touches the actual artwork data inside the <svg> tag — it precisely identifies and removes only the leading metadata causing the problem.",
+  "deepDiveListH2": "When SVG files tend to run into this problem",
+  "deepDiveList": [
+    "Exporting from Illustrator using a regular save instead of \"Save for Web\" tends to attach even more unnecessary metadata",
+    "Files downloaded from icon sites like svgrepo.com or Flaticon often include an attribution comment right at the top of the file",
+    "If the same SVG displays fine in one place (an email signature, a Word doc) but not another (a specific CMS), this prologue code is a likely culprit",
+    "If you're planning to use inline SVG (embedded directly in HTML), an XML declaration will make the browser refuse to render it entirely — it's worth making a habit of cleaning with this tool before every inline embed"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     { "q": "Why won't my SVG upload to Blogger or some CMS platforms?", "a": "Some platforms reject SVG files that start with an XML declaration (<?xml version=\"1.0\"?>), a <!DOCTYPE svg ...> declaration, or leading comments. SVGs exported from icon sites like svgrepo.com and Flaticon, or from illustration software, almost always include this metadata automatically, which is why the problem shows up so often." },
     { "q": "Does this tool damage the actual artwork in my SVG?", "a": "No. It only removes the XML declaration, DOCTYPE, and leading comments — the shapes, paths, and colors inside the <svg> tag are left completely untouched." },
     { "q": "Can I clean multiple files at once?", "a": "Yes. Upload several SVG files together and each one is cleaned independently, with its own save button." },
     { "q": "Is my uploaded SVG sent to a server?", "a": "No. Everything is processed entirely in your browser — files are never uploaded or stored anywhere." },
-    { "q": "What happens if I upload an already-clean SVG?", "a": "You'll just see a message that there's nothing to remove, and you can still save an identical copy if you'd like." }
+    { "q": "What happens if I upload an already-clean SVG?", "a": "You'll just see a message that there's nothing to remove, and you can still save an identical copy if you'd like." },
+    { "q": "Does cleaning with this tool make the SVG file smaller?", "a": "Yes — the XML declaration, DOCTYPE, and comments can take up anywhere from a few bytes to a few hundred, and removing them shrinks the file by that much. That said, this tool's main purpose is fixing upload errors, not file size optimization." },
+    { "q": "Can I still edit the SVG after cleaning?", "a": "Yes. The XML declaration and DOCTYPE aren't needed for editing software (Illustrator, Inkscape, etc.) to open a file, so a cleaned SVG opens and edits just fine." },
+    { "q": "Why do some SVG files not have this problem?", "a": "Some tools, like Figma, export a pure <svg> tag without an XML declaration from the start. Whether a file has this issue depends entirely on what software created it." }
   ],
   "infoIntroH2": "What is SVG Cleaner?",
   "infoIntroP": "SVG Cleaner is a free tool that strips the XML declaration (<?xml version=\"1.0\"?>), DOCTYPE declaration, and leading comments from the top of an SVG file — metadata that isn't needed for the actual artwork but breaks uploads on some platforms. SVG files exported from tools like Illustrator, Figma, svgrepo.com, or Flaticon often include this metadata automatically, and platforms like Blogger can flatly reject an image upload if it's present. This tool picks out exactly that problematic code and removes it while leaving the real artwork untouched.",

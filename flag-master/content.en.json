@@ -36,6 +36,15 @@
     "Building a language or country picker UI for a multilingual site",
     "Preparing materials for a geography or social studies class"
   ],
+  "deepDiveH2": "Are flag images really free to use without worry?",
+  "deepDiveP": "Flags are national emblems, so they're generally not subject to individual copyright. That said, some countries have separate restrictions on other symbols like a coat of arms or national emblem, so for large-scale commercial use it's worth double-checking the specific country's rules. The flag images here come directly from flagcdn.com's public dataset.",
+  "deepDiveListH2": "Good to know when using flag images",
+  "deepDiveList": [
+    "SVG stays crisp at any size, making it a good fit for banners and large prints",
+    "PNG drops easily into PowerPoint, Word, and similar programs",
+    "A country's official name can differ from its common name (e.g. Republic of Korea/Korea) — try an alternate name if a search comes up empty",
+    "Some territories (Hong Kong, Puerto Rico, etc.) aren't independent countries but have their own flag codes under ISO 3166-1, and are included here too"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -53,6 +62,18 @@
     {
       "q": "Which countries are included?",
       "a": "252 countries and territories in total, including every UN member state plus major regions like Hong Kong and Puerto Rico."
+    },
+    {
+      "q": "Do the flag images have a watermark?",
+      "a": "No. They're provided as plain flag images with no watermark or attribution required."
+    },
+    {
+      "q": "Do the colors and proportions exactly match the official standard?",
+      "a": "The images use flagcdn.com's standard flag data, which follows most countries' official proportions and colors. Since minor variations in official specs can exist between countries, for uses requiring strict compliance (e.g. government documents), check that country's official reference separately."
+    },
+    {
+      "q": "Are the flag images kept up to date?",
+      "a": "Flag changes are rare, but whenever flagcdn.com's data is updated, the images here are updated along with it."
     }
   ],
   "privacyNote": "This tool processes every search and download locally in your browser. Your search terms and personal data are never sent to or stored on a server."

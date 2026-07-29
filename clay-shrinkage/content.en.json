@@ -48,6 +48,15 @@
     "Recalculating sizes when switching to a new clay body with a different shrinkage rate",
     "Comparing bisque and final sizes at once for work where width, depth, and height all matter"
   ],
+  "deepDiveH2": "Why does clay shrink differently at bisque and final firing?",
+  "deepDiveP": "Clay shrinkage actually happens in two separate stages, not one. As a piece dries after forming, moisture escapes and it shrinks once (drying shrinkage); then firing it in the kiln at around 1000°C fuses the clay particles together more tightly (sintering), causing a second round of shrinkage (firing shrinkage). The shrinkage rate you enter into this tool is the ratio between the size after bisque firing and the size after the final firing — not the size right after forming — so it's worth being careful not to confuse the two.",
+  "deepDiveListH2": "Good to know for real-world shrinkage calculations",
+  "deepDiveList": [
+    "Shrinkage varies by clay body, so when using a new clay for the first time, checking the manufacturer's spec sheet or firing a test tile and measuring it directly gives the most accurate number",
+    "Even the same clay can shrink differently depending on the kiln's firing temperature (cone number), so check the rate for the temperature you actually fire at",
+    "Width, depth, and height don't always shrink at exactly the same rate — wheel-thrown pieces in particular can shrink slightly differently by direction, so measuring and correcting for critical work is worth the extra step",
+    "For pieces that need a precise fit (like a lidded jar set), it's safer to build in a bit of extra margin beyond the calculated value"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -61,6 +70,18 @@
     {
       "q": "What's a typical clay shrinkage rate?",
       "a": "It varies by clay body, but it's generally around 5-15%, with some kaolin-heavy or porcelain bodies shrinking as much as 15-20%. Check your clay manufacturer's spec sheet or run a test firing for the most accurate number."
+    },
+    {
+      "q": "Should the shrinkage rate include shrinkage from before bisque firing (right after forming)?",
+      "a": "No — the shrinkage rate here is based on the bisque size. If you know the total shrinkage from right after forming all the way to the final firing, you can use that by entering the as-formed size in the \"bisque size\" field instead."
+    },
+    {
+      "q": "Can I calculate just one of width, depth, or height?",
+      "a": "Yes, each dimension is calculated independently, so you only need to enter the ones you need."
+    },
+    {
+      "q": "Could the shrinkage rate be negative or over 100%?",
+      "a": "No, clay shrinkage is always a positive value between 0 and 100%. The typical range is around 5-20%."
     }
   ],
   "privacyNote": "This tool performs all calculations entirely in your browser. Nothing you enter is sent to or stored on a server."

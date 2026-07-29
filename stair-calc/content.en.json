@@ -35,6 +35,15 @@
     "Checking whether an existing staircase falls within standard ranges before a remodel",
     "Getting a rough sense of stair dimensions before drawing up detailed plans"
   ],
+  "deepDiveH2": "Why the \"2R+T = 60-65cm\" formula specifically?",
+  "deepDiveP": "The 2R+T formula (riser height × 2 + tread depth = about 60-65cm) is a rule of thumb derived from the average adult's natural walking stride. On flat ground, a comfortable single stride is roughly 60-65cm. On a staircase, part of that stride becomes the \"height climbed\" (the riser, R) and the rest becomes the \"forward distance\" (the tread, T), so adding the riser height twice to the tread depth should land close to that same flat-ground stride length for the climb to feel natural. As the riser gets shorter (a gentler stair), the tread needs to get correspondingly deeper to keep that balance.",
+  "deepDiveListH2": "Good to know for real-world stair design",
+  "deepDiveList": [
+    "Adding one more step at the same floor height lowers each riser but lengthens the total run — in a tight space, you may have to accept a taller riser instead of adding steps",
+    "Interior stairs are commonly designed around 15-20cm risers, while exterior stairs (gardens, entryways) often go shorter, around 10-15cm, since outdoor steps favor a gentler slope to reduce slip risk",
+    "Every riser needs to be exactly the same height — even one step off by a little noticeably increases the risk of a misstep",
+    "Low-ceiling spaces like attics or loft conversions tend to push riser height above standard — in that case, widening the stair or making sure there's a handrail helps offset the safety tradeoff"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -48,6 +57,18 @@
     {
       "q": "How is the tread depth calculated?",
       "a": "It uses the \"2R+T rule\": twice the riser height (R) plus the tread depth (T) totaling roughly 60-65cm is considered the most natural match for a typical walking stride."
+    },
+    {
+      "q": "What if my floor height falls in an awkward range outside the standard?",
+      "a": "This tool automatically finds a step count that divides your floor height evenly within the recommended riser range (15-20cm). If it still warns you, that usually means the floor height is too large or too small for a single flight of stairs, and you may need to consider adding a landing partway up."
+    },
+    {
+      "q": "Does this calculation apply to spiral or split-level stairs too?",
+      "a": "This calculator is designed for straight stairs. Spiral stairs have a tread depth that varies between the inner and outer edge, which needs a different design approach."
+    },
+    {
+      "q": "Besides riser height and tread depth, is stair width also regulated?",
+      "a": "Yes, most building codes set a separate minimum for stair width. This tool only calculates riser, tread, step count, and total run, so check your local building code for width and other full requirements."
     }
   ],
   "privacyNote": "This tool performs all calculations entirely in your browser. Nothing you enter is sent to or stored on a server."

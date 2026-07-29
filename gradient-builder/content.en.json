@@ -33,6 +33,15 @@
     "Applying a trendy gradient to a card or banner design",
     "Getting exact CSS gradient code straight from a design mockup"
   ],
+  "deepDiveH2": "What makes a gradient look natural, not off?",
+  "deepDiveP": "The most common reason a gradient looks awkward is combining two colors directly opposite each other on the color wheel (complementary colors) — red straight into green, for example, tends to produce a muddy brownish tone in the middle. Using colors that sit closer together on the wheel (analogous colors), or adding a third color in between, blends much more smoothly. A large brightness (lightness) gap between the two colors also creates harsh contrast that can strain the eyes, so for background gradients it helps to keep the lightness difference modest.",
+  "deepDiveListH2": "Tips for using gradients",
+  "deepDiveList": [
+    "Lower saturation for backgrounds, higher saturation for buttons or accents — this creates clear visual hierarchy",
+    "A 135-degree (diagonal) angle tends to feel natural in most UI contexts",
+    "Pairing one brand color with a slightly lighter or darker version of itself as the second color keeps the tone cohesive",
+    "Using too many colors at once (4-5) can look busy — starting with 2-3 is usually a safer bet"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -46,6 +55,18 @@
     {
       "q": "How do I use the generated code?",
       "a": "Paste the copied code directly as the value of a CSS background property. For example: background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);"
+    },
+    {
+      "q": "Does the generated CSS work in every browser?",
+      "a": "Yes. linear-gradient and radial-gradient are standard, well-supported features in all modern browsers (Chrome, Firefox, Safari, Edge)."
+    },
+    {
+      "q": "Can I apply transparency to the gradient?",
+      "a": "This tool is optimized for solid color combinations and doesn't have a transparency input, but you can manually convert the generated color values to rgba() to add transparency."
+    },
+    {
+      "q": "Can I apply a gradient to text?",
+      "a": "Yes — add background-clip: text and color: transparent to the generated background code to apply the gradient effect to text."
     }
   ],
   "privacyNote": "This tool generates gradients entirely in your browser. Your input is never sent to or stored on a server."

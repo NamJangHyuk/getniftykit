@@ -27,6 +27,14 @@
     "Checking the exact name or meaning of a specific emoji",
     "Pasting an emoji that isn't available on your keyboard into a document"
   ],
+  "deepDiveH2": "Why do emoji look different on every device?",
+  "deepDiveP": "The Unicode Consortium only standardizes the character code behind each emoji (e.g. 😀 = U+1F600) — the actual artwork is designed independently by each platform, like Apple, Google, and Samsung. That's why the same emoji can look noticeably different on an iPhone versus a Galaxy phone. What you copy from this tool is the Unicode character itself, not an image file, so it automatically renders using whatever emoji font your device uses.",
+  "deepDiveListH2": "Good to know",
+  "deepDiveList": [
+    "Some older devices or browsers don't support newer emoji and may show an empty box (□) instead",
+    "Emoji with skin tone options work by attaching a modifier code after the base emoji",
+    "Combined emoji (like family emoji) are actually multiple characters joined with a zero-width joiner (ZWJ), so unsupported devices may show them as separate individual emoji"
+  ],
   "faqHeading": "Frequently Asked Questions",
   "faq": [
     {
@@ -40,6 +48,18 @@
     {
       "q": "Do I need to sign up?",
       "a": "No. You can search and copy emojis immediately, no account required."
+    },
+    {
+      "q": "Does copying an emoji copy an image file?",
+      "a": "No. Emoji are copied as Unicode text characters, not image files, so you can paste them anywhere plain text works."
+    },
+    {
+      "q": "Why can't I find the emoji I'm looking for?",
+      "a": "If the emoji's name or keyword doesn't exactly match your search, it may not show up. Try a broader term (e.g. \"face\" instead of \"laughing\")."
+    },
+    {
+      "q": "Are new emoji added over time?",
+      "a": "Yes — the Unicode Consortium adds new emoji to the standard every year, and this tool is updated to include the latest emoji data."
     }
   ],
   "privacyNote": "This tool processes every search and copy locally in your browser. Your search terms and personal data are never sent to or stored on a server."
