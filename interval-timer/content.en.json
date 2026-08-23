@@ -25,7 +25,7 @@
   "setProgressTemplate": "Set {current} / {total}",
   "invalidInputError": "Please enter a number of sets and work/rest times of 1 or more.",
   "infoIntroH2": "What is an interval timer?",
-  "infoIntroP": "Interval Timer is a tool that automatically calculates and runs the full timeline of a workout session based on the number of sets and your work and rest durations. It alerts you with sound and a color change every time the phase switches between work and rest, so you don't have to keep watching the screen. Timing is calculated from real timestamps, so it stays accurate even if your screen turns off or you switch to another tab.",
+  "infoIntroP": "Interval Timer is a tool that automatically calculates and runs the full timeline of a workout session based on the number of sets and your work and rest durations. It alerts you with sound and a color change every time the phase switches between work and rest, so you don't have to keep watching the screen. Timing is calculated from real timestamps, so it stays accurate even if your screen turns off or you switch to another tab. Many free web timers use a simple setInterval, which visibly drifts after just a few minutes in a background tab — this tool recalculates from timestamps instead, so it never drifts.",
   "infoHowtoH2": "How to use it",
   "infoHowtoP": "Enter your number of sets, work time, and rest time (in seconds), then press \"Start.\" When a work phase ends, it automatically switches to rest, then back to work for the next set, repeating all the way through the last set. You can pause at any time and pick up right where you left off with \"Resume,\" or press \"Reset\" to set everything up again from scratch.",
   "infoUseCasesH2": "When it comes in handy",

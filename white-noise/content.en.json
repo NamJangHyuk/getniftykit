@@ -28,7 +28,7 @@
   "statusPlayingLabel": "Playing",
   "remainingTemplate": "Auto-stop in {time}",
   "infoIntroH2": "What is a white noise player?",
-  "infoIntroP": "The White Noise player generates white, pink, and brown noise directly in your browser using the Web Audio API. Instead of downloading a recorded nature-sound file, it computes the sound waveform in code on the spot, so there are no copyright concerns and playback never stutters even on a slow connection. White noise mixes every frequency evenly, pink noise emphasizes the lower frequencies for a softer sound, and brown noise emphasizes the low end even further for a deep, wave-like rumble.",
+  "infoIntroP": "The White Noise player generates white, pink, and brown noise directly in your browser using the Web Audio API. Instead of downloading a recorded nature-sound file, it computes the sound waveform in code on the spot, so there are no copyright concerns and playback never stutters even on a slow connection. White noise mixes every frequency evenly, pink noise emphasizes the lower frequencies for a softer sound, and brown noise emphasizes the low end even further for a deep, wave-like rumble. Many white noise sites loop a short audio file, so you can hear a seam every few minutes where it repeats — this tool computes the waveform fresh at every moment, so there's no loop seam to notice at all.",
   "infoHowtoH2": "How to use it",
   "infoHowtoP": "Pick the noise type you want and press \"Play\" to start hearing it right away. You can adjust the volume with the slider while it's playing, and if you set an auto-stop time in advance, playback stops on its own once that time has passed. To switch noise types, press \"Stop\" first, then pick a new one.",
   "infoUseCasesH2": "When it comes in handy",

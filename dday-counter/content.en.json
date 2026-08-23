@@ -24,7 +24,7 @@
   "nameRequiredError": "Please enter a goal name.",
   "dateRequiredError": "Please choose a target date.",
   "infoIntroH2": "What is a D-Day counter?",
-  "infoIntroP": "D-Day Counter is a tool that shows how many days remain until a date you choose, displayed as a large, easy-to-read number like D-5, D-DAY, or D+3. Whether you're tracking an exam, a trip, a wedding anniversary, or a project deadline, you can keep several dates in view at once, and every goal you add is saved in your browser so it's still there the next time you visit.",
+  "infoIntroP": "D-Day Counter is a tool that shows how many days remain until a date you choose, displayed as a large, easy-to-read number like D-5, D-DAY, or D+3. Whether you're tracking an exam, a trip, a wedding anniversary, or a project deadline, you can keep several dates in view at once, and every goal you add is saved in your browser so it's still there the next time you visit. Unlike many D-Day apps that require creating an account or cloud sync, this tool saves only to your browser, so you can add a goal right away with no sign-up step.",
   "infoHowtoH2": "How to use it",
   "infoHowtoP": "Enter a goal name and date, then click \"Add\" — a new card appears in the list showing the D-Day count calculated from today. Add as many goals as you like, and remove any you no longer need with the \"Delete\" button. Everything is saved in this browser, so your goals will still be there the next time you come back.",
   "infoUseCasesH2": "When it comes in handy",

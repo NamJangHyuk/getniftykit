@@ -155,7 +155,7 @@
     <article class="info-section">
       <h2>What is a tempo counter?</h2>
       <p>
-        Tempo Counter is a workout metronome that plays precisely timed beep tones at whatever BPM (beats per minute) you set. It uses the browser's audio scheduling capabilities directly, so the beat stays accurate from start to finish without gradually drifting out of time the way a simple timer would. Each rep's down phase and up phase play a different tone, so you can keep the beat by ear without watching the screen, and the rep counter automatically increases every time a pair of beats completes. Not every exercise suits the same speed, so picking an exercise like push-up, sit-up, or squat — anything with a clear down/up motion — automatically fills in a sensible default BPM for that movement.
+        Tempo Counter is a workout metronome that plays precisely timed beep tones at whatever BPM (beats per minute) you set. It uses the browser's audio scheduling capabilities directly, so the beat stays accurate from start to finish without gradually drifting out of time the way a simple timer would. Each rep's down phase and up phase play a different tone, so you can keep the beat by ear without watching the screen, and the rep counter automatically increases every time a pair of beats completes. Not every exercise suits the same speed, so picking an exercise like push-up, sit-up, or squat — anything with a clear down/up motion — automatically fills in a sensible default BPM for that movement. Many free metronome and beat-counter apps play their beat using setInterval, which visibly drifts after just a few minutes — this tool was built from the ground up on audio scheduling (AudioContext), so it never drifts.
       </p>
 
       <h2>How to use it</h2>
