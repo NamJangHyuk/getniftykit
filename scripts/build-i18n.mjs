@@ -1103,6 +1103,8 @@ async function buildInfoPage(page) {
         INTRO: escapeHtml(content.intro),
         WHAT_HEADING: escapeHtml(content.whatHeading),
         WHAT_BODY: escapeHtml(content.whatBody),
+        NAME_MEANING_HEADING: escapeHtml(content.nameMeaningHeading),
+        NAME_MEANING_BODY: escapeHtml(content.nameMeaningBody),
         HOW_IT_WORKS_HEADING: escapeHtml(content.howItWorksHeading),
         HOW_IT_WORKS_BODY: escapeHtml(content.howItWorksBody),
       });
