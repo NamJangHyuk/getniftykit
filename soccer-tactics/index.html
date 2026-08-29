@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/soccer-tactics/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="유소년 축구 전술을 프레임별로 만들어 애니메이션으로 재생하는 무료 웹 도구.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Soccer Tactics Simulator">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Soccer Tactics Simulator</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    #st-loader{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;
+      justify-content:center;gap:16px;background:#1B5E20;color:#e8f5e9;font-family:system-ui,
+      -apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;z-index:99999;
+      transition:opacity .35s ease}
+    #st-loader.hide{opacity:0;pointer-events:none}
+    #st-loader .sp{width:44px;height:44px;border:4px solid rgba(255,255,255,.25);
+      border-top-color:#64ffda;border-radius:50%;animation:st-spin 1s linear infinite}
+    #st-loader p{margin:0;font-size:14px;opacity:.85}
+    @keyframes st-spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <div id="st-loader" role="status" aria-live="polite">
+    <div class="sp"></div>
+    <p>축구 전술 시뮬레이터 불러오는 중…</p>
+  </div>
+  <script>
+    // Flutter 첫 프레임이 그려지면 로딩 화면을 숨긴다. (이벤트 + DOM 감시 이중 안전장치)
+    (function () {
+      var el = document.getElementById('st-loader');
+      var done = false;
+      function hide() {
+        if (done) return; done = true;
+        el.classList.add('hide');
+        setTimeout(function () { el && el.remove(); }, 400);
+      }
+      window.addEventListener('flutter-first-frame', hide);
+      var mo = new MutationObserver(function () {
+        if (document.querySelector('flt-glass-pane, flutter-view')) { mo.disconnect(); hide(); }
+      });
+      mo.observe(document.body, { childList: true, subtree: true });
+      setTimeout(hide, 20000); // 최후 방어
+    })();
+  </script>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

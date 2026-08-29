@@ -1,0 +1,170 @@
+/* 축구 전술 시뮬레이터 임베드 페이지 전용 스타일.
+   이 도구는 Flutter 웹 앱(별도 페이지)을 iframe으로 띄우는 구조라, 다른 도구들과 달리
+   조작 UI는 iframe 안에 있고 이 페이지는 프레임 + 로딩 + 설명(SEO)만 담당한다. */
+
+:root {
+  --st-bg: #f6f8f5;
+  --st-text: #1b2a1e;
+  --st-muted: #5a6b5c;
+  --st-primary: #1b7a3d;
+  --st-primary-dark: #14572c;
+  --st-card-bg: #ffffff;
+  --st-border: #d9e4dc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+  background: var(--st-bg);
+  color: var(--st-text);
+  line-height: 1.6;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  background: var(--st-bg);
+}
+
+@media (min-width: 768px) {
+  .top-bar { width: fit-content; height: auto; padding: 12px 16px 0; background: transparent; }
+}
+
+.back-link {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--st-card-bg);
+  border: 1px solid var(--st-border);
+  border-radius: 999px;
+  color: var(--st-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.back-link:hover { color: var(--st-primary); }
+
+.page-header { text-align: center; padding: 10px 16px 16px; }
+.page-header h1 {
+  margin: 0 0 8px;
+  font-family: "Encode Sans Expanded", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: 2.1rem;
+  letter-spacing: -0.01em;
+  color: var(--st-primary-dark);
+}
+.subtitle { margin: 0; color: var(--st-muted); font-size: 1.1rem; }
+.tagline-extra { margin: 6px 0 0; color: var(--st-muted); font-size: 0.9rem; }
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 8px 16px 0;
+}
+
+/* ── 앱 프레임 ── */
+.st-app-section { margin-top: 8px; }
+
+.st-app-frame {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: 82vh;
+  max-height: 940px;
+  min-height: 560px;
+  margin: 0 auto;
+  border: 1px solid var(--st-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #1b5e20;
+  box-shadow: 0 8px 30px rgba(20, 60, 30, 0.12);
+}
+
+.st-app-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.st-embed-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #1b5e20;
+  color: #e8f5e9;
+  font-size: 0.9rem;
+  transition: opacity 0.35s ease;
+}
+
+.st-spinner {
+  width: 42px;
+  height: 42px;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #64ffda;
+  border-radius: 50%;
+  animation: st-spin 1s linear infinite;
+}
+@keyframes st-spin { to { transform: rotate(360deg); } }
+
+.st-app-hint {
+  text-align: center;
+  color: var(--st-muted);
+  font-size: 0.82rem;
+  margin: 10px 0 0;
+}
+
+/* ── 설명(SEO) ── */
+.info-section { margin-top: 28px; }
+.info-section h2 { color: var(--st-primary-dark); font-size: 1.32rem; margin-top: 30px; }
+.info-section ul { padding-left: 20px; }
+.info-section li { margin-bottom: 6px; }
+
+.faq-list { margin: 0; }
+.faq-list .faq-item { margin-bottom: 16px; }
+.faq-list dt { font-weight: 600; margin-bottom: 4px; }
+.faq-list dd { margin: 0; color: var(--st-muted); }
+
+.page-footer {
+  text-align: center;
+  padding: 28px 16px 40px;
+  color: var(--st-muted);
+  font-size: 0.85rem;
+}
+.footer-links { margin: 8px 0 0; }
+.footer-links a { color: var(--st-muted); }
+
+.scroll-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--st-primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.scroll-top-btn:hover { background: var(--st-primary-dark); transform: translateY(-2px); }
+.scroll-top-btn[hidden] { display: none; }
+
+@media (max-width: 480px) {
+  .page-header h1 { font-size: 1.7rem; }
+  .st-app-frame { height: 78vh; min-height: 500px; border-radius: 10px; }
+}

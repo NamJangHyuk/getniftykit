@@ -41,6 +41,7 @@ const TOOLS = [
   "vector-converter",
   "username-generator",
   "svg-cleaner",
+  "soccer-tactics",
 ];
 const INFO_PAGES = ["privacy", "about"];
 
@@ -74,6 +75,8 @@ const TOOL_LANGS = {
   // PM 요청으로 ja/zh 번역 완료(2026-07). 처음부터 대칭 구조로 시작해 예전 bare 경로가
   // 없으므로 다른 도구들과 같은 이유로 키는 지우지 않고 LANGS로 남겨둡니다.
   "svg-cleaner": LANGS,
+  // 축구 전술 시뮬레이터: Flutter 웹 앱을 iframe으로 띄우는 별도 페이지. 한국어만 지원.
+  "soccer-tactics": ["ko"],
 };
 
 function langsFor(tool) {
@@ -892,6 +895,7 @@ const ALL_TOOLS = [
   { key: "pomodoro-timer", icon: "pomodoro-timer.svg", titleField: "pomodoroTimerTitle", descField: "pomodoroTimerDesc", category: "time" },
   { key: "white-noise", icon: "white-noise.svg", titleField: "whiteNoiseTitle", descField: "whiteNoiseDesc", category: "focus" },
   { key: "flashcards", icon: "flashcards.svg", titleField: "flashcardsTitle", descField: "flashcardsDesc", category: "focus" },
+  { key: "soccer-tactics", icon: "soccer-tactics.svg", titleField: "soccerTacticsTitle", descField: "soccerTacticsDesc", category: "focus" },
   { key: "square-check", icon: "square-check.svg", titleField: "squareCheckTitle", descField: "squareCheckDesc", category: "pro" },
   { key: "stair-calc", icon: "stair-calc.svg", titleField: "stairCalcTitle", descField: "stairCalcDesc", category: "pro" },
   { key: "shelf-spacing", icon: "shelf-spacing.svg", titleField: "shelfSpacingTitle", descField: "shelfSpacingDesc", category: "pro" },

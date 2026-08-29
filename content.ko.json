@@ -27,6 +27,8 @@
   "whiteNoiseDesc": "화이트·핑크·브라운 노이즈를 그 자리에서 합성해 들려드려요",
   "flashcardsTitle": "플래시카드",
   "flashcardsDesc": "직접 만든 카드로 무작위 순서로 암기 학습을 해보세요",
+  "soccerTacticsTitle": "축구 전술 시뮬레이터",
+  "soccerTacticsDesc": "선수와 공을 프레임마다 옮겨 전술 애니메이션을 만들고 파일로 공유하세요",
   "squareCheckTitle": "직각삼각형 변 계산기",
   "squareCheckDesc": "두 변만 입력하면 나머지 한 변이 자동으로 계산돼요",
   "stairCalcTitle": "계단 계산기",
