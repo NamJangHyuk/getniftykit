@@ -49,21 +49,16 @@
     <p>축구 전술 시뮬레이터 불러오는 중…</p>
   </div>
   <script>
-    // Flutter 첫 프레임이 그려지면 로딩 화면을 숨긴다. (이벤트 + DOM 감시 이중 안전장치)
     (function () {
       var el = document.getElementById('st-loader');
       var done = false;
-      function hide() {
-        if (done) return; done = true;
-        el.classList.add('hide');
-        setTimeout(function () { el && el.remove(); }, 400);
-      }
+      function hide() { if (done) return; done = true; el.classList.add('hide');
+        setTimeout(function () { el && el.remove(); }, 400); }
       window.addEventListener('flutter-first-frame', hide);
       var mo = new MutationObserver(function () {
-        if (document.querySelector('flt-glass-pane, flutter-view')) { mo.disconnect(); hide(); }
-      });
+        if (document.querySelector('flt-glass-pane, flutter-view')) { mo.disconnect(); hide(); } });
       mo.observe(document.body, { childList: true, subtree: true });
-      setTimeout(hide, 20000); // 최후 방어
+      setTimeout(hide, 20000);
     })();
   </script>
   <!--
