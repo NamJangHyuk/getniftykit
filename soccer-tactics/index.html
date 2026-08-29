@@ -44,23 +44,14 @@
   </style>
 </head>
 <body>
-  <div id="st-loader" role="status" aria-live="polite">
-    <div class="sp"></div>
-    <p>축구 전술 시뮬레이터 불러오는 중…</p>
-  </div>
-  <script>
-    (function () {
-      var el = document.getElementById('st-loader');
-      var done = false;
-      function hide() { if (done) return; done = true; el.classList.add('hide');
-        setTimeout(function () { el && el.remove(); }, 400); }
-      window.addEventListener('flutter-first-frame', hide);
-      var mo = new MutationObserver(function () {
-        if (document.querySelector('flt-glass-pane, flutter-view')) { mo.disconnect(); hide(); } });
-      mo.observe(document.body, { childList: true, subtree: true });
-      setTimeout(hide, 20000);
-    })();
-  </script>
+  <div id="st-loader" role="status" aria-live="polite"><div class="sp"></div>
+    <p>축구 전술 시뮬레이터 불러오는 중…</p></div>
+  <script>(function(){var el=document.getElementById('st-loader'),done=false;
+    function hide(){if(done)return;done=true;el.classList.add('hide');
+      setTimeout(function(){el&&el.remove();},400);}
+    window.addEventListener('flutter-first-frame',hide);
+    var mo=new MutationObserver(function(){if(document.querySelector('flt-glass-pane, flutter-view')){mo.disconnect();hide();}});
+    mo.observe(document.body,{childList:true,subtree:true});setTimeout(hide,20000);})();</script>
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
