@@ -93,6 +93,44 @@ main {
   display: block;
 }
 
+/* 전체 창(풀창) 버튼 */
+.st-fs-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 4;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.42);
+  color: #e8f5e9;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.st-fs-btn:hover { background: rgba(0, 0, 0, 0.6); }
+.st-fs-btn .st-fs-close { display: none; }
+.st-app-frame.st-fullscreen .st-fs-btn .st-fs-open { display: none; }
+.st-app-frame.st-fullscreen .st-fs-btn .st-fs-close { display: block; }
+
+/* 풀창: 브라우저 창을 가득 채운다 (iOS 등 네이티브 풀스크린 미지원 대체) */
+.st-app-frame.st-fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  min-height: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  z-index: 9999;
+}
+
 .st-embed-loader {
   position: absolute;
   inset: 0;
@@ -164,7 +202,23 @@ main {
 .scroll-top-btn:hover { background: var(--st-primary-dark); transform: translateY(-2px); }
 .scroll-top-btn[hidden] { display: none; }
 
+/* 모바일: 시뮬레이터 프레임을 좌우 여백 없이 화면 폭에 꽉 채운다.
+   (main 의 좌우 패딩을 무시하고 뷰포트 가장자리까지 끌어내는 full-bleed 기법) */
+@media (max-width: 600px) {
+  .st-app-frame:not(.st-fullscreen) {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    height: 86vh;
+    min-height: 480px;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+  .st-app-hint { padding: 0 16px; }
+}
+
 @media (max-width: 480px) {
   .page-header h1 { font-size: 1.7rem; }
-  .st-app-frame { height: 78vh; min-height: 500px; border-radius: 10px; }
 }
