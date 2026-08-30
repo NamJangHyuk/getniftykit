@@ -93,28 +93,51 @@ main {
   display: block;
 }
 
-/* 전체 창(풀창) 버튼 */
-.st-fs-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 4;
-  width: 38px;
-  height: 38px;
+/* 전체 창(풀창) 버튼 — 평소엔 프레임 아래 일반 버튼이라 앱 UI 를 가리지 않는다. */
+.st-fs-row {
   display: flex;
-  align-items: center;
   justify-content: center;
-  border: 0;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.42);
-  color: #e8f5e9;
+  margin-top: 10px;
+}
+.st-fs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border: 1px solid var(--st-border);
+  border-radius: 999px;
+  background: var(--st-card-bg);
+  color: var(--st-primary-dark);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.st-fs-btn:hover { background: rgba(0, 0, 0, 0.6); }
+.st-fs-btn:hover { border-color: var(--st-primary); }
 .st-fs-btn .st-fs-close { display: none; }
-.st-app-frame.st-fullscreen .st-fs-btn .st-fs-open { display: none; }
-.st-app-frame.st-fullscreen .st-fs-btn .st-fs-close { display: block; }
+
+/* 풀창 켜짐: 버튼을 화면 위에 띄우되 앱 UI 가 비어 있는 "우하단" 구석에 둔다. */
+body.st-fs-active .st-fs-row { display: contents; }
+body.st-fs-active .st-fs-btn {
+  position: fixed;
+  /* 앱의 하단 재생바(≈48px) 위, 우측 ◀▶ 버튼 아래의 빈 구석 */
+  right: calc(env(safe-area-inset-right, 0px) + 8px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 56px);
+  z-index: 10000;
+  gap: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #ffffff;
+}
+body.st-fs-active .st-fs-btn:hover { background: rgba(0, 0, 0, 0.8); }
+body.st-fs-active .st-fs-btn .st-fs-label { display: none; }
+body.st-fs-active .st-fs-btn .st-fs-open { display: none; }
+body.st-fs-active .st-fs-btn .st-fs-close { display: block; }
 
 /* 풀창: 브라우저 창을 가득 채운다 (iOS 등 네이티브 풀스크린 미지원 대체) */
 .st-app-frame.st-fullscreen {
