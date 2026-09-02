@@ -797,6 +797,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/soccer-tactics/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/soccer-tactics/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/en/soccer-tactics/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/soccer-tactics/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/soccer-tactics/" />
   </url>
   <url>
     <loc>https://getniftykit.com/ko/privacy/</loc>

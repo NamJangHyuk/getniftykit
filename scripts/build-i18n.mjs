@@ -75,8 +75,9 @@ const TOOL_LANGS = {
   // PM 요청으로 ja/zh 번역 완료(2026-07). 처음부터 대칭 구조로 시작해 예전 bare 경로가
   // 없으므로 다른 도구들과 같은 이유로 키는 지우지 않고 LANGS로 남겨둡니다.
   "svg-cleaner": LANGS,
-  // 축구 전술 시뮬레이터: Flutter 웹 앱을 iframe으로 띄우는 별도 페이지. 한국어만 지원.
-  "soccer-tactics": ["ko"],
+  // 축구 전술 시뮬레이터: Flutter 웹 앱을 iframe으로 띄우는 별도 페이지.
+  // 한국어 + 영어. (앱 자체는 en/es/ja/ko 지원 — /en/ 래퍼는 iframe 을 ?lang=en 로 띄운다.)
+  "soccer-tactics": ["ko", "en"],
 };
 
 function langsFor(tool) {
@@ -850,6 +851,17 @@ async function buildTool(tool) {
         COPIED_TEXT: escapeHtml(content.copiedText),
         RESULT_NOTE: escapeHtml(content.resultNote),
         LOAD_ERROR: escapeHtml(content.loadError),
+      });
+    }
+
+    if (tool === "soccer-tactics") {
+      Object.assign(tokens, {
+        APP_TITLE: escapeHtml(content.appTitle),
+        EMBED_LOADING: escapeHtml(content.embedLoading),
+        FS_LABEL: escapeHtml(content.fsLabel),
+        FS_HINT: escapeHtml(content.fsHint),
+        FS_OPEN_ARIA: escapeHtml(content.fsOpenAria),
+        FS_CLOSE_ARIA: escapeHtml(content.fsCloseAria),
       });
     }
 

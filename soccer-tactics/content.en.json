@@ -1,0 +1,38 @@
+{
+  "htmlLang": "en",
+  "pageTitle": "Soccer Tactics Simulator - Free Tactic Animation Web App | GetNiftyKit",
+  "metaDescription": "A free web tool that turns your board into a moving tactic animation as you move players and the ball frame by frame. Curved runs, auto-save, .json and .mp4 export, no install, no sign-up.",
+  "softwareAppName": "Soccer Tactics Simulator",
+  "softwareAppDescription": "A free web tool for soccer coaches to record player and ball movement frame by frame on a timeline, build tactic animations, share .json files with the coaching staff, and export .mp4 video for parents and players.",
+  "osLabel": "Any (web browser)",
+  "backLinkText": "← All tools",
+  "appTitle": "Soccer Tactics Simulator",
+  "embedLoading": "Loading the simulator…",
+  "fsLabel": "Open full window",
+  "fsHint": "Press again or hit ESC to close the full window.",
+  "fsOpenAria": "Open the simulator in a full window",
+  "fsCloseAria": "Close full window",
+  "h1": "Soccer Tactics Simulator",
+  "subtitle": "Record player and ball movement frame by frame to build a tactic animation",
+  "taglineExtra": "You can operate the board right below, and every tactic auto-saves in your browser so it's still there next time you open it.",
+  "faqHeading": "Frequently asked questions",
+  "infoIntroH2": "What is Soccer Tactics Simulator?",
+  "infoIntroP": "Soccer Tactics Simulator lets you place your team, the opposing team, and the ball on a vertical pitch, then move them at each frame (moment) of the bottom timeline. The frames connect automatically into a moving tactic animation. You can rotate each player's facing direction, and drag the yellow dot on a movement path to switch from a straight run to a curved one. Every tactic auto-saves in your browser, can be exported as a .json file to share with or load from other coaches, and where supported can also be saved as .mp4 video. It's a free tool you open straight in the browser with no sign-up and no install.",
+  "infoHowtoH2": "How to use it",
+  "infoHowtoP": "First pick a frame (moment) with the ◀ ▶ buttons at the bottom right or the slider below. At that moment, drag players and the ball to where you want them; the frame auto-saves the instant you let go. Move to the next frame and shift positions again — repeat, and the two frames connect into an animation. Use the ▶ play button to review the movement, and change playback speed and looping in Settings. When you only want to record the current moment as a keyframe without moving anything, press the ➕ button.",
+  "infoUseCasesH2": "When it's useful",
+  "infoUseCases": [
+    "When you want to explain set pieces and build-up patterns as moving diagrams before a training session",
+    "When the coaching staff wants to pass tactic files (.json) around and discuss the same screen together",
+    "When you want to share tactical movement with parents and players as a short video (.mp4)",
+    "When you'd rather draw and save a tactics board straight in a tablet or PC browser instead of on a whiteboard"
+  ],
+  "faq": [
+    { "q": "Where are the tactics I make saved?", "a": "As you edit, each tactic auto-saves to the local storage of the browser you're using. Open the same browser again and the last tactic you were viewing opens as-is; pick another tactic from the library and it saves to that one. It isn't shared with other devices or browsers, so to move a tactic, export it as a .json file." },
+    { "q": "Can I make a player's run curved?", "a": "Yes. When you move a player, the movement path shows as a dashed line, and dragging the yellow dot on that line makes the run curved. Double-click the yellow dot to go back to a straight line." },
+    { "q": "I can't save video (.mp4).", "a": "Video export isn't supported in the browser, so it doesn't appear in the menu. On the web only .json save/load and auto-save are supported. Video saving is available in the Android, iOS, and macOS apps." },
+    { "q": "The screen looks narrow.", "a": "This tool uses a vertical pitch, so the layout is tall. You can zoom and pan inside the frame with your fingers (or mouse wheel / pinch), and to use it larger, open the frame in a new tab." },
+    { "q": "Do I need to sign up?", "a": "No. You can use it straight in the browser with no sign-up or login, and the tactics you enter are not sent to any server." }
+  ],
+  "privacyNote": "This tool keeps tactic data only in your browser's local storage and does not send it to any server."
+}

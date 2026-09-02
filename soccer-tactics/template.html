@@ -31,29 +31,29 @@
   </header>
 
   <main>
-    <section class="st-app-section" aria-label="축구 전술 시뮬레이터">
+    <section class="st-app-section" aria-label="{{APP_TITLE}}">
       <div class="st-app-frame" id="st-app-frame">
         <div class="st-embed-loader" id="st-embed-loader" role="status" aria-live="polite">
           <div class="st-spinner"></div>
-          <p>시뮬레이터 불러오는 중…</p>
+          <p>{{EMBED_LOADING}}</p>
         </div>
         <iframe
           id="st-app-iframe"
-          src="index.html"
-          title="축구 전술 시뮬레이터"
+          src="index.html?lang={{HTML_LANG}}"
+          title="{{APP_TITLE}}"
           loading="lazy"
           allow="fullscreen"
           allowfullscreen></iframe>
       </div>
 
       <div class="st-fs-row">
-        <button type="button" id="st-fs-btn" class="st-fs-btn" aria-label="시뮬레이터 전체 창으로 보기" aria-pressed="false">
+        <button type="button" id="st-fs-btn" class="st-fs-btn" aria-label="{{FS_OPEN_ARIA}}" aria-pressed="false">
           <svg class="st-fs-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
           <svg class="st-fs-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M20 8V5a1 1 0 0 0-1-1h-3M4 16v3a1 1 0 0 0 1 1h3M20 16v3a1 1 0 0 1-1 1h-3"/></svg>
-          <span class="st-fs-label">전체 창으로 보기</span>
+          <span class="st-fs-label">{{FS_LABEL}}</span>
         </button>
       </div>
-      <p class="st-app-hint">전체 창은 다시 누르거나 ESC로 닫습니다.</p>
+      <p class="st-app-hint">{{FS_HINT}}</p>
     </section>
 
     <article class="info-section">
@@ -119,7 +119,7 @@
         document.body.classList.toggle("st-fs-active", on);
         document.body.style.overflow = on ? "hidden" : "";
         btn.setAttribute("aria-pressed", on ? "true" : "false");
-        btn.setAttribute("aria-label", on ? "전체 창 닫기" : "시뮬레이터 전체 창으로 보기");
+        btn.setAttribute("aria-label", on ? "{{FS_CLOSE_ARIA}}" : "{{FS_OPEN_ARIA}}");
       }
       function enter() {
         setState(true);

@@ -1,11 +1,11 @@
 {
-    "name": "Soccer Tactics Simulator",
-    "short_name": "Soccer Tactics",
+    "name": "easy tactics motion",
+    "short_name": "easy tactics motion",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#1B5E20",
     "theme_color": "#1B5E20",
-    "description": "Build youth soccer tactics as keyframe animations and share them.",
+    "description": "Build soccer tactics as keyframe animations and share them as files or video.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
