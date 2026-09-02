@@ -105,13 +105,18 @@ function renderMode(mode) {
   overlay.style.background = SOLID_COLORS[mode] || "#000000";
 }
 
-// 조작 힌트는 화면 하단을 가리므로, 그 부분도 금방 검사할 수 있도록 잠깐만
-// 보여주고 자동으로 사라집니다(2.5초 → 1.2초로 단축).
+// 조작 힌트와 종료(X) 버튼은 화면 일부를 가리거나(하단 힌트), 검사 중인 단색 화면
+// 위에서 얼룩처럼 보일 수 있어서(우상단 X 버튼) 평소엔 숨겨두고, 마우스를 움직이거나
+// 색상을 넘기는 등 조작이 있을 때만 잠깐 보여줍니다(2.5초 → 1.2초로 단축).
 const HINT_VISIBLE_MS = 1200;
 function showHintBriefly() {
   hint.classList.add("is-visible");
+  exitBtn.classList.add("is-visible");
   clearTimeout(hintTimeoutId);
-  hintTimeoutId = setTimeout(() => hint.classList.remove("is-visible"), HINT_VISIBLE_MS);
+  hintTimeoutId = setTimeout(() => {
+    hint.classList.remove("is-visible");
+    exitBtn.classList.remove("is-visible");
+  }, HINT_VISIBLE_MS);
 }
 
 function goToIndex(nextIndex) {
@@ -199,6 +204,11 @@ overlay.addEventListener("click", (event) => {
   if (event.target === exitBtn) return;
   advance(1);
 });
+
+// 마우스를 움직이는 동안에만 힌트·종료 버튼이 보이도록 합니다(동영상 플레이어의
+// 컨트롤 자동 숨김과 같은 방식). 클릭·화살표 조작 시에는 advance()가 이미
+// showHintBriefly()를 호출하므로, 순수 마우스 이동만 여기서 별도로 처리합니다.
+overlay.addEventListener("mousemove", showHintBriefly);
 
 document.addEventListener("keydown", (event) => {
   if (overlay.hidden) return;

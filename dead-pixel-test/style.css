@@ -393,6 +393,11 @@ main {
   opacity: 1;
 }
 
+/* 평소엔 완전히 숨겨둡니다 - 검사 중인 화면 위에 항상 떠 있으면 그 자체가 얼룩처럼
+   보여 오히려 판독을 방해하기 때문입니다. 마우스를 움직이거나(스크립트에서 mousemove
+   감지) 색상을 넘기는 등 조작이 있을 때만 잠깐 나타났다가 다시 사라집니다(하단 힌트와
+   동일한 방식·타이밍). 마우스가 없는 환경 대비, 버튼 자체에 직접 hover/focus하면
+   무조건 보이도록 폴백도 남겨둡니다. */
 .dp-exit-btn {
   position: fixed;
   top: 18px;
@@ -406,10 +411,11 @@ main {
   font-size: 1.1rem;
   line-height: 1;
   cursor: pointer;
-  opacity: 0.55;
-  transition: opacity 0.15s ease, background 0.15s ease;
+  opacity: 0;
+  transition: opacity 0.2s ease, background 0.15s ease;
 }
 
+.dp-exit-btn.is-visible,
 .dp-exit-btn:hover,
 .dp-exit-btn:focus-visible {
   opacity: 1;
