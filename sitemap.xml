@@ -811,6 +811,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/dead-pixel-test/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/en/dead-pixel-test/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/dead-pixel-test/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/ja/dead-pixel-test/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/dead-pixel-test/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/zh/dead-pixel-test/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/dead-pixel-test/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/dead-pixel-test/" />
   </url>
   <url>
     <loc>https://getniftykit.com/ko/privacy/</loc>

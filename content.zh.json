@@ -45,6 +45,8 @@
   "svgCleanerDesc": "删除SVG的XML声明·DOCTYPE·开头注释，解决上传错误",
   "usernameGeneratorTitle": "用户名生成器",
   "usernameGeneratorDesc": "随机组合两个形容词和一个名词，立即生成用户名创意",
+  "deadPixelTestTitle": "坏点测试",
+  "deadPixelTestDesc": "全屏显示纯色画面，用肉眼检查显示器是否有坏点或瑕疵",
   "footerNote": "本站所有工具均在浏览器本地运行，不会将您输入的数据发送或存储到服务器。",
   "aboutH2": "GetNiftyKit是什么？",
   "aboutP": "GetNiftyKit汇集了从国旗下载、表情符号搜索、二维码生成，到楼梯计算器、窑炉装窑数量计算器等专业工具在内的各种单一用途免费网页工具。无需注册或安装应用，打开浏览器即可立即使用，获得所需结果后随时关闭即可，力求做到\"轻松使用\"的工具。",

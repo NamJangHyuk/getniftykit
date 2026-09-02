@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dead Pixel Test - Free Monitor Screen Check | GetNiftyKit</title>
+  <meta name="description" content="Check your monitor for dead pixels, image retention, and backlight bleed with full-screen red, green, blue, white, black, and grayscale patterns. True fullscreen and continuous autoplay supported — completely free." />
+  <link rel="canonical" href="https://getniftykit.com/en/dead-pixel-test/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/dead-pixel-test/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/dead-pixel-test/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/dead-pixel-test/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/dead-pixel-test/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/dead-pixel-test/" />
+  <base href="../../dead-pixel-test/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Dead Pixel Test",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "description": "A free web tool that fills the screen with solid colors and grayscale patterns so you can check your monitor for dead pixels, image retention, and brightness unevenness.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does the flicker pattern actually fix dead pixels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are reports of rapid color cycling helping a stuck pixel return to normal, but this isn't a verified or guaranteed method. A true dead pixel that's permanently stuck off won't be fixed this way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this if my browser won't allow fullscreen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Even if the browser blocks the Fullscreen API, the test screen itself is built to fill 100% of the viewport with no scrolling or margins, so the check still works fine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool send or record anything about my screen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every color change and screen display happens entirely in your browser — nothing is ever sent to or stored on a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this on mobile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the same full-screen solid-color test works identically on smartphones and tablets."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../en/" class="back-link">← All Tools</a>
+  </div>
+
+  <header class="page-header">
+    <h1>Dead Pixel Test</h1>
+    <p class="subtitle">Fill your screen with solid colors to check your monitor for dead pixels and blemishes</p>
+    <p class="tagline-extra">Supports continuous autoplay and true fullscreen, so you can quickly inspect a new or used monitor.</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="dp-panel" aria-label="Choose a test color">
+      <div class="dp-color-grid">
+        <button type="button" class="dp-color-btn dp-color-black" data-mode="black">Black</button>
+        <button type="button" class="dp-color-btn dp-color-white" data-mode="white">White</button>
+        <button type="button" class="dp-color-btn dp-color-red" data-mode="red">Red</button>
+        <button type="button" class="dp-color-btn dp-color-green" data-mode="green">Green</button>
+        <button type="button" class="dp-color-btn dp-color-blue" data-mode="blue">Blue</button>
+        <button type="button" class="dp-color-btn dp-color-gray" data-mode="gray-ltr">Grayscale</button>
+        <button type="button" class="dp-color-btn dp-color-flicker" data-mode="flicker">Flicker (fix attempt)</button>
+      </div>
+
+      <div class="dp-start-row">
+        <button type="button" id="dp-start-btn" class="dp-start-btn">Start Fullscreen</button>
+        <div id="dp-autoplay-btn" class="dp-autoplay-btn" role="button" tabindex="0" aria-label="Start continuous autoplay at the entered interval, in seconds">
+          <span class="dp-autoplay-btn-label">Start Autoplay</span>
+          <span class="dp-autoplay-btn-interval">
+            <input type="number" id="dp-interval" min="1" max="30" value="3" aria-label="Interval (seconds)" />sec
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>What is a Dead Pixel Test?</h2>
+      <p>
+        A dead pixel test fills your monitor, laptop, or TV screen with solid colors — red, green, blue, white, and black — so you can scan the whole display for dead pixels (stuck permanently on or off), image retention, and backlight bleed. Bright or dark spots stand out clearly against solid white or black, and single-color screens make it easy to catch a subpixel failure that only shows up in one color. You can run a full check in just a few minutes when unboxing a new monitor or before buying a used one.
+      </p>
+
+      <h2>How to Use</h2>
+      <p>
+        Click any color button to jump straight into fullscreen mode. Click the screen or press → for the next color, ← for the previous one, and Spacebar to start or stop autoplay. To cycle through every screen hands-free, click &quot;Start Autoplay&quot; — type your preferred interval (in seconds, 3 by default) into the number box built into the button, and autoplay starts immediately at that pace. Press ESC or the exit button in the top-right corner when you're done.
+      </p>
+
+      <h2>When This Comes in Handy</h2>
+      <ul>
+        <li>Checking a brand-new monitor for dead pixels while it's still within the return window</li>
+        <li>Quickly inspecting a used monitor on the spot before buying it</li>
+        <li>Confirming whether a blemish or afterimage you noticed is an actual panel defect</li>
+        <li>Checking the display quality of other screens, like laptops or TVs</li>
+      </ul>
+
+      <h2>Why do dead pixels look different depending on the color?</h2>
+      <p>Every pixel on an LCD screen is made up of three subpixels — red, green, and blue — so a single failed subpixel often means that pixel can't reproduce just one specific color. For example, if only the red subpixel fails, that pixel shows up as a faint cyan tint on a white screen, stays invisible on solid green or blue screens, and appears as a dark dot only on a solid red screen. That's why checking just one color isn't enough — cycling through all three primary colors plus white and black is the only way to catch every dead pixel.</p>
+
+      <h2>Good to know before you check</h2>
+      <ul>
+        <li>Dead pixels (always off) and stuck pixels (always on) have different causes — stuck pixels are occasionally fixed by a flicker pattern, but true dead pixels are almost always a physical defect that software can't repair</li>
+        <li>Dimming the screen makes bright spots (stuck pixels) easier to spot, while a brighter screen makes dark spots (dead pixels) stand out more</li>
+        <li>Monitor makers and retailers each have their own &quot;acceptable&quot; threshold for dead pixel count, so it's worth checking the store's policy before you decide to return or exchange</li>
+        <li>Patchy, uneven brightness isn't necessarily a dead pixel — it could be backlight bleed (uniformity issues), which shows up especially clearly on the grayscale pattern</li>
+      </ul>
+
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>Does the flicker pattern actually fix dead pixels?</dt>
+          <dd>There are reports of rapid color cycling helping a stuck pixel return to normal, but this isn't a verified or guaranteed method. A true dead pixel that's permanently stuck off won't be fixed this way.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I use this if my browser won't allow fullscreen?</dt>
+          <dd>Yes. Even if the browser blocks the Fullscreen API, the test screen itself is built to fill 100% of the viewport with no scrolling or margins, so the check still works fine.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does this tool send or record anything about my screen?</dt>
+          <dd>No. Every color change and screen display happens entirely in your browser — nothing is ever sent to or stored on a server.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I use this on mobile?</dt>
+          <dd>Yes, the same full-screen solid-color test works identically on smartphones and tablets.</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      This tool handles every screen transition entirely in your browser — no data is ever sent to or stored on a server.
+    </p>
+    <p class="footer-links">
+      <a href="../en/privacy/">Privacy Policy</a>
+      <span aria-hidden="true">·</span>
+      <a href="../en/about/">About</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <!-- 검사 화면: 뷰포트 전체(스크롤·여백 없이)를 덮는 오버레이. 전체화면 API 승인 여부와
+       무관하게 이 요소 자체가 이미 화면 전체를 채우므로, 브라우저가 전체화면 전환을
+       막아도 검사에는 지장이 없습니다. -->
+  <div id="dp-overlay" class="dp-overlay" hidden>
+    <div id="dp-gray-bands" class="dp-gray-bands" hidden aria-hidden="true"></div>
+    <p id="dp-overlay-hint" class="dp-overlay-hint">Click or → : next screen · ← : previous screen · Spacebar: start/stop autoplay · ESC: exit</p>
+    <button type="button" id="dp-exit-btn" class="dp-exit-btn" aria-label="Exit test">&#10005;</button>
+  </div>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

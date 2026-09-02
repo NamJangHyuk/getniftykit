@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>不良ピクセルテスト - モニター画質・シミ無料チェック | GetNiftyKit</title>
+  <meta name="description" content="赤・緑・青・白・黒の単色画面とグレースケールパターンで、モニターの不良ピクセル・残像・バックライトムラを目で確認できます。フルスクリーン対応、自動連続再生も可能な無料ツールです。" />
+  <link rel="canonical" href="https://getniftykit.com/ja/dead-pixel-test/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/dead-pixel-test/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/dead-pixel-test/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/dead-pixel-test/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/dead-pixel-test/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/dead-pixel-test/" />
+  <base href="../../dead-pixel-test/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "不良ピクセルテスト",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (Webブラウザ)",
+  "description": "単色・グレースケール画面をフルスクリーンで表示し、モニターの不良ピクセル、残像、明るさのムラを点検できる無料ウェブツールです。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "点滅パターンを使うと不良ピクセルは本当に直りますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "素早い色の切り替えによって焼き付いたピクセル(焼き付きピクセル)が正常に戻ったという報告はありますが、効果が検証・保証された方法ではありません。完全に消灯したまま故障している本物の不良ピクセルは、この方法では直りません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "フルスクリーンが使えないブラウザでも使用できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。ブラウザがフルスクリーン切り替えをブロックしても、テスト画面自体がスクロール・余白なしで画面全体(ビューポート100%)を埋めるように作られているため、検査には問題ありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "このツールは画面の内容をサーバーに送信・記録しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。色の切り替えや画面表示はすべてブラウザ内でのみ処理され、サーバーに送信・保存される情報は一切ありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "モバイルでも使用できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、スマートフォンやタブレットの画面でも同じように単色フルスクリーンテストができます。"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../ja/" class="back-link">← ツール一覧に戻る</a>
+  </div>
+
+  <header class="page-header">
+    <h1>不良ピクセルテスト</h1>
+    <p class="subtitle">単色画面をフルスクリーンで表示して、モニターの不良ピクセル・シミを目で確認しましょう</p>
+    <p class="tagline-extra">自動連続再生と本物のフルスクリーンに対応しているので、新品購入時や中古購入前にすばやく検品できます。</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="dp-panel" aria-label="テストする色を選択">
+      <div class="dp-color-grid">
+        <button type="button" class="dp-color-btn dp-color-black" data-mode="black">黒</button>
+        <button type="button" class="dp-color-btn dp-color-white" data-mode="white">白</button>
+        <button type="button" class="dp-color-btn dp-color-red" data-mode="red">赤</button>
+        <button type="button" class="dp-color-btn dp-color-green" data-mode="green">緑</button>
+        <button type="button" class="dp-color-btn dp-color-blue" data-mode="blue">青</button>
+        <button type="button" class="dp-color-btn dp-color-gray" data-mode="gray-ltr">グレースケール</button>
+        <button type="button" class="dp-color-btn dp-color-flicker" data-mode="flicker">点滅（復旧試行）</button>
+      </div>
+
+      <div class="dp-start-row">
+        <button type="button" id="dp-start-btn" class="dp-start-btn">フルスクリーンで開始</button>
+        <div id="dp-autoplay-btn" class="dp-autoplay-btn" role="button" tabindex="0" aria-label="入力した間隔（秒）で自動連続再生を開始します">
+          <span class="dp-autoplay-btn-label">自動再生開始</span>
+          <span class="dp-autoplay-btn-interval">
+            <input type="number" id="dp-interval" min="1" max="30" value="3" aria-label="切り替え間隔（秒）" />秒
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>不良ピクセルテストとは？</h2>
+      <p>
+        不良ピクセルテストは、モニター・ノートパソコン・テレビの画面に赤、緑、青、白、黒のような単色をフルスクリーンで表示し、画面全体を目で確認しながら不良ピクセル(常に点灯または消灯したままのピクセル)、残像、バックライトのムラを見つけ出すツールです。特に白・黒の単色画面では明るい点や暗い点が目立ちやすく、原色(赤・緑・青)画面ではその色だけが表示されないサブピクセル不良を見つけやすくなります。新品モニターを開封したときや、中古モニターを購入する前に、その場で数分で確認できます。
+      </p>
+
+      <h2>使い方</h2>
+      <p>
+        お好みの色ボタンを押すと、すぐにフルスクリーンモードに切り替わります。画面をクリックするか→キーを押すと次の色に、←キーを押すと前の色に切り替わり、スペースキーを押すと自動連続再生が開始・停止します。手を触れずに順番に切り替えたい場合は「自動再生開始」ボタンを押してください — ボタン内の数字欄に希望の切り替え間隔(秒、初期値3秒)を入力してからボタンを押すと、その間隔ですぐに自動再生が始まります。確認が終わったらESCキーか画面右上の終了ボタンで抜け出せます。
+      </p>
+
+      <h2>こんなときに便利です</h2>
+      <ul>
+        <li>新しく購入したモニターを開封し、返品可能期間内に不良ピクセルがないか確認したいとき</li>
+        <li>中古モニターを購入する前に、販売者の前でその場ですばやく検品したいとき</li>
+        <li>画面にシミや残像のようなものが見え、実際のパネル不良かどうか確認したいとき</li>
+        <li>ノートパソコンやテレビなど、他のディスプレイ機器の画質を点検したいとき</li>
+      </ul>
+
+      <h2>不良ピクセルが色によって見え方が違うのはなぜ？</h2>
+      <p>液晶画面の1ピクセルは赤・緑・青の3つのサブピクセルで構成されているため、サブピクセルが1つだけ故障しても、そのピクセルが特定の色だけ表現できなくなる場合があります。例えば赤のサブピクセルだけが故障すると、白画面ではそのピクセルが薄い青緑色に見え、緑・青の単色画面では目立たず、赤の単色画面でだけ黒っぽく目立って見えます。そのため一色だけ確認して終わりにするのではなく、原色3色と白・黒をすべて順番に確認することで、見落としのない不良ピクセルチェックができます。</p>
+
+      <h2>検査するときに知っておくと良いこと</h2>
+      <ul>
+        <li>不良ピクセル(dead pixel、常に消灯)と焼き付きピクセル(stuck pixel、常に点灯)は原因が異なり、焼き付きピクセルは点滅パターンで直ることが稀にありますが、不良ピクセルはほとんどが物理的な欠陥のためソフトウェアでは直せません</li>
+        <li>画面を少し暗くして検査すると明るい点(焼き付きピクセル)が、明るくして検査すると暗い点(不良ピクセル)がより見つけやすくなります</li>
+        <li>モニターメーカーや販売店によって「正常」と判定する基準(許容される不良ピクセル数)が異なるため、返品・交換の前にその店舗のポリシーを事前に確認するのが安全です</li>
+        <li>まだらに明るさが違って見える場合、不良ピクセルではなくバックライトのムラ(ユニフォーミティ)の問題である可能性があります — グレースケールパターンで特によく見えます</li>
+      </ul>
+
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">よくある質問</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>点滅パターンを使うと不良ピクセルは本当に直りますか？</dt>
+          <dd>素早い色の切り替えによって焼き付いたピクセル(焼き付きピクセル)が正常に戻ったという報告はありますが、効果が検証・保証された方法ではありません。完全に消灯したまま故障している本物の不良ピクセルは、この方法では直りません。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>フルスクリーンが使えないブラウザでも使用できますか？</dt>
+          <dd>はい。ブラウザがフルスクリーン切り替えをブロックしても、テスト画面自体がスクロール・余白なしで画面全体(ビューポート100%)を埋めるように作られているため、検査には問題ありません。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>このツールは画面の内容をサーバーに送信・記録しますか？</dt>
+          <dd>いいえ。色の切り替えや画面表示はすべてブラウザ内でのみ処理され、サーバーに送信・保存される情報は一切ありません。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>モバイルでも使用できますか？</dt>
+          <dd>はい、スマートフォンやタブレットの画面でも同じように単色フルスクリーンテストができます。</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      このツールはすべての画面切り替えをブラウザ内でのみ処理し、サーバーに送信・保存されるデータはありません。
+    </p>
+    <p class="footer-links">
+      <a href="../ja/privacy/">プライバシーポリシー</a>
+      <span aria-hidden="true">·</span>
+      <a href="../ja/about/">概要</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <!-- 검사 화면: 뷰포트 전체(스크롤·여백 없이)를 덮는 오버레이. 전체화면 API 승인 여부와
+       무관하게 이 요소 자체가 이미 화면 전체를 채우므로, 브라우저가 전체화면 전환을
+       막아도 검사에는 지장이 없습니다. -->
+  <div id="dp-overlay" class="dp-overlay" hidden>
+    <div id="dp-gray-bands" class="dp-gray-bands" hidden aria-hidden="true"></div>
+    <p id="dp-overlay-hint" class="dp-overlay-hint">クリックまたは → : 次の画面 · ← : 前の画面 · スペースキー: 自動再生の開始/停止 · ESC: 終了</p>
+    <button type="button" id="dp-exit-btn" class="dp-exit-btn" aria-label="テストを終了">&#10005;</button>
+  </div>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="トップに戻る" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

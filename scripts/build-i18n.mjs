@@ -79,8 +79,6 @@ const TOOL_LANGS = {
   // 축구 전술 시뮬레이터: Flutter 웹 앱을 iframe으로 띄우는 별도 페이지.
   // 한국어 + 영어. (앱 자체는 en/es/ja/ko 지원 — /en/ 래퍼는 iframe 을 ?lang=en 로 띄운다.)
   "soccer-tactics": ["ko", "en"],
-  // PM 요청(2026-09): 한국어만 먼저 완성하고, 이후 지시가 있을 때 다른 언어로 확장합니다.
-  "dead-pixel-test": ["ko"],
 };
 
 function langsFor(tool) {
