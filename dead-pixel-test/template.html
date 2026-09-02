@@ -40,23 +40,19 @@
         <button type="button" class="dp-color-btn dp-color-red" data-mode="red">{{COLOR_RED_LABEL}}</button>
         <button type="button" class="dp-color-btn dp-color-green" data-mode="green">{{COLOR_GREEN_LABEL}}</button>
         <button type="button" class="dp-color-btn dp-color-blue" data-mode="blue">{{COLOR_BLUE_LABEL}}</button>
-        <button type="button" class="dp-color-btn dp-color-gray" data-mode="gray">{{COLOR_GRAY_LABEL}}</button>
+        <button type="button" class="dp-color-btn dp-color-gray" data-mode="gray-ltr">{{COLOR_GRAY_LABEL}}</button>
         <button type="button" class="dp-color-btn dp-color-flicker" data-mode="flicker">{{COLOR_FLICKER_LABEL}}</button>
       </div>
 
-      <div class="dp-settings" aria-label="{{SETTINGS_SECTION_ARIA}}">
-        <label class="dp-autoplay-toggle">
-          <input type="checkbox" id="dp-autoplay" />
-          {{AUTOPLAY_LABEL}}
-        </label>
-        <label class="dp-interval-field">
-          {{INTERVAL_LABEL}}
-          <input type="number" id="dp-interval" min="1" max="30" value="3" />
-          {{INTERVAL_UNIT}}
-        </label>
+      <div class="dp-start-row">
+        <button type="button" id="dp-start-btn" class="dp-start-btn">{{START_BTN_TEXT}}</button>
+        <div id="dp-autoplay-btn" class="dp-autoplay-btn" role="button" tabindex="0" aria-label="{{AUTOPLAY_BTN_ARIA}}">
+          <span class="dp-autoplay-btn-label">{{AUTOPLAY_BTN_LABEL}}</span>
+          <span class="dp-autoplay-btn-interval">
+            <input type="number" id="dp-interval" min="1" max="30" value="3" aria-label="{{INTERVAL_LABEL}}" />{{INTERVAL_UNIT}}
+          </span>
+        </div>
       </div>
-
-      <button type="button" id="dp-start-btn" class="dp-start-btn">{{START_BTN_TEXT}}</button>
     </section>
 
     <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->

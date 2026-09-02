@@ -5,7 +5,30 @@
 // 나는 경우가 많습니다. 그래서 한 색만 보여주고 끝내지 않고 SEQUENCE 순서대로
 // 전부 돌아보게 만들었습니다.
 
-const SEQUENCE = ["black", "white", "red", "green", "blue", "gray", "flicker"];
+// 그레이스케일은 좌→우 하나만으로는 특정 방향의 얼룩·밴딩을 놓칠 수 있어서
+// 4방향(가로 두 방향 + 세로 두 방향)을 모두 순서에 넣었습니다. 화살표/클릭으로
+// 넘어가는 기존 방식 그대로 4개를 차례로 훑을 수 있습니다.
+const SEQUENCE = [
+  "black",
+  "white",
+  "red",
+  "green",
+  "blue",
+  "gray-ltr",
+  "gray-rtl",
+  "gray-ttb",
+  "gray-btt",
+  "flicker",
+];
+
+// 그레이스케일 모드별 flex-direction 매핑입니다. 밴드 DOM(16개)은 하나만 만들어두고
+// 방향에 따라 이 값만 바꿔 끼워서 4방향을 재사용합니다.
+const GRAY_FLEX_DIRECTION = {
+  "gray-ltr": "row",
+  "gray-rtl": "row-reverse",
+  "gray-ttb": "column",
+  "gray-btt": "column-reverse",
+};
 
 // 단색 모드에서 실제로 배경에 칠할 색상값입니다. gray·flicker는 별도 로직으로 처리하므로
 // 여기 없습니다.
@@ -25,11 +48,11 @@ const FLICKER_INTERVAL_MS = 60;
 
 const colorButtons = document.querySelectorAll(".dp-color-btn");
 const startBtn = document.getElementById("dp-start-btn");
+const autoplayBtn = document.getElementById("dp-autoplay-btn");
 const exitBtn = document.getElementById("dp-exit-btn");
 const overlay = document.getElementById("dp-overlay");
 const grayBands = document.getElementById("dp-gray-bands");
 const hint = document.getElementById("dp-overlay-hint");
-const autoplayCheckbox = document.getElementById("dp-autoplay");
 const intervalInput = document.getElementById("dp-interval");
 
 let currentIndex = 0;
@@ -63,7 +86,8 @@ function renderMode(mode) {
   grayBands.hidden = true;
   overlay.style.background = "";
 
-  if (mode === "gray") {
+  if (mode in GRAY_FLEX_DIRECTION) {
+    grayBands.style.flexDirection = GRAY_FLEX_DIRECTION[mode];
     grayBands.hidden = false;
     return;
   }
@@ -81,11 +105,13 @@ function renderMode(mode) {
   overlay.style.background = SOLID_COLORS[mode] || "#000000";
 }
 
-// 조작 힌트는 화면을 가리지 않도록 잠깐만 보여주고 자동으로 사라집니다.
+// 조작 힌트는 화면 하단을 가리므로, 그 부분도 금방 검사할 수 있도록 잠깐만
+// 보여주고 자동으로 사라집니다(2.5초 → 1.2초로 단축).
+const HINT_VISIBLE_MS = 1200;
 function showHintBriefly() {
   hint.classList.add("is-visible");
   clearTimeout(hintTimeoutId);
-  hintTimeoutId = setTimeout(() => hint.classList.remove("is-visible"), 2500);
+  hintTimeoutId = setTimeout(() => hint.classList.remove("is-visible"), HINT_VISIBLE_MS);
 }
 
 function goToIndex(nextIndex) {
@@ -112,11 +138,12 @@ function startAutoplay() {
 function advance(step) {
   goToIndex(currentIndex + step);
   stopAutoplay();
-  autoplayCheckbox.checked = false;
   showHintBriefly();
 }
 
-function enterTestView(startMode) {
+// startAutoplay를 즉시 실행할지(autoplay 버튼으로 들어온 경우)만 다르고, 나머지
+// 진입 로직(전체화면 전환 등)은 색상 버튼·수동 시작 버튼과 동일해서 하나로 씁니다.
+function enterTestView(startMode, autoplay) {
   const startIndex = SEQUENCE.indexOf(startMode);
   currentIndex = startIndex === -1 ? 0 : startIndex;
   overlay.hidden = false;
@@ -132,7 +159,7 @@ function enterTestView(startMode) {
     requestFs.call(overlay).catch(() => {});
   }
 
-  if (autoplayCheckbox.checked) startAutoplay();
+  if (autoplay) startAutoplay();
 }
 
 function exitTestView() {
@@ -151,6 +178,22 @@ colorButtons.forEach((btn) => {
 
 startBtn.addEventListener("click", () => enterTestView(SEQUENCE[0]));
 exitBtn.addEventListener("click", exitTestView);
+
+// 자동 재생 버튼은 <button> 안에 <input type="number">를 직접 넣을 수 없어서(HTML
+// 스펙상 버튼은 인터랙티브 콘텐츠를 못 담습니다) div+role="button"으로 만들었습니다.
+// 간격 입력칸을 클릭·타이핑할 때는 버튼이 눌리면 안 되므로 클릭 대상이 입력칸이면
+// 무시합니다.
+autoplayBtn.addEventListener("click", (event) => {
+  if (event.target === intervalInput) return;
+  enterTestView(SEQUENCE[0], true);
+});
+autoplayBtn.addEventListener("keydown", (event) => {
+  if (event.target === intervalInput) return;
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    enterTestView(SEQUENCE[0], true);
+  }
+});
 
 overlay.addEventListener("click", (event) => {
   if (event.target === exitBtn) return;
@@ -173,7 +216,6 @@ document.addEventListener("keydown", (event) => {
     } else {
       startAutoplay();
     }
-    autoplayCheckbox.checked = !!autoplayTimer;
     showHintBriefly();
   }
 });

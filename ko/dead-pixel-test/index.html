@@ -92,23 +92,19 @@
         <button type="button" class="dp-color-btn dp-color-red" data-mode="red">빨강</button>
         <button type="button" class="dp-color-btn dp-color-green" data-mode="green">초록</button>
         <button type="button" class="dp-color-btn dp-color-blue" data-mode="blue">파랑</button>
-        <button type="button" class="dp-color-btn dp-color-gray" data-mode="gray">그레이스케일</button>
+        <button type="button" class="dp-color-btn dp-color-gray" data-mode="gray-ltr">그레이스케일</button>
         <button type="button" class="dp-color-btn dp-color-flicker" data-mode="flicker">깜빡임(복구)</button>
       </div>
 
-      <div class="dp-settings" aria-label="재생 설정">
-        <label class="dp-autoplay-toggle">
-          <input type="checkbox" id="dp-autoplay" />
-          자동 연속 재생
-        </label>
-        <label class="dp-interval-field">
-          전환 간격
-          <input type="number" id="dp-interval" min="1" max="30" value="3" />
-          초
-        </label>
+      <div class="dp-start-row">
+        <button type="button" id="dp-start-btn" class="dp-start-btn">전체화면으로 시작</button>
+        <div id="dp-autoplay-btn" class="dp-autoplay-btn" role="button" tabindex="0" aria-label="입력한 간격(초)으로 자동 연속 재생을 시작합니다">
+          <span class="dp-autoplay-btn-label">자동 재생 시작</span>
+          <span class="dp-autoplay-btn-interval">
+            <input type="number" id="dp-interval" min="1" max="30" value="3" aria-label="전환 간격(초)" />초
+          </span>
+        </div>
       </div>
-
-      <button type="button" id="dp-start-btn" class="dp-start-btn">전체화면으로 시작</button>
     </section>
 
     <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
@@ -121,7 +117,7 @@
 
       <h2>사용 방법</h2>
       <p>
-        원하는 색상 버튼을 누르면 전체화면 모드로 바로 전환됩니다. 화면을 클릭하거나 → 키를 누르면 다음 색상으로, ← 키를 누르면 이전 색상으로 넘어가고, 스페이스바를 누르면 설정한 간격으로 자동 연속 재생이 시작·정지됩니다. 시작 전에 &quot;자동 연속 재생&quot;을 미리 켜두고 전환 간격(초)을 정해두면, 손을 대지 않아도 검사 순서가 자동으로 넘어갑니다. 확인이 끝나면 ESC 키나 화면 우측 상단의 종료 버튼으로 빠져나올 수 있습니다.
+        원하는 색상 버튼을 누르면 전체화면 모드로 바로 전환됩니다. 화면을 클릭하거나 → 키를 누르면 다음 색상으로, ← 키를 누르면 이전 색상으로 넘어가고, 스페이스바를 누르면 자동 연속 재생이 시작·정지됩니다. 손을 대지 않고 순서대로 넘기고 싶다면 &quot;자동 재생 시작&quot; 버튼을 누르세요 — 버튼 안의 숫자칸에 원하는 전환 간격(초, 기본 3초)을 입력한 뒤 버튼을 누르면 그 간격으로 바로 자동 재생이 시작됩니다. 확인이 끝나면 ESC 키나 화면 우측 상단의 종료 버튼으로 빠져나올 수 있습니다.
       </p>
 
       <h2>이럴 때 유용해요</h2>
