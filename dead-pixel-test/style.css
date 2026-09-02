@@ -181,54 +181,56 @@ main {
 
 /* 자동 재생 버튼: 간격(초) 입력칸을 버튼 안에 그대로 넣은 형태입니다. 실제 <button>
    태그는 인터랙티브 콘텐츠(input)를 담을 수 없어서 div+role="button"으로 만들었고,
-   시각적으로는 위 시작 버튼과 짝을 이루는 보조(테두리형) 버튼 스타일을 줬습니다. */
+   위 "전체화면으로 시작" 버튼과 완전히 같은(채워진 시안색) 디자인을 그대로 씁니다 —
+   체크박스 없이 버튼 하나로 자동 재생을 시작한다는 인상을 주기 위해서입니다. */
 .dp-autoplay-btn {
   width: 100%;
-  padding: 12px 14px;
+  padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: transparent;
-  color: var(--dp-accent);
-  border: 1px solid var(--dp-accent-dark);
+  background: var(--dp-accent);
+  color: #0f172a;
+  border: none;
   border-radius: 10px;
   font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   cursor: pointer;
   transition: background 0.12s ease;
 }
 
 .dp-autoplay-btn:hover,
 .dp-autoplay-btn:focus-visible {
-  background: rgba(34, 211, 238, 0.1);
+  background: var(--dp-accent-dark);
+  color: #fff;
 }
 
 .dp-autoplay-btn-interval {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: var(--dp-text-muted);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .dp-autoplay-btn-interval input {
-  width: 44px;
+  width: 40px;
   padding: 4px 6px;
   text-align: center;
-  font-size: 0.95rem;
-  border: 1px solid var(--dp-border);
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: 1px solid rgba(15, 23, 42, 0.35);
   border-radius: 6px;
-  background: var(--dp-bg);
-  color: var(--dp-text);
+  background: rgba(15, 23, 42, 0.15);
+  color: inherit;
   font-family: inherit;
   cursor: text;
 }
 
 .dp-autoplay-btn-interval input:focus {
   outline: none;
-  border-color: var(--dp-accent);
+  border-color: rgba(15, 23, 42, 0.7);
 }
 
 .ads-container {
