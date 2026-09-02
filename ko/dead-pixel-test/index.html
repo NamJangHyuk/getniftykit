@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>불량화소 테스트 - 모니터 화질·얼룩 무료 점검 | GetNiftyKit</title>
+  <meta name="description" content="빨강·초록·파랑·흰색·검정 단색 화면과 그레이스케일 패턴으로 모니터 불량화소, 잔상, 백라이트 얼룩을 눈으로 확인하세요. 전체화면 지원, 자동 연속 재생 가능한 무료 도구입니다." />
+  <link rel="canonical" href="https://getniftykit.com/ko/dead-pixel-test/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/dead-pixel-test/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/dead-pixel-test/" />
+  <base href="../../dead-pixel-test/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "불량화소 테스트",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (웹 브라우저)",
+  "description": "단색·그레이스케일 화면을 전체화면으로 띄워 모니터의 불량화소, 잔상, 밝기 불균일을 점검할 수 있는 무료 웹 도구입니다.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "깜빡임 패턴을 쓰면 불량화소가 정말 고쳐지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "빠른 색상 전환으로 눌어붙은 픽셀(상시켜짐화소)이 정상으로 돌아오는 경우가 보고된 적은 있지만, 효과가 검증되거나 보장된 방법은 아닙니다. 완전히 꺼진 채로 고장 난 진짜 불량화소는 이 방법으로 고쳐지지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "전체화면이 안 눌리는 브라우저에서도 쓸 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 브라우저가 전체화면 전환을 막더라도, 테스트 화면 자체가 스크롤·여백 없이 화면 전체(뷰포트 100%)를 채우도록 만들어져 있어서 검사에는 지장이 없습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "이 도구가 화면 내용을 서버로 전송하거나 기록하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 색상 전환과 화면 표시는 전부 브라우저 안에서만 처리되며, 서버로 전송되거나 저장되는 정보가 전혀 없습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "모바일에서도 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, 스마트폰이나 태블릿 화면에서도 동일하게 단색 전체화면 테스트를 할 수 있습니다."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../ko/" class="back-link">← 전체 도구</a>
+  </div>
+
+  <header class="page-header">
+    <h1>불량화소 테스트</h1>
+    <p class="subtitle">단색 화면을 전체화면으로 띄워서 모니터의 불량화소·얼룩을 눈으로 확인하세요</p>
+    <p class="tagline-extra">자동 연속 재생과 진짜 전체화면을 지원해서, 새 모니터를 살 때나 중고로 살 때 빠르게 검수할 수 있어요.</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <section class="dp-panel" aria-label="테스트 색상 선택">
+      <div class="dp-color-grid">
+        <button type="button" class="dp-color-btn dp-color-black" data-mode="black">검정</button>
+        <button type="button" class="dp-color-btn dp-color-white" data-mode="white">흰색</button>
+        <button type="button" class="dp-color-btn dp-color-red" data-mode="red">빨강</button>
+        <button type="button" class="dp-color-btn dp-color-green" data-mode="green">초록</button>
+        <button type="button" class="dp-color-btn dp-color-blue" data-mode="blue">파랑</button>
+        <button type="button" class="dp-color-btn dp-color-gray" data-mode="gray">그레이스케일</button>
+        <button type="button" class="dp-color-btn dp-color-flicker" data-mode="flicker">깜빡임(복구)</button>
+      </div>
+
+      <div class="dp-settings" aria-label="재생 설정">
+        <label class="dp-autoplay-toggle">
+          <input type="checkbox" id="dp-autoplay" />
+          자동 연속 재생
+        </label>
+        <label class="dp-interval-field">
+          전환 간격
+          <input type="number" id="dp-interval" min="1" max="30" value="3" />
+          초
+        </label>
+      </div>
+
+      <button type="button" id="dp-start-btn" class="dp-start-btn">전체화면으로 시작</button>
+    </section>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>불량화소 테스트란?</h2>
+      <p>
+        불량화소 테스트는 모니터·노트북·TV 화면에 빨강, 초록, 파랑, 흰색, 검정 같은 단색을 전체화면으로 띄워서, 화면 전체를 눈으로 훑어보며 불량화소(항상 켜져 있거나 꺼져 있는 픽셀), 잔상, 백라이트 얼룩을 찾아내는 도구입니다. 특히 흰색·검정 단색 화면에서는 밝은 점이나 어두운 점이 도드라져 보이고, 원색(빨강·초록·파랑) 화면에서는 그 색만 안 나오는 서브픽셀 불량을 찾기 쉽습니다. 새 모니터를 개봉했을 때, 혹은 중고 모니터를 구매하기 전 현장에서 몇 분 만에 확인할 수 있습니다.
+      </p>
+
+      <h2>사용 방법</h2>
+      <p>
+        원하는 색상 버튼을 누르면 전체화면 모드로 바로 전환됩니다. 화면을 클릭하거나 → 키를 누르면 다음 색상으로, ← 키를 누르면 이전 색상으로 넘어가고, 스페이스바를 누르면 설정한 간격으로 자동 연속 재생이 시작·정지됩니다. 시작 전에 &quot;자동 연속 재생&quot;을 미리 켜두고 전환 간격(초)을 정해두면, 손을 대지 않아도 검사 순서가 자동으로 넘어갑니다. 확인이 끝나면 ESC 키나 화면 우측 상단의 종료 버튼으로 빠져나올 수 있습니다.
+      </p>
+
+      <h2>이럴 때 유용해요</h2>
+      <ul>
+        <li>새로 산 모니터를 개봉하고 반품 가능 기간 안에 불량화소가 있는지 확인할 때</li>
+        <li>중고 모니터를 사기 전, 판매자 앞에서 현장에서 빠르게 검수할 때</li>
+        <li>화면에 얼룩이나 잔상이 보이는 것 같아 실제 패널 문제인지 확인하고 싶을 때</li>
+        <li>노트북·TV 등 다른 디스플레이 기기의 화질을 점검하고 싶을 때</li>
+      </ul>
+
+      <h2>불량화소, 왜 색깔별로 다르게 보일까?</h2>
+      <p>액정 화면의 픽셀 하나는 빨강·초록·파랑 서브픽셀 3개로 이루어져 있어서, 서브픽셀 하나만 고장 나도 그 픽셀이 특정 색만 표현하지 못하는 경우가 있습니다. 예를 들어 빨강 서브픽셀만 고장 나면 흰색 화면에서는 그 픽셀이 옅은 청록색으로 보이고, 초록·파랑 단색 화면에서는 티가 안 나다가 빨강 단색 화면에서만 검게 도드라져 보입니다. 그래서 한 가지 색만 띄워보고 끝내는 게 아니라, 원색 3가지와 흰색·검정을 전부 순서대로 확인해야 놓치는 불량화소 없이 점검할 수 있습니다.</p>
+
+      <h2>검사할 때 알아두면 좋은 것</h2>
+      <ul>
+        <li>불량화소(dead pixel, 항상 꺼져 있음)와 상시켜짐화소(stuck pixel, 항상 켜져 있음)는 원인이 달라서, 상시켜짐화소는 깜빡임 패턴으로 풀리는 경우가 간혹 있지만 불량화소는 대부분 물리적 결함이라 소프트웨어로 고칠 수 없어요</li>
+        <li>화면을 조금 어둡게 하고 검사하면 밝은 점(상시켜짐화소)이, 밝게 하고 검사하면 어두운 점(불량화소)이 더 잘 보여요</li>
+        <li>모니터 제조사·매장마다 '정상' 판정 기준(허용 불량화소 개수)이 다르니, 반품·교환 전에 해당 매장의 정책을 미리 확인하는 게 안전해요</li>
+        <li>얼룩덜룩하게 밝기가 다르게 보인다면 불량화소가 아니라 백라이트 불균일(유니포미티) 문제일 수 있어요 — 그레이스케일 패턴에서 특히 잘 보여요</li>
+      </ul>
+
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">자주 묻는 질문</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>깜빡임 패턴을 쓰면 불량화소가 정말 고쳐지나요?</dt>
+          <dd>빠른 색상 전환으로 눌어붙은 픽셀(상시켜짐화소)이 정상으로 돌아오는 경우가 보고된 적은 있지만, 효과가 검증되거나 보장된 방법은 아닙니다. 완전히 꺼진 채로 고장 난 진짜 불량화소는 이 방법으로 고쳐지지 않습니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>전체화면이 안 눌리는 브라우저에서도 쓸 수 있나요?</dt>
+          <dd>네. 브라우저가 전체화면 전환을 막더라도, 테스트 화면 자체가 스크롤·여백 없이 화면 전체(뷰포트 100%)를 채우도록 만들어져 있어서 검사에는 지장이 없습니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>이 도구가 화면 내용을 서버로 전송하거나 기록하나요?</dt>
+          <dd>아니요. 색상 전환과 화면 표시는 전부 브라우저 안에서만 처리되며, 서버로 전송되거나 저장되는 정보가 전혀 없습니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>모바일에서도 사용할 수 있나요?</dt>
+          <dd>네, 스마트폰이나 태블릿 화면에서도 동일하게 단색 전체화면 테스트를 할 수 있습니다.</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      이 도구는 모든 화면 전환을 브라우저에서만 처리하며, 서버로 전송하거나 저장하는 데이터가 없습니다.
+    </p>
+    <p class="footer-links">
+      <a href="../ko/privacy/">개인정보 처리방침</a>
+      <span aria-hidden="true">·</span>
+      <a href="../ko/about/">소개</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <!-- 검사 화면: 뷰포트 전체(스크롤·여백 없이)를 덮는 오버레이. 전체화면 API 승인 여부와
+       무관하게 이 요소 자체가 이미 화면 전체를 채우므로, 브라우저가 전체화면 전환을
+       막아도 검사에는 지장이 없습니다. -->
+  <div id="dp-overlay" class="dp-overlay" hidden>
+    <div id="dp-gray-bands" class="dp-gray-bands" hidden aria-hidden="true"></div>
+    <p id="dp-overlay-hint" class="dp-overlay-hint">클릭 또는 → : 다음 화면 · ← : 이전 화면 · 스페이스바: 자동 재생 시작/정지 · ESC: 종료</p>
+    <button type="button" id="dp-exit-btn" class="dp-exit-btn" aria-label="테스트 종료">&#10005;</button>
+  </div>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="맨 위로 이동" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

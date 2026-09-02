@@ -1,0 +1,414 @@
+/* 불량화소 테스트(Dead Pixel Test) 전용 스타일
+   테마: "화면 진단" 성격의 새 카테고리라 다른 다크모드 도구들과 톤은 맞추되,
+   시안(cyan) 포인트 컬러로 "모니터·디스플레이"를 연상시키게 했습니다. */
+
+:root {
+  --dp-bg: #0f172a;
+  --dp-card-bg: #1e293b;
+  --dp-border: #334155;
+  --dp-text: #e2e8f0;
+  --dp-text-muted: #94a3b8;
+  --dp-accent: #22d3ee;
+  --dp-accent-dark: #0891b2;
+  --dp-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--dp-bg);
+  color: var(--dp-text);
+  line-height: 1.6;
+}
+
+/* 검사 화면이 떠 있는 동안은 뒤쪽 페이지가 스크롤되지 않게 막습니다. */
+body.dp-locked {
+  overflow: hidden;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  background: var(--dp-bg);
+}
+
+@media (min-width: 768px) {
+  .top-bar {
+    width: fit-content;
+    height: auto;
+    padding: 12px 16px 0;
+    background: transparent;
+  }
+}
+
+.back-link {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--dp-card-bg);
+  border: 1px solid var(--dp-border);
+  border-radius: 999px;
+  color: var(--dp-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.back-link:hover {
+  color: var(--dp-accent);
+  border-color: var(--dp-accent);
+}
+
+.page-header {
+  text-align: center;
+  padding: 10px 16px 16px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  font-family: "Encode Sans Expanded", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+  color: var(--dp-accent);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--dp-text-muted);
+  font-size: 1.1rem;
+}
+
+.tagline-extra {
+  margin: 6px 0 0;
+  color: var(--dp-text-muted);
+  font-size: 0.9rem;
+}
+
+main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+.dp-panel {
+  margin-top: 24px;
+  background: var(--dp-card-bg);
+  border: 1px solid var(--dp-border);
+  border-radius: var(--dp-radius);
+  padding: 20px;
+}
+
+.dp-color-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.dp-color-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--dp-bg);
+  border: 1px solid var(--dp-border);
+  border-radius: 10px;
+  color: var(--dp-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+
+.dp-color-btn:hover {
+  border-color: var(--dp-accent);
+  transform: translateY(-1px);
+}
+
+/* 버튼 왼쪽의 작은 원(스와치)으로 실제 테스트 색을 미리 보여줍니다. 버튼 전체를
+   그 색으로 칠하지 않는 이유는, 흰색·회색 버튼이 어두운 배경 위에서 라벨 글자가
+   안 보이는 문제를 피하기 위해서입니다. */
+.dp-color-btn::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.dp-color-black::before { background: #000000; }
+.dp-color-white::before { background: #ffffff; }
+.dp-color-red::before { background: #ef4444; }
+.dp-color-green::before { background: #22c55e; }
+.dp-color-blue::before { background: #3b82f6; }
+.dp-color-gray::before { background: linear-gradient(90deg, #000000, #ffffff); }
+.dp-color-flicker::before { background: conic-gradient(#ef4444, #22c55e, #3b82f6, #ef4444); }
+
+.dp-settings {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dp-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.88rem;
+  color: var(--dp-text-muted);
+}
+
+.dp-autoplay-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.dp-autoplay-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--dp-accent);
+}
+
+.dp-interval-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dp-interval-field input {
+  width: 60px;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  border: 1px solid var(--dp-border);
+  border-radius: 6px;
+  background: var(--dp-bg);
+  color: var(--dp-text);
+  font-family: inherit;
+}
+
+.dp-interval-field input:focus {
+  outline: none;
+  border-color: var(--dp-accent);
+}
+
+.dp-start-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  background: var(--dp-accent);
+  color: #0f172a;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.dp-start-btn:hover {
+  background: var(--dp-accent-dark);
+  color: #fff;
+}
+
+.ads-container {
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dp-card-bg);
+  border: 1px solid var(--dp-border);
+  border-radius: var(--dp-radius);
+  color: var(--dp-text-muted);
+  font-size: 0.85rem;
+}
+
+.ads-rail {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  margin: 0;
+  display: none;
+  z-index: 5;
+}
+
+.ads-rail-left { left: 16px; }
+.ads-rail-right { right: 16px; }
+
+@media (min-width: 892px) {
+  .ads-rail {
+    display: flex;
+  }
+}
+
+.info-section {
+  margin-top: 24px;
+}
+
+.info-section h2 {
+  color: var(--dp-accent);
+  font-size: 1.35rem;
+  margin-top: 32px;
+}
+
+.faq-list .faq-item {
+  margin-bottom: 16px;
+}
+
+.faq-list dt {
+  font-weight: 600;
+  color: var(--dp-text);
+  margin-bottom: 4px;
+}
+
+.faq-list dd {
+  margin: 0;
+  color: var(--dp-text-muted);
+}
+
+.footer-links {
+  margin: 8px 0 0;
+}
+
+.footer-links a {
+  color: var(--dp-text-muted);
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  color: var(--dp-accent);
+}
+
+.page-footer {
+  text-align: center;
+  padding: 24px 16px 40px;
+  color: var(--dp-text-muted);
+  font-size: 0.85rem;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--dp-accent);
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(34, 211, 238, 0.35);
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.scroll-top-btn:hover {
+  background: var(--dp-accent-dark);
+  transform: translateY(-2px);
+}
+
+.scroll-top-btn[hidden] {
+  display: none;
+}
+
+/* ---- 검사 화면(오버레이) ----
+   position: fixed + inset: 0으로 스크롤·여백 없이 뷰포트 전체를 덮습니다. 전체화면 API
+   승인 여부와 무관하게 이 레이어 자체가 이미 화면 전체를 채우므로, 브라우저가
+   전체화면 전환을 거부해도 검사에는 지장이 없습니다. */
+.dp-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.dp-overlay[hidden] {
+  display: none;
+}
+
+.dp-gray-bands {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.dp-gray-bands[hidden] {
+  display: none;
+}
+
+.dp-gray-bands > div {
+  flex: 1;
+}
+
+.dp-overlay-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 10px 18px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #e2e8f0;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.dp-overlay-hint.is-visible {
+  opacity: 1;
+}
+
+.dp-exit-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 23, 42, 0.6);
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.dp-exit-btn:hover,
+.dp-exit-btn:focus-visible {
+  opacity: 1;
+  background: rgba(15, 23, 42, 0.85);
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .dp-color-grid {
+    grid-template-columns: 1fr;
+  }
+}

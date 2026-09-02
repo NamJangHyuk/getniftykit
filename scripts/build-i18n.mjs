@@ -42,6 +42,7 @@ const TOOLS = [
   "username-generator",
   "svg-cleaner",
   "soccer-tactics",
+  "dead-pixel-test",
 ];
 const INFO_PAGES = ["privacy", "about"];
 
@@ -78,6 +79,8 @@ const TOOL_LANGS = {
   // 축구 전술 시뮬레이터: Flutter 웹 앱을 iframe으로 띄우는 별도 페이지.
   // 한국어 + 영어. (앱 자체는 en/es/ja/ko 지원 — /en/ 래퍼는 iframe 을 ?lang=en 로 띄운다.)
   "soccer-tactics": ["ko", "en"],
+  // PM 요청(2026-09): 한국어만 먼저 완성하고, 이후 지시가 있을 때 다른 언어로 확장합니다.
+  "dead-pixel-test": ["ko"],
 };
 
 function langsFor(tool) {
@@ -865,6 +868,26 @@ async function buildTool(tool) {
       });
     }
 
+    if (tool === "dead-pixel-test") {
+      Object.assign(tokens, {
+        COLORS_SECTION_ARIA: escapeHtml(content.colorsSectionAria),
+        COLOR_BLACK_LABEL: escapeHtml(content.colorBlackLabel),
+        COLOR_WHITE_LABEL: escapeHtml(content.colorWhiteLabel),
+        COLOR_RED_LABEL: escapeHtml(content.colorRedLabel),
+        COLOR_GREEN_LABEL: escapeHtml(content.colorGreenLabel),
+        COLOR_BLUE_LABEL: escapeHtml(content.colorBlueLabel),
+        COLOR_GRAY_LABEL: escapeHtml(content.colorGrayLabel),
+        COLOR_FLICKER_LABEL: escapeHtml(content.colorFlickerLabel),
+        SETTINGS_SECTION_ARIA: escapeHtml(content.settingsSectionAria),
+        AUTOPLAY_LABEL: escapeHtml(content.autoplayLabel),
+        INTERVAL_LABEL: escapeHtml(content.intervalLabel),
+        INTERVAL_UNIT: escapeHtml(content.intervalUnit),
+        START_BTN_TEXT: escapeHtml(content.startBtnText),
+        EXIT_BTN_ARIA: escapeHtml(content.exitBtnAria),
+        EXIT_HINT: escapeHtml(content.exitHint),
+      });
+    }
+
     const html = render(template, tokens);
 
     const outPath = path.join(ROOT, lang, tool, "index.html");
@@ -917,15 +940,21 @@ const ALL_TOOLS = [
   { key: "vector-converter", icon: "vector-converter.svg", titleField: "vectorConverterTitle", descField: "vectorConverterDesc", category: "image" },
   { key: "svg-cleaner", icon: "svg-cleaner.svg", titleField: "svgCleanerTitle", descField: "svgCleanerDesc", category: "image" },
   { key: "username-generator", icon: "username-generator.svg", titleField: "usernameGeneratorTitle", descField: "usernameGeneratorDesc", category: "generators" },
+  { key: "dead-pixel-test", icon: "dead-pixel-test.svg", titleField: "deadPixelTestTitle", descField: "deadPixelTestDesc", category: "test" },
 ];
 
-const CATEGORY_ORDER = ["resources", "generators", "time", "focus", "image", "pro"];
+const CATEGORY_ORDER = ["resources", "generators", "test", "time", "focus", "image", "pro"];
 
+// "test"(테스트 도구)는 2026-09에 불량화소 테스트를 추가하며 신설한 카테고리입니다.
+// 아직 한국어만 지원하는 도구라(TOOL_LANGS 참고) en/ja/zh 대시보드에는 이 카테고리에
+// 속한 도구가 하나도 없어 buildToolSectionsHtml()이 자동으로 섹션 자체를 건너뜁니다
+// (langsFor 필터링 로직 참고). 그래도 라벨은 4개 언어 모두 정의해둬서, 나중에 이
+// 카테고리에 다국어 도구가 추가돼도 바로 쓸 수 있게 합니다.
 const CATEGORY_LABELS = {
-  ko: { resources: "이미지 자료", generators: "생성기", time: "시간", focus: "학습", image: "변환툴", pro: "전문가용 계산기" },
-  en: { resources: "Image Resources", generators: "Generators", time: "Time", focus: "Focus & Study", image: "Conversion Tools", pro: "Professional Calculators" },
-  ja: { resources: "画像素材", generators: "ジェネレーター", time: "時間", focus: "学習", image: "変換ツール", pro: "専門計算機" },
-  zh: { resources: "图片素材", generators: "生成器", time: "时间", focus: "学习", image: "转换工具", pro: "专业计算器" },
+  ko: { resources: "이미지 자료", generators: "생성기", test: "테스트 도구", time: "시간", focus: "학습", image: "변환툴", pro: "전문가용 계산기" },
+  en: { resources: "Image Resources", generators: "Generators", test: "Test Tools", time: "Time", focus: "Focus & Study", image: "Conversion Tools", pro: "Professional Calculators" },
+  ja: { resources: "画像素材", generators: "ジェネレーター", test: "テストツール", time: "時間", focus: "学習", image: "変換ツール", pro: "専門計算機" },
+  zh: { resources: "图片素材", generators: "生成器", test: "测试工具", time: "时间", focus: "学习", image: "转换工具", pro: "专业计算器" },
 };
 
 // 대시보드 도구 목록 아래에 들어가는 소개/FAQ 콘텐츠입니다. 도구 카드 목록은 그대로
