@@ -43,11 +43,20 @@
     // Flutter 엔진을 body 전체가 아니라 #wn-app-host 안에만 붙인다(hostElement).
     // 이게 이 페이지가 iframe 없이도 사이트 공통 상단바/푸터와 한 페이지에
     // 자연스럽게 같이 있을 수 있는 핵심이다.
+    //
+    // assetBase가 반드시 필요하다: main.dart.js·canvaskit·style.css처럼 브라우저가
+    // 직접 해석하는 태그는 <base href>를 따르지만, 성경 본문 JSON 같은 Flutter
+    // 내부 asset 로딩(rootBundle)은 <base href>를 무시하고 이 페이지 자신의 실제
+    // 주소(.../ko/worship-note/) 기준으로 fetch한다 — 정작 asset은 그보다 두 단계
+    // 위 worship-note/ 안에 있어서 404가 나고, 그 실패를 앱이 따로 처리하지 않아
+    // 로딩 스피너가 영원히 도는 것처럼 보였다(실사용 중 발견: 성경 구절 선택 시
+    // 무한 로딩). assetBase로 실제 asset 위치를 절대경로로 명시해 해결한다.
     window.addEventListener('load', function () {
       _flutter.loader.loadEntrypoint({
         onEntrypointLoaded: function (engineInitializer) {
           engineInitializer.initializeEngine({
             hostElement: document.getElementById('wn-app-host'),
+            assetBase: '/worship-note/',
           }).then(function (appRunner) {
             appRunner.runApp();
             var loader = document.getElementById('wn-embed-loader');
