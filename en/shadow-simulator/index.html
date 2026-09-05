@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Shadow Simulator - Free Sun Path &amp; Daylight Tool by Latitude/Longitude | GetNiftyKit</title>
+  <meta name="description" content="Enter a latitude, longitude, date, and time to calculate the sun's direction and see real-time 3D shadows on a simple building model. Adjust windows, doors, and eave length yourself." />
+  <link rel="canonical" href="https://getniftykit.com/en/shadow-simulator/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/shadow-simulator/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/shadow-simulator/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/shadow-simulator/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/shadow-simulator/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/shadow-simulator/" />
+  <base href="../../shadow-simulator/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "3D Shadow Simulator",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "description": "A free sunlight simulation tool that calculates the sun's direction for any latitude, longitude, date, and time, and shows real-time 3D shadows on a simple building model you build.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why can I only add a window/door on the front (south) wall?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the Northern Hemisphere, south-facing windows are the most common choice for winter daylight, so this version fixes the front wall to face south. Adding windows on other walls is planned for a future update."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this show my house's exact real shadow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool models a simple rectangular building with a flat roof and doesn't account for neighboring buildings, trees, terrain, or actual time zones — it's an approximate simulation. Use it to get a sense of the overall direction and pattern."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find my latitude and longitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click \"Use my location\" to fill them in automatically via your browser's location permission, or use \"Find by address.\" You can also type in coordinates you've found elsewhere, like a map app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I enter a nighttime hour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once the sun's altitude drops below the horizon, a \"Night\" indicator appears and the sunlight turns off. You'll see only soft ambient light instead of a shadow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work well on mobile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the layout adapts to your screen size and you can rotate or zoom with your finger. That said, 3D shadow rendering can feel a bit sluggish on lower-end devices, so a desktop is recommended for detailed review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is any of my input sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All calculations, including location, date, and time, happen entirely in your browser and are never sent or stored anywhere — except the address you type into \"Find by address,\" which is sent to OpenStreetMap to convert it into coordinates."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../en/" class="back-link">← All Tools</a>
+  </div>
+
+  <header class="page-header">
+    <h1>3D Shadow Simulator</h1>
+    <p class="subtitle">Enter a latitude, longitude, date, and time to see indoor sunlight and shadows in 3D instantly</p>
+    <p class="tagline-extra">Cut a window or door into the front (south) wall and adjust the eave length to check how much sun gets in through the seasons and times of day.</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <div class="ss-layout">
+      <div class="ss-controls">
+        <section class="ss-card" aria-label="Building size">
+          <h2 class="ss-card-heading">Building size</h2>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-width">Width (E-W)</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-width" min="1" max="30" step="0.1" value="6" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-depth">Depth (N-S)</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-depth" min="1" max="30" step="0.1" value="5" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-height">Wall height</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-height" min="1.5" max="10" step="0.1" value="2.8" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="Front wall window/door">
+          <h2 class="ss-card-heading">Front (south) wall window/door</h2>
+          <p class="ss-hint">This tool assumes the front wall always faces south. Choosing a different wall direction is planned for a future update.</p>
+          <div class="ss-radio-group" role="radiogroup">
+            <label class="ss-radio">
+              <input type="radio" name="ss-opening-type" id="ss-opening-window" value="window" checked />
+              Window
+            </label>
+            <label class="ss-radio">
+              <input type="radio" name="ss-opening-type" id="ss-opening-door" value="door" />
+              Door
+            </label>
+          </div>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-opening-width">Width</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-width" min="0.3" max="10" step="0.1" value="1.5" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-opening-height">Height</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-height" min="0.3" max="8" step="0.1" value="1.2" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field" id="ss-opening-sill-field">
+              <label for="ss-opening-sill">Sill height</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-sill" min="0" max="5" step="0.1" value="0.9" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="Roof">
+          <h2 class="ss-card-heading">Roof (flat)</h2>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-eave">Eave length</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-eave" min="0" max="3" step="0.05" value="0.4" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="Location and time">
+          <h2 class="ss-card-heading">Location and time</h2>
+          <div class="ss-field-row">
+            <div class="ss-field" style="flex: 2;">
+              <label for="ss-address">Find by address</label>
+              <input type="text" id="ss-address" placeholder="e.g. 110 Sejong-daero, Jung-gu, Seoul" />
+            </div>
+            <div class="ss-field ss-field-btn">
+              <label>&nbsp;</label>
+              <button type="button" id="ss-address-search" class="ss-btn">Search</button>
+            </div>
+          </div>
+          <p class="ss-error" id="ss-address-error" hidden>Couldn't find that address. Try a simpler version (e.g. just the city or district).</p>
+          <p class="ss-hint">Address search sends the address you type to OpenStreetMap (Nominatim) to convert it into coordinates. Entering latitude/longitude directly or using &quot;Use my location&quot; doesn't send anything.</p>
+
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-lat">Latitude</label>
+              <input type="number" id="ss-lat" min="-90" max="90" step="0.0001" value="37.5665" />
+            </div>
+            <div class="ss-field">
+              <label for="ss-lon">Longitude</label>
+              <input type="number" id="ss-lon" min="-180" max="180" step="0.0001" value="126.9780" />
+            </div>
+            <div class="ss-field ss-field-btn">
+              <label>&nbsp;</label>
+              <button type="button" id="ss-use-location" class="ss-btn">Use my location</button>
+            </div>
+          </div>
+          <p class="ss-error" id="ss-geolocation-error" hidden>Couldn't get your location. Check your browser permission, or enter latitude/longitude directly.</p>
+
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-date">Date</label>
+              <input type="date" id="ss-date" />
+            </div>
+            <div class="ss-field">
+              <label for="ss-time">Time</label>
+              <input type="time" id="ss-time" step="60" />
+            </div>
+          </div>
+
+          <div class="ss-preset-row">
+            <button type="button" class="ss-preset-btn" id="ss-preset-now">Now</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-equinox">Equinox</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-summer">Summer solstice</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-winter">Winter solstice</button>
+          </div>
+
+          <div class="ss-field ss-time-slider-field">
+            <label for="ss-time-slider">Adjust time (drag)</label>
+            <input type="range" id="ss-time-slider" min="0" max="1439" step="5" value="720" />
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="View options">
+          <h2 class="ss-card-heading">View options</h2>
+          <label class="ss-checkbox">
+            <input type="checkbox" id="ss-hide-roof" />
+            Hide roof (see inside)
+          </label>
+          <label class="ss-checkbox">
+            <input type="checkbox" id="ss-hide-front-wall" />
+            Hide front wall (see inside)
+          </label>
+        </section>
+      </div>
+
+      <div class="ss-viewport">
+        <div class="ss-canvas-wrap">
+          <div
+            id="ss-canvas-container"
+            class="ss-canvas-container"
+            aria-label="3D building and shadow view"
+            data-compass-n="N"
+            data-compass-e="E"
+            data-compass-s="S"
+            data-compass-w="W"
+          ></div>
+          <p class="ss-fallback" id="ss-fallback" hidden>Couldn't load the 3D library. Check your connection and reload the page.</p>
+        </div>
+        <div class="ss-sun-info" id="ss-sun-info">
+          <span class="ss-sun-info-item">Sun altitude <strong id="ss-info-altitude">–</strong></span>
+          <span class="ss-sun-info-item">Sun azimuth (south=0°, west=+) <strong id="ss-info-azimuth">–</strong></span>
+          <span class="ss-sun-info-item ss-sun-info-night" id="ss-night-badge" hidden>Night (sun below horizon)</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="ss-disclaimer">This tool approximates time using apparent solar time based on longitude. It does not account for official time zones (including daylight saving) or the equation of time (up to about ±15 minutes over the year), so for permits, legal disputes, or other precise decisions, please also get an expert review.</p>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>What is the 3D Shadow Simulator?</h2>
+      <p>
+        The 3D Shadow Simulator is a free web tool that calculates how high and in what direction the sun sits in the sky for any latitude, longitude, date, and time, then shows a real-time shadow on a simple 3D building model as if light were coming from that direction. You build the model by entering its width, depth, and height; the front (south) wall can have a window or door of adjustable size and position cut into it; and the roof is a flat roof with an adjustable eave length. Drag or swipe to rotate and zoom the view from any angle, and hide the roof or front wall to see exactly how far sunlight reaches across the indoor floor.
+      </p>
+
+      <h2>How to use it</h2>
+      <p>
+        Start by entering the building's width, depth, and wall height, then set the size of the window or door to cut into the front wall (and its sill height, for a window). Once you've set the eave length, enter a latitude and longitude directly or fill them in automatically with the &quot;Use my location&quot; button (or search by address). Enter a date and time — or quickly jump to a season with the equinox, summer solstice, or winter solstice buttons — and the sun's direction for that moment is calculated and reflected in the 3D shadow immediately. Check &quot;Hide roof&quot; or &quot;Hide front wall&quot; to see the indoor floor clearly and check exactly how deep the sunlight reaches.
+      </p>
+
+      <h2>When it comes in handy</h2>
+      <ul>
+        <li>Checking, before a new build or remodel, how much sun different window positions and sizes will let in across the seasons</li>
+        <li>Comparing whether a longer eave blocks the high summer sun while still letting in low winter sunlight</li>
+        <li>Getting a rough sense of how much a neighboring building or fence will block your windows, and from which direction</li>
+        <li>Visually showing a client how daylight changes through the day when reviewing an architecture or interior design plan</li>
+      </ul>
+
+      <h2>Why &quot;approximate&quot; time instead of &quot;exact&quot; time?</h2>
+      <p>Official time zones follow an administratively chosen reference longitude for each country, which often doesn't exactly match your actual longitude. South Korea, for example, sits around 127°E but uses a standard time zone based on 135°E, so true solar noon (when the sun is due south) actually arrives about 30 minutes later than clock noon. Since this tool approximates apparent solar time from the longitude you enter instead of using a precise time zone database, it can differ from the actual clock time by tens of minutes.</p>
+
+      <h2>Good to know for precise sunlight studies</h2>
+      <ul>
+        <li>This tool is meant for quickly seeing the big picture — &quot;around this time, sunlight comes from this direction.&quot; For permits or legal disputes that need minute-level precision, get a professional shadow/sun-path analysis as well</li>
+        <li>Keep in mind that real sites have many shadow factors this tool doesn't model, such as neighboring buildings, trees, and terrain</li>
+        <li>If the building's actual orientation differs (the front isn't exactly south-facing), mentally rotate the result by that difference</li>
+        <li>Factoring in the equation of time (the gap between the sun's real motion and average clock time, up to about ±15 minutes over the year) means sunlight may actually arrive slightly earlier or later than this tool shows</li>
+      </ul>
+
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>Why can I only add a window/door on the front (south) wall?</dt>
+          <dd>In the Northern Hemisphere, south-facing windows are the most common choice for winter daylight, so this version fixes the front wall to face south. Adding windows on other walls is planned for a future update.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does this show my house's exact real shadow?</dt>
+          <dd>No. This tool models a simple rectangular building with a flat roof and doesn't account for neighboring buildings, trees, terrain, or actual time zones — it's an approximate simulation. Use it to get a sense of the overall direction and pattern.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>How do I find my latitude and longitude?</dt>
+          <dd>Click &quot;Use my location&quot; to fill them in automatically via your browser's location permission, or use &quot;Find by address.&quot; You can also type in coordinates you've found elsewhere, like a map app.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>What happens if I enter a nighttime hour?</dt>
+          <dd>Once the sun's altitude drops below the horizon, a &quot;Night&quot; indicator appears and the sunlight turns off. You'll see only soft ambient light instead of a shadow.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does it work well on mobile?</dt>
+          <dd>Yes, the layout adapts to your screen size and you can rotate or zoom with your finger. That said, 3D shadow rendering can feel a bit sluggish on lower-end devices, so a desktop is recommended for detailed review.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is any of my input sent to a server?</dt>
+          <dd>No. All calculations, including location, date, and time, happen entirely in your browser and are never sent or stored anywhere — except the address you type into &quot;Find by address,&quot; which is sent to OpenStreetMap to convert it into coordinates.</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      This tool performs all calculations and 3D rendering entirely in your browser. The one exception is &quot;Find by address&quot;: using it sends the address you type to the OpenStreetMap (Nominatim) server to convert it into coordinates — entering latitude/longitude directly or using &quot;Use my location&quot; never sends anything.
+    </p>
+    <p class="footer-links">
+      <a href="../en/privacy/">Privacy Policy</a>
+      <span aria-hidden="true">·</span>
+      <a href="../en/about/">About</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

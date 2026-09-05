@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D阴影模拟器 - 按经纬度查看日照模拟免费工具 | GetNiftyKit</title>
+  <meta name="description" content="输入纬度、经度、日期和时间，即可计算太阳方向，并在简易建筑模型上实时显示3D阴影的免费日照模拟工具。窗户、门和挑檐长度均可自由调整。" />
+  <link rel="canonical" href="https://getniftykit.com/zh/shadow-simulator/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/shadow-simulator/" />
+  <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/shadow-simulator/" />
+  <link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/shadow-simulator/" />
+  <link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/shadow-simulator/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/shadow-simulator/" />
+  <base href="../../shadow-simulator/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "3D阴影模拟器",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (网页浏览器)",
+  "description": "输入纬度、经度、日期和时间，即可计算当下太阳的方向，并在您自己搭建的简易建筑模型上实时显示3D阴影的免费日照模拟工具。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "为什么只能在正面（南侧）墙上开窗户/门？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "在北半球，朝南的窗户最有利于冬季采光，是最常见的设计基准，因此本版本将正面墙固定为朝南。在其他朝向墙面开窗的功能将在后续更新中加入。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这和我家实际的阴影完全一样吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是。本工具仅表现简单的长方体建筑和平屋顶，并未纳入周边建筑、树木、地形及实际时区等因素，属于近似模拟。请将其用于把握大致方向和整体趋势。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如何获取纬度和经度？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "点击「使用我的位置」按钮，即可通过浏览器定位权限自动填入；也可以使用「按地址查找」。若想手动输入，也可以将地图应用中查到的坐标直接填入纬度、经度栏。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "输入夜间时段会怎样？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "当太阳高度角降到地平线以下时，会出现「夜间」提示，太阳光也会关闭。此时画面中不会有阴影，只保留柔和的环境光。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "在手机上也能正常使用吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以，布局会根据屏幕尺寸自动调整，也支持用手指旋转和缩放画面。不过在低性能设备上，3D阴影渲染可能会稍有卡顿，如需精细查看建议使用电脑。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "输入的信息会发送到服务器吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。包括位置、日期、时间在内的所有计算均只在您的浏览器内完成，不会发送或存储到任何地方——只有「按地址查找」中输入的地址会被发送给OpenStreetMap以转换为坐标。"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../zh/" class="back-link">← 返回全部工具</a>
+  </div>
+
+  <header class="page-header">
+    <h1>3D阴影模拟器</h1>
+    <p class="subtitle">输入纬度、经度、日期和时间，即可立即以3D方式查看建筑室内的采光与阴影</p>
+    <p class="tagline-extra">在正面（南侧）墙上开窗或开门，并调整挑檐长度，验证不同季节和时间的采光情况。</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <div class="ss-layout">
+      <div class="ss-controls">
+        <section class="ss-card" aria-label="建筑尺寸">
+          <h2 class="ss-card-heading">建筑尺寸</h2>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-width">宽度（东西向）</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-width" min="1" max="30" step="0.1" value="6" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-depth">进深（南北向）</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-depth" min="1" max="30" step="0.1" value="5" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-height">墙体高度</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-height" min="1.5" max="10" step="0.1" value="2.8" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="正面墙窗户/门">
+          <h2 class="ss-card-heading">正面（南侧）墙窗户/门</h2>
+          <p class="ss-hint">本工具假设正面墙始终朝南。选择其他墙面朝向的功能将在后续更新中加入。</p>
+          <div class="ss-radio-group" role="radiogroup">
+            <label class="ss-radio">
+              <input type="radio" name="ss-opening-type" id="ss-opening-window" value="window" checked />
+              窗户
+            </label>
+            <label class="ss-radio">
+              <input type="radio" name="ss-opening-type" id="ss-opening-door" value="door" />
+              门
+            </label>
+          </div>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-opening-width">宽度</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-width" min="0.3" max="10" step="0.1" value="1.5" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-opening-height">高度</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-height" min="0.3" max="8" step="0.1" value="1.2" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field" id="ss-opening-sill-field">
+              <label for="ss-opening-sill">下沿高度（窗台）</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-sill" min="0" max="5" step="0.1" value="0.9" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="屋顶">
+          <h2 class="ss-card-heading">屋顶（平屋顶）</h2>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-eave">挑檐长度</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-eave" min="0" max="3" step="0.05" value="0.4" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="位置与时间">
+          <h2 class="ss-card-heading">位置与时间</h2>
+          <div class="ss-field-row">
+            <div class="ss-field" style="flex: 2;">
+              <label for="ss-address">按地址查找</label>
+              <input type="text" id="ss-address" placeholder="例如：北京市东城区天安门广场" />
+            </div>
+            <div class="ss-field ss-field-btn">
+              <label>&nbsp;</label>
+              <button type="button" id="ss-address-search" class="ss-btn">搜索</button>
+            </div>
+          </div>
+          <p class="ss-error" id="ss-address-error" hidden>未能找到该地址，请尝试更简单的表述（例如仅输入市/区）重新搜索。</p>
+          <p class="ss-hint">地址搜索会将您输入的地址发送给OpenStreetMap（Nominatim）以转换为坐标。直接输入纬度·经度或使用「使用我的位置」则不会产生此传输。</p>
+
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-lat">纬度</label>
+              <input type="number" id="ss-lat" min="-90" max="90" step="0.0001" value="37.5665" />
+            </div>
+            <div class="ss-field">
+              <label for="ss-lon">经度</label>
+              <input type="number" id="ss-lon" min="-180" max="180" step="0.0001" value="126.9780" />
+            </div>
+            <div class="ss-field ss-field-btn">
+              <label>&nbsp;</label>
+              <button type="button" id="ss-use-location" class="ss-btn">使用我的位置</button>
+            </div>
+          </div>
+          <p class="ss-error" id="ss-geolocation-error" hidden>未能获取位置信息，请检查浏览器权限，或直接输入纬度·经度。</p>
+
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-date">日期</label>
+              <input type="date" id="ss-date" />
+            </div>
+            <div class="ss-field">
+              <label for="ss-time">时间</label>
+              <input type="time" id="ss-time" step="60" />
+            </div>
+          </div>
+
+          <div class="ss-preset-row">
+            <button type="button" class="ss-preset-btn" id="ss-preset-now">现在</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-equinox">春分</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-summer">夏至</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-winter">冬至</button>
+          </div>
+
+          <div class="ss-field ss-time-slider-field">
+            <label for="ss-time-slider">调整时间（拖动）</label>
+            <input type="range" id="ss-time-slider" min="0" max="1439" step="5" value="720" />
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="查看选项">
+          <h2 class="ss-card-heading">查看选项</h2>
+          <label class="ss-checkbox">
+            <input type="checkbox" id="ss-hide-roof" />
+            隐藏屋顶（查看室内）
+          </label>
+          <label class="ss-checkbox">
+            <input type="checkbox" id="ss-hide-front-wall" />
+            隐藏正面墙（查看室内）
+          </label>
+        </section>
+      </div>
+
+      <div class="ss-viewport">
+        <div class="ss-canvas-wrap">
+          <div
+            id="ss-canvas-container"
+            class="ss-canvas-container"
+            aria-label="3D建筑与阴影视图"
+            data-compass-n="北"
+            data-compass-e="东"
+            data-compass-s="南"
+            data-compass-w="西"
+          ></div>
+          <p class="ss-fallback" id="ss-fallback" hidden>未能加载3D库，请检查网络连接后刷新页面。</p>
+        </div>
+        <div class="ss-sun-info" id="ss-sun-info">
+          <span class="ss-sun-info-item">太阳高度角 <strong id="ss-info-altitude">–</strong></span>
+          <span class="ss-sun-info-item">太阳方位角（南=0°，西=+） <strong id="ss-info-azimuth">–</strong></span>
+          <span class="ss-sun-info-item ss-sun-info-night" id="ss-night-badge" hidden>夜间（太阳在地平线以下）</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="ss-disclaimer">本工具使用基于经度的视太阳时来近似计算时间，未考虑实际标准时区（含夏令时）及时差方程（全年最大约±15分钟），如需用于日照许可审批或法律纠纷等精确判断场景，请同时咨询专业人士进行复核。</p>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>什么是3D阴影模拟器？</h2>
+      <p>
+        3D阴影模拟器是一款免费网页工具：输入纬度、经度、日期和时间后，它会计算太阳此刻在天空中的方位与高度，并在一个简易的3D建筑模型上实时显示如同该方向光照射下产生的阴影。您可以通过输入宽度、进深和高度来搭建建筑；正面（南侧）墙可以按需调整位置和大小开出窗户或门；屋顶为平屋顶，挑檐长度也可调整。用鼠标或手指旋转、缩放画面即可从任意角度查看，隐藏屋顶或正面墙后还能确认阳光能照进室内地面多深的位置。
+      </p>
+
+      <h2>使用方法</h2>
+      <p>
+        首先输入建筑的宽度、进深和墙体高度，再设定要在正面墙上开出的窗户或门的尺寸（窗户还需设置窗台高度）。确定挑檐长度后，可以直接输入纬度和经度，或点击「使用我的位置」按钮通过浏览器定位权限自动填入（也可以使用地址搜索）。输入日期和时间后（或点击春分、夏至、冬至按钮快速选择季节），该时刻的太阳方向会立即计算完成并反映在3D画面的阴影中。勾选「隐藏屋顶」或「隐藏正面墙」可以清楚看到室内地面，便于确认阳光能照进多深。
+      </p>
+
+      <h2>适用场景</h2>
+      <ul>
+        <li>在新建或翻新前，想预先确认不同窗户位置和大小在各季节的采光情况时</li>
+        <li>想比较加长挑檐后，是否能挡住盛夏的强烈日照，同时仍让冬季阳光照入时</li>
+        <li>想大致了解相邻建筑或围墙会从哪个方向、多大程度上遮挡自家窗户的采光时</li>
+        <li>在审阅建筑或室内设计方案时，想向客户直观展示不同时段的采光变化时</li>
+      </ul>
+
+      <h2>为什么是「近似时间」而非「精确时间」？</h2>
+      <p>实际标准时区是各国按行政规定的基准经度设定的，往往与所在地实际经度并不完全一致。例如韩国位于约东经127°附近，但标准时区以东经135°为基准，因此实际「太阳位于正南方的时刻（真太阳时正午）」会比钟表正午晚约30分钟到来。由于本工具并未使用精确的时区数据库，而是根据输入的经度近似计算视太阳时，因此可能与实际钟表时间相差数十分钟。</p>
+
+      <h2>需要精确日照评估时，建议一并了解的事项</h2>
+      <ul>
+        <li>本工具用于快速了解「此时段阳光大致从哪个方向照入」的整体趋势。如涉及许可审批或法律纠纷等需要分钟级精度的场景，请同时委托专业人士进行精密日照分析</li>
+        <li>请注意，实际场地中周边建筑、树木、地形等本工具未纳入计算的遮挡因素还有很多</li>
+        <li>如果建筑的实际朝向与假设不同（正面并非精确朝南），需要在理解结果时按角度差自行换算方向</li>
+        <li>若再考虑时差方程（太阳实际运行与平均钟表时间之间的差异，全年最大约±15分钟），实际日照时刻可能会比本工具显示的略早或略晚</li>
+      </ul>
+
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">常见问题</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>为什么只能在正面（南侧）墙上开窗户/门？</dt>
+          <dd>在北半球，朝南的窗户最有利于冬季采光，是最常见的设计基准，因此本版本将正面墙固定为朝南。在其他朝向墙面开窗的功能将在后续更新中加入。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>这和我家实际的阴影完全一样吗？</dt>
+          <dd>不是。本工具仅表现简单的长方体建筑和平屋顶，并未纳入周边建筑、树木、地形及实际时区等因素，属于近似模拟。请将其用于把握大致方向和整体趋势。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>如何获取纬度和经度？</dt>
+          <dd>点击「使用我的位置」按钮，即可通过浏览器定位权限自动填入；也可以使用「按地址查找」。若想手动输入，也可以将地图应用中查到的坐标直接填入纬度、经度栏。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>输入夜间时段会怎样？</dt>
+          <dd>当太阳高度角降到地平线以下时，会出现「夜间」提示，太阳光也会关闭。此时画面中不会有阴影，只保留柔和的环境光。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>在手机上也能正常使用吗？</dt>
+          <dd>可以，布局会根据屏幕尺寸自动调整，也支持用手指旋转和缩放画面。不过在低性能设备上，3D阴影渲染可能会稍有卡顿，如需精细查看建议使用电脑。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>输入的信息会发送到服务器吗？</dt>
+          <dd>不会。包括位置、日期、时间在内的所有计算均只在您的浏览器内完成，不会发送或存储到任何地方——只有「按地址查找」中输入的地址会被发送给OpenStreetMap以转换为坐标。</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      本工具的所有计算和3D渲染均仅在浏览器内处理。唯一的例外是「按地址查找」：使用该功能会将您输入的地址发送到OpenStreetMap（Nominatim）服务器以转换为坐标——直接输入纬度·经度或使用「使用我的位置」不会产生任何数据发送。
+    </p>
+    <p class="footer-links">
+      <a href="../zh/privacy/">隐私政策</a>
+      <span aria-hidden="true">·</span>
+      <a href="../zh/about/">关于</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="回到顶部" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

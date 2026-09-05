@@ -847,6 +847,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/shadow-simulator/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/en/shadow-simulator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/shadow-simulator/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/ja/shadow-simulator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/shadow-simulator/" />
+  </url>
+  <url>
+    <loc>https://getniftykit.com/zh/shadow-simulator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://getniftykit.com/en/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getniftykit.com/ja/shadow-simulator/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/shadow-simulator/" />
   </url>
   <url>
     <loc>https://getniftykit.com/ko/privacy/</loc>

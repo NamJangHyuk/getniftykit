@@ -80,8 +80,8 @@ const TOOL_LANGS = {
   // 축구 전술 시뮬레이터: Flutter 웹 앱을 iframe으로 띄우는 별도 페이지.
   // 한국어 + 영어. (앱 자체는 en/es/ja/ko 지원 — /en/ 래퍼는 iframe 을 ?lang=en 로 띄운다.)
   "soccer-tactics": ["ko", "en"],
-  // 3D 그림자 시뮬레이터: PM 요청으로 이번엔 완성 후 번역 방식 — 한국어만 먼저 빌드.
-  "shadow-simulator": ["ko"],
+  // 3D 그림자 시뮬레이터: PM 요청으로 ko/en/ja/zh 4개 언어 번역 완료(2026-09).
+  "shadow-simulator": LANGS,
 };
 
 function langsFor(tool) {

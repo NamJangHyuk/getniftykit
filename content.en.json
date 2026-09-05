@@ -37,6 +37,8 @@
   "clayShrinkageDesc": "Enter your target finished size to get the forming size you need",
   "kilnLoadingTitle": "Kiln Loading Calculator",
   "kilnLoadingDesc": "Enter your kiln, shelf, and piece sizes to see how many pieces fit in one firing",
+  "shadowSimulatorTitle": "3D Shadow Simulator",
+  "shadowSimulatorDesc": "Enter a latitude, longitude, date, and time to see indoor sunlight and shadows in 3D instantly",
   "imageConverterTitle": "Image Converter",
   "imageConverterDesc": "Upload an image and click the format you want to convert it to PNG, JPG, or WebP instantly",
   "vectorConverterTitle": "Line Art Vector Converter",

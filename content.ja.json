@@ -37,6 +37,8 @@
   "clayShrinkageDesc": "完成目標サイズを入力すると、成形時に作るべきサイズを逆算します",
   "kilnLoadingTitle": "窯詰め個数計算機",
   "kilnLoadingDesc": "窯と棚板、陶器のサイズを入力すると、一度に何個焼けるか計算します",
+  "shadowSimulatorTitle": "3D影シミュレーター",
+  "shadowSimulatorDesc": "緯度・経度・日付・時刻を入力すると、室内に差し込む日差しと影を3Dですぐ確認できます",
   "imageConverterTitle": "画像変換",
   "imageConverterDesc": "画像をアップロードして希望のフォーマットボタンを押すだけでPNG・JPG・WebPに変換します",
   "vectorConverterTitle": "ラインアートベクター変換",

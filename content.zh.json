@@ -37,6 +37,8 @@
   "clayShrinkageDesc": "输入成品目标尺寸，即可反算出成型时应制作的尺寸",
   "kilnLoadingTitle": "窑炉装窑数量计算器",
   "kilnLoadingDesc": "输入窑炉、垫板与陶瓷尺寸，即可计算一次能烧制多少件",
+  "shadowSimulatorTitle": "3D阴影模拟器",
+  "shadowSimulatorDesc": "输入纬度、经度、日期和时间，即可立即以3D方式查看室内采光与阴影",
   "imageConverterTitle": "图片转换器",
   "imageConverterDesc": "上传图片后点击想要的格式按钮，即可转换为PNG·JPG·WebP",
   "vectorConverterTitle": "线稿矢量转换器",
