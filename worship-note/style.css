@@ -1,16 +1,18 @@
 /* 예배 노트 임베드 페이지 전용 스타일.
    이 도구는 Flutter 웹 앱을 iframe 없이 #wn-app-host에 직접 붙이는 구조라(template.html
-   참고), 다른 도구처럼 카드형 프레임에 담지 않고 화면 전체를 앱이 그대로 채운다
-   (사용자 요청: "아이프레임처럼 일부 공간만 활용하지 말고 전체화면으로") — 뒤로가기
-   버튼만 앱 위에 떠 있는 작은 오버레이로 남겨둔다.
+   참고), 다른 도구처럼 카드형 프레임에 담지 않고 화면 대부분을 앱이 그대로 채운다
+   (사용자 요청: "아이프레임처럼 일부 공간만 활용하지 말고 전체화면으로").
+   뒤로가기는 앱 위에 겹치는 오버레이가 아니라 얇은 상단 바(--wn-topbar-h) 안에 둔다 —
+   오버레이 방식은 노트 편집 화면의 자체 뒤로가기 버튼과 같은 좌상단에 겹쳐서 앱
+   내비게이션을 막아버리는 문제가 실사용 중 발견됐다.
    앱 자체가 무채색(검정/흰색/회색) 톤이라(claude_worship_note 프로젝트 참고) 이 페이지의
    배경도 앱과 톤을 맞춘 다크 배경으로 둔다. */
 
 :root {
   --wn-muted: rgba(255, 255, 255, 0.75);
-  --wn-card-bg: rgba(255, 255, 255, 0.12);
-  --wn-border: rgba(255, 255, 255, 0.25);
+  --wn-border: rgba(255, 255, 255, 0.16);
   --wn-app-bg: #1c1c1a; /* 앱 다크 배경(my_theme.dart의 _darkBg)과 동일 — 로딩 중 흰 화면 깜빡임 방지 */
+  --wn-topbar-h: 34px;
 }
 
 * { box-sizing: border-box; }
@@ -18,26 +20,32 @@
 html, body {
   margin: 0;
   height: 100%;
-  overflow: hidden; /* 페이지 자체는 스크롤 없이 앱이 뷰포트를 꽉 채운다 */
+  overflow: hidden; /* 페이지 자체는 스크롤 없이 앱이 나머지 공간을 꽉 채운다 */
   background: var(--wn-app-bg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
     "Malgun Gothic", sans-serif;
 }
 
-.back-link {
+.top-bar {
   position: fixed;
-  top: max(10px, env(safe-area-inset-top, 0px));
-  left: max(10px, env(safe-area-inset-left, 0px));
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 30;
+  height: calc(var(--wn-topbar-h) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--wn-border);
+  background: var(--wn-app-bg);
+}
+
+.back-link {
   display: inline-block;
-  padding: 6px 14px;
-  background: var(--wn-card-bg);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--wn-border);
-  border-radius: 999px;
+  margin-left: 10px;
   color: var(--wn-muted);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
 }
 .back-link:hover { color: #ffffff; }
 
@@ -56,9 +64,10 @@ html, body {
 
 .wn-app-frame {
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: calc(var(--wn-topbar-h) + env(safe-area-inset-top, 0px));
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--wn-app-bg);
 }
 

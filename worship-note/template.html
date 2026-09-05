@@ -16,16 +16,21 @@
   <!-- 이 파일 자체가 앱 본체(main.dart.js)를 직접 붙이는 로더 스크립트다.
        flutter.js가 만드는 _flutter.loader만 쓰고, Flutter가 기본 생성하는
        index.html(전체 <body>를 앱이 통째로 차지)은 쓰지 않는다 — 대신 이 페이지의
-       #wn-app-host에 붙여서, 뒤로가기 버튼 하나만 떠 있는 전체화면 페이지로 만든다. -->
+       #wn-app-host에 붙여서, 얇은 뒤로가기 바 아래로 앱이 화면 대부분을 차지하게 한다. -->
   <script src="flutter.js" defer></script>
 </head>
 <body>
-  <!-- 다른 도구 페이지와 달리 소개문·푸터 없이 앱이 화면 전체를 그대로 채운다.
-       뒤로가기만 앱 위에 떠 있는 작은 오버레이 버튼으로 남겨둔다.
+  <!-- 다른 도구 페이지와 달리 소개문·푸터 없이 앱이 화면 대부분을 그대로 채운다.
+       뒤로가기는 앱 위에 겹쳐 뜨는 오버레이가 아니라 얇은 상단 바 안에 둔다 —
+       앱 화면(노트 편집 등)도 자기 자신의 좌상단 뒤로가기·우상단 메뉴 버튼을 쓰는데,
+       오버레이로 띄우면 정확히 같은 자리에 겹쳐서 앱 내비게이션을 막아버렸다
+       (실사용 중 발견: 노트 편집 화면에서 뒤로가기가 안 눌리는 문제).
        h1은 화면엔 안 보이지만(.sr-only) 검색엔진·스크린리더용으로 남겨둔다. -->
   <h1 class="sr-only">{{H1}}</h1>
 
-  <a href="{{BACK_LINK_HREF}}" class="back-link">{{BACK_LINK_TEXT}}</a>
+  <div class="top-bar">
+    <a href="{{BACK_LINK_HREF}}" class="back-link">{{BACK_LINK_TEXT}}</a>
+  </div>
 
   <div class="wn-app-frame" id="wn-app-frame">
     <div class="wn-embed-loader" id="wn-embed-loader" role="status" aria-live="polite">
