@@ -7,6 +7,11 @@
 //     저역통과 필터에 통과시킨 값들을 합산(주파수가 낮을수록 에너지가 커짐, -3dB/oct)
 //   - 브라운 노이즈: 난수를 적분(누적합)해서 만드는 랜덤워크. 핑크보다도 저음이
 //     훨씬 강조됨(-6dB/oct). 값이 발산하지 않도록 매 스텝마다 감쇠를 살짝 섞습니다.
+//   - 심장박동 소리: 난수 기반 노이즈가 아니라, 안정 시 심박수(HEARTBEAT_BPM)에 맞춰
+//     "쿵(수축기)-쾅(이완기)" 두 번의 저음 펄스를 감쇠하는 사인파로 직접 합성합니다.
+//     버퍼 길이 자체를 정확히 심장박동 한 주기로 맞춰서 루프해도 박자가 끊기지 않습니다.
+
+const HEARTBEAT_BPM = 70;
 
 const displaySection = document.getElementById("wn-display");
 const statusLabelEl = document.getElementById("wn-status-label");
@@ -28,12 +33,35 @@ let autoStopEndTime = 0; // 0이면 자동 종료 없음
 let remainingTimer = null;
 
 function createNoiseBuffer(ctx, type) {
-  const bufferSeconds = 2;
-  const bufferSize = ctx.sampleRate * bufferSeconds;
+  // 심장박동은 난수 노이즈가 아니라 정해진 박자를 가진 소리라서, 버퍼 길이를 다른
+  // 노이즈처럼 임의로 2초 잡으면 한 박동 주기(약 0.86초)와 안 맞아떨어져 루프 지점에서
+  // 박자가 어긋나는 게 들립니다. 그래서 버퍼 길이 자체를 정확히 한 주기로 맞춥니다.
+  const bufferSeconds = type === "heartbeat" ? 60 / HEARTBEAT_BPM : 2;
+  const bufferSize = Math.round(ctx.sampleRate * bufferSeconds);
   const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
   const data = buffer.getChannelData(0);
 
-  if (type === "pink") {
+  if (type === "heartbeat") {
+    // "쿵"(S1, 수축기, 낮은음)과 "쾅"(S2, 이완기, 살짝 높은음) 두 펄스를 각각 감쇠하는
+    // 사인파로 만듭니다. decay 값은 pulseDuration(0.12초) 시점에 진폭이 0에 가깝게
+    // 줄어들도록 잡아서, 펄스 끝에서 딸깍거리는 끊김(클릭 노이즈)이 없게 했습니다.
+    const pulseDuration = 0.12;
+    const pulses = [
+      { start: 0, freq: 55, peak: 0.9, decay: 45 },
+      { start: bufferSeconds * 0.32, freq: 70, peak: 0.55, decay: 55 },
+    ];
+    for (let i = 0; i < bufferSize; i++) {
+      const t = i / ctx.sampleRate;
+      let sample = 0;
+      for (const p of pulses) {
+        const local = t - p.start;
+        if (local >= 0 && local < pulseDuration) {
+          sample += p.peak * Math.exp(-local * p.decay) * Math.sin(2 * Math.PI * p.freq * local);
+        }
+      }
+      data[i] = sample;
+    }
+  } else if (type === "pink") {
     let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
     for (let i = 0; i < bufferSize; i++) {
       const white = Math.random() * 2 - 1;

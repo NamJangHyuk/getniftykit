@@ -4,8 +4,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>백색소음 플레이어 - 화이트·핑크·브라운 노이즈 무료 앱 | GetNiftyKit</title>
-  <meta name="description" content="화이트, 핑크, 브라운 노이즈를 브라우저에서 직접 합성해 무한 재생하는 백색소음 플레이어입니다. 볼륨 조절과 자동 종료 타이머로 집중과 수면에 활용하세요." />
+  <title>백색소음 플레이어 - 화이트·핑크·브라운·심장박동 소리 무료 앱 | GetNiftyKit</title>
+  <meta name="description" content="화이트, 핑크, 브라운 노이즈에 심장박동 소리까지 브라우저에서 직접 합성해 무한 재생하는 백색소음 플레이어입니다. 볼륨 조절과 자동 종료 타이머로 집중과 수면, 아기 재우기에 활용하세요." />
   <link rel="canonical" href="https://getniftykit.com/ko/white-noise/" />
   <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/white-noise/" />
   <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/white-noise/" />
@@ -25,7 +25,7 @@
   "name": "백색소음 플레이어",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Any (웹 브라우저)",
-  "description": "Web Audio API로 화이트·핑크·브라운 노이즈를 실시간으로 합성해 무한 루프로 재생하는 무료 백색소음 플레이어입니다. 별도 음원 파일 없이 코드로 소리를 만들어 저작권 걱정이 없습니다.",
+  "description": "Web Audio API로 화이트·핑크·브라운 노이즈와 심장박동 소리를 실시간으로 합성해 무한 루프로 재생하는 무료 백색소음 플레이어입니다. 별도 음원 파일 없이 코드로 소리를 만들어 저작권 걱정이 없습니다.",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -85,6 +85,14 @@
         "@type": "Answer",
         "text": "아니요. Web Audio API는 매우 가벼운 연산으로 소리를 생성하기 때문에, 몇 시간을 재생해도 다른 작업에 거의 영향을 주지 않습니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "심장박동 소리도 실제 심장 소리를 녹음한 건가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 다른 노이즈와 마찬가지로 실제 심장 소리를 녹음한 것이 아니라, 안정 시 심박수(분당 70회)에 맞춰 '쿵-쾅' 두 박자의 저음 펄스를 코드로 합성한 것입니다. 아기를 재우거나 편안하게 이완하고 싶을 때 특히 잘 어울립니다."
+      }
     }
   ]
 }
@@ -132,6 +140,10 @@
             <input type="radio" name="wn-noise-type" id="wn-type-brown" value="brown" />
             브라운 노이즈
           </label>
+          <label class="wn-radio">
+            <input type="radio" name="wn-noise-type" id="wn-type-heartbeat" value="heartbeat" />
+            심장박동 소리
+          </label>
         </div>
       </fieldset>
 
@@ -162,7 +174,7 @@
     <article class="info-section">
       <h2>백색소음 플레이어란?</h2>
       <p>
-        백색소음 플레이어(White Noise)는 화이트, 핑크, 브라운 세 가지 노이즈를 브라우저의 Web Audio API로 그 자리에서 직접 합성해 들려주는 도구입니다. 실제 자연음을 녹음한 파일을 다운로드하는 방식이 아니라 코드로 소리 파형을 만들어내기 때문에 저작권 문제가 전혀 없고, 인터넷 연결이 느려도 끊김 없이 재생됩니다. 화이트 노이즈는 모든 주파수가 균일하게 섞인 소리이고, 핑크 노이즈는 저음이 더 강조되어 부드럽게 들리며, 브라운 노이즈는 저음이 한층 더 강조되어 파도 소리처럼 묵직하게 들립니다. 많은 백색소음 사이트가 짧은 오디오 파일을 반복 재생하는 방식이라 몇 분마다 이음새(루프 지점)가 들리는 경우가 있는데, 이 도구는 매 순간 새로 파형을 계산해서 재생하기 때문에 그런 이음새 자체가 존재하지 않습니다.
+        백색소음 플레이어(White Noise)는 화이트, 핑크, 브라운 노이즈에 심장박동 소리까지 더해 브라우저의 Web Audio API로 그 자리에서 직접 합성해 들려주는 도구입니다. 실제 자연음이나 심장 소리를 녹음한 파일을 다운로드하는 방식이 아니라 코드로 소리 파형을 만들어내기 때문에 저작권 문제가 전혀 없고, 인터넷 연결이 느려도 끊김 없이 재생됩니다. 화이트 노이즈는 모든 주파수가 균일하게 섞인 소리이고, 핑크 노이즈는 저음이 더 강조되어 부드럽게 들리며, 브라운 노이즈는 저음이 한층 더 강조되어 파도 소리처럼 묵직하게 들립니다. 심장박동 소리는 안정 시 심박수(분당 70회)에 맞춰 '쿵-쾅' 두 박자를 반복하는 저음 펄스를 합성한 것으로, 아기를 재우거나 편안하게 이완할 때 특히 잘 어울립니다. 많은 백색소음 사이트가 짧은 오디오 파일을 반복 재생하는 방식이라 몇 분마다 이음새(루프 지점)가 들리는 경우가 있는데, 이 도구는 매 순간 새로 파형을 계산해서 재생하기 때문에 그런 이음새 자체가 존재하지 않습니다.
       </p>
 
       <h2>사용 방법</h2>
@@ -175,7 +187,7 @@
         <li>공부나 업무 중 주변 소음을 덮어 집중력을 유지하고 싶을 때</li>
         <li>잠들기 전 편안한 배경음이 필요할 때(자동 종료 타이머로 밤새 재생 방지)</li>
         <li>사무실이나 카페의 소음을 차단하고 싶을 때</li>
-        <li>아기를 재우거나 명상할 때 일정한 배경음이 필요할 때</li>
+        <li>아기를 재우거나 명상할 때 일정한 배경음이 필요할 때(심장박동 소리가 특히 잘 어울려요)</li>
       </ul>
 
       <h2>화이트 노이즈는 왜 집중에 도움이 될까?</h2>
@@ -217,6 +229,10 @@
         <div class="faq-item">
           <dt>장시간 재생해도 컴퓨터에 부담이 되지 않나요?</dt>
           <dd>아니요. Web Audio API는 매우 가벼운 연산으로 소리를 생성하기 때문에, 몇 시간을 재생해도 다른 작업에 거의 영향을 주지 않습니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>심장박동 소리도 실제 심장 소리를 녹음한 건가요?</dt>
+          <dd>아니요. 다른 노이즈와 마찬가지로 실제 심장 소리를 녹음한 것이 아니라, 안정 시 심박수(분당 70회)에 맞춰 '쿵-쾅' 두 박자의 저음 펄스를 코드로 합성한 것입니다. 아기를 재우거나 편안하게 이완하고 싶을 때 특히 잘 어울립니다.</dd>
         </div>
       </dl>
     </article>

@@ -536,6 +536,7 @@ async function buildTool(tool) {
         WHITE_NOISE_LABEL: escapeHtml(content.whiteNoiseLabel),
         PINK_NOISE_LABEL: escapeHtml(content.pinkNoiseLabel),
         BROWN_NOISE_LABEL: escapeHtml(content.brownNoiseLabel),
+        HEARTBEAT_LABEL: escapeHtml(content.heartbeatLabel),
         VOLUME_LABEL: escapeHtml(content.volumeLabel),
         AUTO_STOP_LABEL: escapeHtml(content.autoStopLabel),
         AUTO_STOP_OFF_LABEL: escapeHtml(content.autoStopOffLabel),

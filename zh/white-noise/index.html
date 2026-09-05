@@ -4,8 +4,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>白噪音播放器 - 白噪音·粉噪音·棕噪音免费应用 | GetNiftyKit</title>
-  <meta name="description" content="在浏览器中直接合成白噪音、粉噪音、棕噪音并无限循环播放的白噪音播放器。可调节音量并设置自动停止定时器，助力专注与睡眠。" />
+  <title>白噪音播放器 - 白噪音·粉噪音·棕噪音·心跳声免费应用 | GetNiftyKit</title>
+  <meta name="description" content="在浏览器中直接合成白噪音、粉噪音、棕噪音,以及心跳声,并无限循环播放的白噪音播放器。可调节音量并设置自动停止定时器,助力专注、睡眠与哄宝宝入睡。" />
   <link rel="canonical" href="https://getniftykit.com/zh/white-noise/" />
   <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/white-noise/" />
   <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/white-noise/" />
@@ -25,7 +25,7 @@
   "name": "白噪音播放器",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Any (网页浏览器)",
-  "description": "通过Web Audio API实时合成白噪音·粉噪音·棕噪音并无限循环播放的免费白噪音播放器。完全不使用音频文件，以代码生成声音，无需担心版权问题。",
+  "description": "通过Web Audio API实时合成白噪音·粉噪音·棕噪音与心跳声并无限循环播放的免费白噪音播放器。完全不使用音频文件，以代码生成声音，无需担心版权问题。",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -85,6 +85,14 @@
         "@type": "Answer",
         "text": "不会。Web Audio API生成声音所需的计算量非常小，即使播放数小时，也几乎不会影响您正在进行的其他操作。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "心跳声是录制的真实心跳吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是。和其他噪音一样，它并非录音，而是按照静息心率（每分钟70次）合成的「咚-哒」两拍低频脉冲。尤其适合哄宝宝入睡或放松身心时使用。"
+      }
     }
   ]
 }
@@ -132,6 +140,10 @@
             <input type="radio" name="wn-noise-type" id="wn-type-brown" value="brown" />
             棕噪音
           </label>
+          <label class="wn-radio">
+            <input type="radio" name="wn-noise-type" id="wn-type-heartbeat" value="heartbeat" />
+            心跳声
+          </label>
         </div>
       </fieldset>
 
@@ -162,7 +174,7 @@
     <article class="info-section">
       <h2>什么是白噪音播放器？</h2>
       <p>
-        白噪音播放器是一款可以通过浏览器的Web Audio API，实时合成白噪音、粉噪音、棕噪音三种噪音并播放给您的工具。它不是下载录制好的自然音文件，而是通过代码即时生成声音波形，因此完全没有版权问题，即使网络较慢也能流畅播放不卡顿。白噪音是所有频率均匀混合的声音，粉噪音更强调低频、听起来更柔和，棕噪音的低频强调程度更高，听起来像波浪声一样厚重。许多白噪音网站是循环播放一小段音频文件，因此每隔几分钟就能听到循环的接缝，而本工具每一刻都是即时重新计算波形并播放，因此根本不存在这种接缝。
+        白噪音播放器是一款可以通过浏览器的Web Audio API，实时合成白噪音、粉噪音、棕噪音，以及心跳声并播放给您的工具。它不是下载录制好的自然音或心跳录音文件，而是通过代码即时生成声音波形，因此完全没有版权问题，即使网络较慢也能流畅播放不卡顿。白噪音是所有频率均匀混合的声音，粉噪音更强调低频、听起来更柔和，棕噪音的低频强调程度更高，听起来像波浪声一样厚重。心跳声则是按照静息心率(每分钟70次)合成的「咚-哒」两拍低频脉冲，尤其适合哄宝宝入睡或放松身心。许多白噪音网站是循环播放一小段音频文件，因此每隔几分钟就能听到循环的接缝，而本工具每一刻都是即时重新计算波形并播放，因此根本不存在这种接缝。
       </p>
 
       <h2>使用方法</h2>
@@ -175,7 +187,7 @@
         <li>学习或工作时想掩盖周围噪音以保持专注时</li>
         <li>入睡前需要舒缓的背景音时（可用自动停止定时器防止整夜播放）</li>
         <li>想屏蔽办公室或咖啡厅的噪音时</li>
-        <li>哄宝宝入睡或冥想时需要持续背景音时</li>
+        <li>哄宝宝入睡或冥想时需要持续背景音时（心跳声尤其合适）</li>
       </ul>
 
       <h2>白噪音为什么真的有助于专注？</h2>
@@ -217,6 +229,10 @@
         <div class="faq-item">
           <dt>长时间播放会给电脑带来负担吗？</dt>
           <dd>不会。Web Audio API生成声音所需的计算量非常小，即使播放数小时，也几乎不会影响您正在进行的其他操作。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>心跳声是录制的真实心跳吗？</dt>
+          <dd>不是。和其他噪音一样，它并非录音，而是按照静息心率（每分钟70次）合成的「咚-哒」两拍低频脉冲。尤其适合哄宝宝入睡或放松身心时使用。</dd>
         </div>
       </dl>
     </article>

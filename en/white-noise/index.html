@@ -4,8 +4,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>White Noise Player - White, Pink &amp; Brown Noise | GetNiftyKit</title>
-  <meta name="description" content="A white noise player that synthesizes white, pink, and brown noise directly in your browser and loops it endlessly. Adjust the volume and set an auto-stop timer for focus or sleep." />
+  <title>White Noise Player - White, Pink, Brown Noise &amp; Heartbeat | GetNiftyKit</title>
+  <meta name="description" content="A white noise player that synthesizes white, pink, brown noise, and a heartbeat sound directly in your browser and loops it endlessly. Adjust the volume and set an auto-stop timer for focus, sleep, or soothing a baby." />
   <link rel="canonical" href="https://getniftykit.com/en/white-noise/" />
   <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/white-noise/" />
   <link rel="alternate" hreflang="en" href="https://getniftykit.com/en/white-noise/" />
@@ -25,7 +25,7 @@
   "name": "White Noise Player",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Any (Web Browser)",
-  "description": "A free white noise player that synthesizes white, pink, and brown noise in real time using the Web Audio API and loops it endlessly. No audio files are used, so there are no copyright concerns.",
+  "description": "A free white noise player that synthesizes white, pink, and brown noise plus a heartbeat sound in real time using the Web Audio API and loops it endlessly. No audio files are used, so there are no copyright concerns.",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -85,6 +85,14 @@
         "@type": "Answer",
         "text": "No. The Web Audio API generates the sound with very lightweight computation, so even hours of playback barely affects anything else you're doing."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the heartbeat sound a real recorded heartbeat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Like the other noise types, it isn't a recording — it's a synthesized low \"lub-dub\" double pulse timed to a resting heart rate (70 beats per minute). It works especially well for soothing a baby to sleep or gentle relaxation."
+      }
     }
   ]
 }
@@ -132,6 +140,10 @@
             <input type="radio" name="wn-noise-type" id="wn-type-brown" value="brown" />
             Brown Noise
           </label>
+          <label class="wn-radio">
+            <input type="radio" name="wn-noise-type" id="wn-type-heartbeat" value="heartbeat" />
+            Heartbeat
+          </label>
         </div>
       </fieldset>
 
@@ -162,7 +174,7 @@
     <article class="info-section">
       <h2>What is a white noise player?</h2>
       <p>
-        The White Noise player generates white, pink, and brown noise directly in your browser using the Web Audio API. Instead of downloading a recorded nature-sound file, it computes the sound waveform in code on the spot, so there are no copyright concerns and playback never stutters even on a slow connection. White noise mixes every frequency evenly, pink noise emphasizes the lower frequencies for a softer sound, and brown noise emphasizes the low end even further for a deep, wave-like rumble. Many white noise sites loop a short audio file, so you can hear a seam every few minutes where it repeats — this tool computes the waveform fresh at every moment, so there's no loop seam to notice at all.
+        The White Noise player generates white, pink, and brown noise, plus a heartbeat sound, directly in your browser using the Web Audio API. Instead of downloading a recorded nature-sound or heartbeat file, it computes the sound waveform in code on the spot, so there are no copyright concerns and playback never stutters even on a slow connection. White noise mixes every frequency evenly, pink noise emphasizes the lower frequencies for a softer sound, and brown noise emphasizes the low end even further for a deep, wave-like rumble. The heartbeat sound synthesizes a low &quot;lub-dub&quot; double pulse timed to a resting heart rate (70 beats per minute), which works especially well for soothing a baby to sleep or gentle relaxation. Many white noise sites loop a short audio file, so you can hear a seam every few minutes where it repeats — this tool computes the waveform fresh at every moment, so there's no loop seam to notice at all.
       </p>
 
       <h2>How to use it</h2>
@@ -175,7 +187,7 @@
         <li>Masking background noise to stay focused while studying or working</li>
         <li>Playing a soothing background sound before falling asleep (use the auto-stop timer so it doesn't run all night)</li>
         <li>Blocking out office or café noise</li>
-        <li>Providing a steady background sound while putting a baby to sleep or meditating</li>
+        <li>Providing a steady background sound while putting a baby to sleep or meditating (the heartbeat sound works especially well here)</li>
       </ul>
 
       <h2>Why does white noise actually help you focus?</h2>
@@ -217,6 +229,10 @@
         <div class="faq-item">
           <dt>Does playing it for hours strain my computer?</dt>
           <dd>No. The Web Audio API generates the sound with very lightweight computation, so even hours of playback barely affects anything else you're doing.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is the heartbeat sound a real recorded heartbeat?</dt>
+          <dd>No. Like the other noise types, it isn't a recording — it's a synthesized low &quot;lub-dub&quot; double pulse timed to a resting heart rate (70 beats per minute). It works especially well for soothing a baby to sleep or gentle relaxation.</dd>
         </div>
       </dl>
     </article>
