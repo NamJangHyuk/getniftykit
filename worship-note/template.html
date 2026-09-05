@@ -7,6 +7,27 @@
        그대로라, position:fixed/100dvh 같은 크기 계산이 키보드를 반영 못 해 입력창이
        키보드에 가려지거나 가상 키보드 자체가 안 뜨는 문제로 이어졌다 — 실사용 중 발견). -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+  <!-- 100dvh 자체는 최초 로드 시 주소창이 아직 안 접힌 상태 기준으로 한 번만
+       계산되고 그 뒤로 안 따라오는 경우가 있어(카카오톡/크롬 인앱 브라우저에서
+       실사용 중 발견 — 첫 접속 땐 하단이 살짝 비어 보이고 새로고침하면
+       멀쩡해짐), window.innerHeight를 직접 재서 --wn-vh로 계속 갱신한다
+       (style.css가 100dvh보다 이 값을 우선한다). <head>에서 최대한 일찍,
+       레이아웃 전에 실행해야 첫 페인트부터 정확한 값이 먹는다. -->
+  <script>
+    (function () {
+      // visualViewport.height를 쓸 수 있으면 그걸 우선한다 — 주소창 접힘/펼침뿐
+      // 아니라 가상 키보드로 가려지는 만큼도 같이 반영되는 "실제 보이는 높이"라서,
+      // window.innerHeight보다 이 문제 전반(첫 로드 시 하단 여백 + 키보드 가림)에
+      // 더 정확하다.
+      function setVh() {
+        var h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+        document.documentElement.style.setProperty('--wn-vh', h + 'px');
+      }
+      setVh();
+      window.addEventListener('resize', setVh);
+      if (window.visualViewport) window.visualViewport.addEventListener('resize', setVh);
+    })();
+  </script>
   <title>{{PAGE_TITLE}}</title>
   <meta name="description" content="{{META_DESCRIPTION}}" />
   <link rel="canonical" href="{{CANONICAL_URL}}" />

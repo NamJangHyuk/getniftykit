@@ -25,9 +25,17 @@
    일반 흐름(flex) 안에 두고 100dvh(가상 키보드가 뜨면 같이 줄어드는 동적
    뷰포트 단위)로 크기를 주면, 브라우저의 리사이즈 신호가 앱에 정상적으로
    전달된다. */
+/* note: 100dvh 자체가 처음 로드될 때 주소창이 아직 안 접힌 "큰 뷰포트" 기준으로
+   한 번 계산되고 그 뒤로 안 따라와서, 첫 접속 때만 하단이 살짝 비어 보이고
+   새로고침하면 멀쩡해지는 문제가 실사용 중 발견됐다(카카오톡/크롬 인앱 브라우저).
+   dvh 자체를 못 믿고, JS로 실제 보이는 높이(visualViewport.height 우선)를 재서
+   --wn-vh 변수를 직접 갱신하는 좀 더 확실한 방식으로 대체한다(모바일 웹의 흔한
+   "100vh 버그" 표준 해결법과 같은 패턴, template.html 참고). --wn-vh가 아직
+   없을 때(JS 실행 전 첫 페인트)만 100dvh를 대체값으로 쓴다.
+*/
 html, body {
   margin: 0;
-  height: 100dvh;
+  height: var(--wn-vh, 100dvh);
   overflow: hidden; /* 페이지 자체는 스크롤 없이 앱이 나머지 공간을 꽉 채운다 */
   background: var(--wn-app-bg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
