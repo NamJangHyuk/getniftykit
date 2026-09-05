@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>예배 노트 - GetNiftyKit</title>
+  <meta name="description" content="성경 구절을 찾아 넣고 예배·묵상 내용을 기록하는 무료 노트 앱입니다. 회원가입 없이 브라우저에서 바로 쓰고 저장돼요." />
+  <link rel="canonical" href="https://getniftykit.com/ko/worship-note/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/worship-note/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/ko/worship-note/" />
+  <base href="../../worship-note/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- 이 파일 자체가 앱 본체(main.dart.js)를 직접 붙이는 로더 스크립트다.
+       flutter.js가 만드는 _flutter.loader만 쓰고, Flutter가 기본 생성하는
+       index.html(전체 <body>를 앱이 통째로 차지)은 쓰지 않는다 — 대신 이 페이지의
+       #wn-app-host에 붙여서, 뒤로가기 버튼 하나만 떠 있는 전체화면 페이지로 만든다. -->
+  <script src="flutter.js" defer></script>
+</head>
+<body>
+  <!-- 다른 도구 페이지와 달리 소개문·푸터 없이 앱이 화면 전체를 그대로 채운다.
+       뒤로가기만 앱 위에 떠 있는 작은 오버레이 버튼으로 남겨둔다.
+       h1은 화면엔 안 보이지만(.sr-only) 검색엔진·스크린리더용으로 남겨둔다. -->
+  <h1 class="sr-only">예배 노트</h1>
+
+  <a href="../ko/" class="back-link">← 전체 도구</a>
+
+  <div class="wn-app-frame" id="wn-app-frame">
+    <div class="wn-embed-loader" id="wn-embed-loader" role="status" aria-live="polite">
+      <div class="wn-spinner"></div>
+    </div>
+    <div id="wn-app-host" class="wn-app-host"></div>
+  </div>
+
+  <script>
+    // Flutter 엔진을 body 전체가 아니라 #wn-app-host 안에만 붙인다(hostElement).
+    // 이게 이 페이지가 iframe 없이도 사이트 공통 상단바/푸터와 한 페이지에
+    // 자연스럽게 같이 있을 수 있는 핵심이다.
+    window.addEventListener('load', function () {
+      _flutter.loader.loadEntrypoint({
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine({
+            hostElement: document.getElementById('wn-app-host'),
+          }).then(function (appRunner) {
+            appRunner.runApp();
+            var loader = document.getElementById('wn-embed-loader');
+            if (loader) loader.remove();
+          });
+        },
+      });
+    });
+  </script>
+
+</body>
+</html>

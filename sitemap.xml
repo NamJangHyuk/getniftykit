@@ -879,6 +879,12 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://getniftykit.com/zh/shadow-simulator/" />
   </url>
   <url>
+    <loc>https://getniftykit.com/ko/worship-note/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/worship-note/" />
+  </url>
+  <url>
     <loc>https://getniftykit.com/ko/privacy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

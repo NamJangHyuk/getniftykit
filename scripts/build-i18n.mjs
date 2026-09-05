@@ -44,6 +44,7 @@ const TOOLS = [
   "soccer-tactics",
   "dead-pixel-test",
   "shadow-simulator",
+  "worship-note",
 ];
 const INFO_PAGES = ["privacy", "about"];
 
@@ -82,6 +83,10 @@ const TOOL_LANGS = {
   "soccer-tactics": ["ko", "en"],
   // 3D 그림자 시뮬레이터: PM 요청으로 ko/en/ja/zh 4개 언어 번역 완료(2026-09).
   "shadow-simulator": LANGS,
+  // 예배 노트: 성경 본문이 한국어(개역한글) 전용이라 콘텐츠 자체가 한국어에서만
+  // 의미가 있어 한국어만 지원. soccer-tactics처럼 Flutter 웹 앱을 얹은 페이지지만,
+  // 이쪽은 iframe이 아니라 hostElement로 앱을 페이지에 직접 붙인다(template.html 참고).
+  "worship-note": ["ko"],
 };
 
 function langsFor(tool) {
@@ -195,8 +200,13 @@ function buildHreflangLinks(tool) {
   // en으로 둡니다 — 특정 언어를 "메인 사이트"처럼 보이지 않게 하기 위함입니다.
   // 실제로 존재하는 언어만 나열합니다 — 아직 ja/zh가 없는 도구인데 hreflang에서
   // 존재하지 않는 URL을 가리키면 검색엔진에 잘못된 신호를 주게 됩니다.
-  const defaultUrl = `${SITE_BASE}en/${tool}/`;
-  const lines = langsFor(tool).map(
+  // en조차 지원하지 않는 도구(worship-note처럼 콘텐츠 자체가 한국어 전용인 경우)는
+  // x-default가 없는 en 페이지를 가리키면 안 되므로, 그 도구가 실제로 지원하는
+  // 언어 중 첫 번째로 대체합니다.
+  const toolLangs = langsFor(tool);
+  const defaultLang = toolLangs.includes("en") ? "en" : toolLangs[0];
+  const defaultUrl = `${SITE_BASE}${defaultLang}/${tool}/`;
+  const lines = toolLangs.map(
     (lang) => `  <link rel="alternate" hreflang="${lang}" href="${SITE_BASE}${lang}/${tool}/" />`
   );
   lines.push(`  <link rel="alternate" hreflang="x-default" href="${defaultUrl}" />`);
@@ -987,6 +997,7 @@ const ALL_TOOLS = [
   { key: "white-noise", icon: "white-noise.svg", titleField: "whiteNoiseTitle", descField: "whiteNoiseDesc", category: "focus" },
   { key: "flashcards", icon: "flashcards.svg", titleField: "flashcardsTitle", descField: "flashcardsDesc", category: "focus" },
   { key: "soccer-tactics", icon: "soccer-tactics.svg", titleField: "soccerTacticsTitle", descField: "soccerTacticsDesc", category: "focus" },
+  { key: "worship-note", icon: "worship-note.svg", titleField: "worshipNoteTitle", descField: "worshipNoteDesc", category: "focus" },
   { key: "square-check", icon: "square-check.svg", titleField: "squareCheckTitle", descField: "squareCheckDesc", category: "pro-architect" },
   { key: "stair-calc", icon: "stair-calc.svg", titleField: "stairCalcTitle", descField: "stairCalcDesc", category: "pro-architect" },
   { key: "shelf-spacing", icon: "shelf-spacing.svg", titleField: "shelfSpacingTitle", descField: "shelfSpacingDesc", category: "pro-architect" },
