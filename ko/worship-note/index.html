@@ -3,7 +3,11 @@
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- interactive-widget=resizes-content: 모바일 브라우저가 가상 키보드가 뜰 때
+       레이아웃 뷰포트 자체를 줄여주게 한다(기본값은 시각적 뷰포트만 줄고 레이아웃은
+       그대로라, position:fixed/100dvh 같은 크기 계산이 키보드를 반영 못 해 입력창이
+       키보드에 가려지거나 가상 키보드 자체가 안 뜨는 문제로 이어졌다 — 실사용 중 발견). -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
   <title>예배 노트 - GetNiftyKit</title>
   <meta name="description" content="성경 구절을 찾아 넣고 예배·묵상 내용을 기록하는 무료 노트 앱입니다. 회원가입 없이 브라우저에서 바로 쓰고 저장돼요." />
   <link rel="canonical" href="https://getniftykit.com/ko/worship-note/" />

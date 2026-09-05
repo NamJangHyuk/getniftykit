@@ -17,21 +17,30 @@
 
 * { box-sizing: border-box; }
 
+/* note: 처음엔 top-bar/wn-app-frame을 둘 다 position:fixed로 화면에 못박아뒀는데,
+   모바일 브라우저에서 가상 키보드가 뜰 때 fixed 요소는 "레이아웃 뷰포트" 기준으로
+   고정돼서 키보드가 뜨고 줄어드는 "시각적 뷰포트"를 반영하지 못한다 — 그 결과
+   작성 중인 내용이 키보드 뒤에 가려지거나, 심하면 가상 키보드 자체가 안 뜨는
+   문제로 이어졌다(실사용 중 발견). Flutter가 원래 기대하는 방식대로 body를
+   일반 흐름(flex) 안에 두고 100dvh(가상 키보드가 뜨면 같이 줄어드는 동적
+   뷰포트 단위)로 크기를 주면, 브라우저의 리사이즈 신호가 앱에 정상적으로
+   전달된다. */
 html, body {
   margin: 0;
-  height: 100%;
+  height: 100dvh;
   overflow: hidden; /* 페이지 자체는 스크롤 없이 앱이 나머지 공간을 꽉 채운다 */
   background: var(--wn-app-bg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
     "Malgun Gothic", sans-serif;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 30;
+  flex: 0 0 auto;
   height: calc(var(--wn-topbar-h) + env(safe-area-inset-top, 0px));
   padding-top: env(safe-area-inset-top, 0px);
   display: flex;
@@ -63,11 +72,9 @@ html, body {
 }
 
 .wn-app-frame {
-  position: fixed;
-  top: calc(var(--wn-topbar-h) + env(safe-area-inset-top, 0px));
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0; /* flex 자식이 내용 크기만큼 안 늘어나고 실제로 줄어들 수 있게 */
   background: var(--wn-app-bg);
 }
 
