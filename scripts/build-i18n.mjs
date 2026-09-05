@@ -43,6 +43,7 @@ const TOOLS = [
   "svg-cleaner",
   "soccer-tactics",
   "dead-pixel-test",
+  "shadow-simulator",
 ];
 const INFO_PAGES = ["privacy", "about"];
 
@@ -79,6 +80,8 @@ const TOOL_LANGS = {
   // 축구 전술 시뮬레이터: Flutter 웹 앱을 iframe으로 띄우는 별도 페이지.
   // 한국어 + 영어. (앱 자체는 en/es/ja/ko 지원 — /en/ 래퍼는 iframe 을 ?lang=en 로 띄운다.)
   "soccer-tactics": ["ko", "en"],
+  // 3D 그림자 시뮬레이터: PM 요청으로 이번엔 완성 후 번역 방식 — 한국어만 먼저 빌드.
+  "shadow-simulator": ["ko"],
 };
 
 function langsFor(tool) {
@@ -741,6 +744,60 @@ async function buildTool(tool) {
       });
     }
 
+    if (tool === "shadow-simulator") {
+      Object.assign(tokens, {
+        SS_BUILDING_ARIA: escapeHtml(content.ssBuildingAria),
+        SS_BUILDING_HEADING: escapeHtml(content.ssBuildingHeading),
+        SS_WIDTH_LABEL: escapeHtml(content.ssWidthLabel),
+        SS_DEPTH_LABEL: escapeHtml(content.ssDepthLabel),
+        SS_HEIGHT_LABEL: escapeHtml(content.ssHeightLabel),
+        SS_UNIT_M: escapeHtml(content.ssUnitM),
+        SS_OPENING_ARIA: escapeHtml(content.ssOpeningAria),
+        SS_OPENING_HEADING: escapeHtml(content.ssOpeningHeading),
+        SS_OPENING_HINT: escapeHtml(content.ssOpeningHint),
+        SS_OPENING_TYPE_WINDOW_LABEL: escapeHtml(content.ssOpeningTypeWindowLabel),
+        SS_OPENING_TYPE_DOOR_LABEL: escapeHtml(content.ssOpeningTypeDoorLabel),
+        SS_OPENING_WIDTH_LABEL: escapeHtml(content.ssOpeningWidthLabel),
+        SS_OPENING_HEIGHT_LABEL: escapeHtml(content.ssOpeningHeightLabel),
+        SS_OPENING_SILL_LABEL: escapeHtml(content.ssOpeningSillLabel),
+        SS_ROOF_ARIA: escapeHtml(content.ssRoofAria),
+        SS_ROOF_HEADING: escapeHtml(content.ssRoofHeading),
+        SS_EAVE_LABEL: escapeHtml(content.ssEaveLabel),
+        SS_SUN_ARIA: escapeHtml(content.ssSunAria),
+        SS_SUN_HEADING: escapeHtml(content.ssSunHeading),
+        SS_ADDRESS_LABEL: escapeHtml(content.ssAddressLabel),
+        SS_ADDRESS_PLACEHOLDER: escapeHtml(content.ssAddressPlaceholder),
+        SS_ADDRESS_SEARCH_BTN: escapeHtml(content.ssAddressSearchBtn),
+        SS_ADDRESS_ERROR: escapeHtml(content.ssAddressError),
+        SS_ADDRESS_HINT: escapeHtml(content.ssAddressHint),
+        SS_LAT_LABEL: escapeHtml(content.ssLatLabel),
+        SS_LON_LABEL: escapeHtml(content.ssLonLabel),
+        SS_USE_LOCATION_BTN: escapeHtml(content.ssUseLocationBtn),
+        SS_GEOLOCATION_ERROR: escapeHtml(content.ssGeolocationError),
+        SS_DATE_LABEL: escapeHtml(content.ssDateLabel),
+        SS_TIME_LABEL: escapeHtml(content.ssTimeLabel),
+        SS_PRESET_NOW_BTN: escapeHtml(content.ssPresetNowBtn),
+        SS_PRESET_EQUINOX_BTN: escapeHtml(content.ssPresetEquinoxBtn),
+        SS_PRESET_SUMMER_BTN: escapeHtml(content.ssPresetSummerBtn),
+        SS_PRESET_WINTER_BTN: escapeHtml(content.ssPresetWinterBtn),
+        SS_TIME_SLIDER_LABEL: escapeHtml(content.ssTimeSliderLabel),
+        SS_VIEW_ARIA: escapeHtml(content.ssViewAria),
+        SS_VIEW_HEADING: escapeHtml(content.ssViewHeading),
+        SS_HIDE_ROOF_LABEL: escapeHtml(content.ssHideRoofLabel),
+        SS_HIDE_FRONT_WALL_LABEL: escapeHtml(content.ssHideFrontWallLabel),
+        SS_CANVAS_ARIA: escapeHtml(content.ssCanvasAria),
+        SS_LOAD_ERROR: escapeHtml(content.ssLoadError),
+        SS_COMPASS_N: escapeHtml(content.ssCompassN),
+        SS_COMPASS_E: escapeHtml(content.ssCompassE),
+        SS_COMPASS_S: escapeHtml(content.ssCompassS),
+        SS_COMPASS_W: escapeHtml(content.ssCompassW),
+        SS_INFO_ALTITUDE_LABEL: escapeHtml(content.ssInfoAltitudeLabel),
+        SS_INFO_AZIMUTH_LABEL: escapeHtml(content.ssInfoAzimuthLabel),
+        SS_NIGHT_TEXT: escapeHtml(content.ssNightText),
+        SS_DISCLAIMER_TEXT: escapeHtml(content.ssDisclaimerText),
+      });
+    }
+
     if (tool === "image-converter") {
       Object.assign(tokens, {
         UPLOAD_ARIA: escapeHtml(content.uploadAria),
@@ -930,11 +987,12 @@ const ALL_TOOLS = [
   { key: "white-noise", icon: "white-noise.svg", titleField: "whiteNoiseTitle", descField: "whiteNoiseDesc", category: "focus" },
   { key: "flashcards", icon: "flashcards.svg", titleField: "flashcardsTitle", descField: "flashcardsDesc", category: "focus" },
   { key: "soccer-tactics", icon: "soccer-tactics.svg", titleField: "soccerTacticsTitle", descField: "soccerTacticsDesc", category: "focus" },
-  { key: "square-check", icon: "square-check.svg", titleField: "squareCheckTitle", descField: "squareCheckDesc", category: "pro" },
-  { key: "stair-calc", icon: "stair-calc.svg", titleField: "stairCalcTitle", descField: "stairCalcDesc", category: "pro" },
-  { key: "shelf-spacing", icon: "shelf-spacing.svg", titleField: "shelfSpacingTitle", descField: "shelfSpacingDesc", category: "pro" },
-  { key: "clay-shrinkage", icon: "clay-shrinkage.svg", titleField: "clayShrinkageTitle", descField: "clayShrinkageDesc", category: "pro" },
-  { key: "kiln-loading", icon: "kiln-loading.svg", titleField: "kilnLoadingTitle", descField: "kilnLoadingDesc", category: "pro" },
+  { key: "square-check", icon: "square-check.svg", titleField: "squareCheckTitle", descField: "squareCheckDesc", category: "pro-architect" },
+  { key: "stair-calc", icon: "stair-calc.svg", titleField: "stairCalcTitle", descField: "stairCalcDesc", category: "pro-architect" },
+  { key: "shelf-spacing", icon: "shelf-spacing.svg", titleField: "shelfSpacingTitle", descField: "shelfSpacingDesc", category: "pro-architect" },
+  { key: "clay-shrinkage", icon: "clay-shrinkage.svg", titleField: "clayShrinkageTitle", descField: "clayShrinkageDesc", category: "pro-pottery" },
+  { key: "kiln-loading", icon: "kiln-loading.svg", titleField: "kilnLoadingTitle", descField: "kilnLoadingDesc", category: "pro-pottery" },
+  { key: "shadow-simulator", icon: "shadow-simulator.svg", titleField: "shadowSimulatorTitle", descField: "shadowSimulatorDesc", category: "pro-architect" },
   { key: "image-converter", icon: "image-converter.svg", titleField: "imageConverterTitle", descField: "imageConverterDesc", category: "image" },
   { key: "vector-converter", icon: "vector-converter.svg", titleField: "vectorConverterTitle", descField: "vectorConverterDesc", category: "image" },
   { key: "svg-cleaner", icon: "svg-cleaner.svg", titleField: "svgCleanerTitle", descField: "svgCleanerDesc", category: "image" },
@@ -942,18 +1000,20 @@ const ALL_TOOLS = [
   { key: "dead-pixel-test", icon: "dead-pixel-test.svg", titleField: "deadPixelTestTitle", descField: "deadPixelTestDesc", category: "test" },
 ];
 
-const CATEGORY_ORDER = ["resources", "generators", "test", "time", "focus", "image", "pro"];
+const CATEGORY_ORDER = ["resources", "generators", "test", "time", "focus", "image", "pro-architect", "pro-pottery"];
 
 // "test"(테스트 도구)는 2026-09에 불량화소 테스트를 추가하며 신설한 카테고리입니다.
 // 아직 한국어만 지원하는 도구라(TOOL_LANGS 참고) en/ja/zh 대시보드에는 이 카테고리에
 // 속한 도구가 하나도 없어 buildToolSectionsHtml()이 자동으로 섹션 자체를 건너뜁니다
 // (langsFor 필터링 로직 참고). 그래도 라벨은 4개 언어 모두 정의해둬서, 나중에 이
 // 카테고리에 다국어 도구가 추가돼도 바로 쓸 수 있게 합니다.
+// "pro"(전문가용 계산기)는 2026-09에 대상 직군이 뚜렷이 다른 두 그룹(건축가·목수 /
+// 도예가)으로 나뉘어 pro-architect / pro-pottery로 분리했습니다.
 const CATEGORY_LABELS = {
-  ko: { resources: "이미지 자료", generators: "생성기", test: "테스트 도구", time: "시간", focus: "학습", image: "변환툴", pro: "전문가용 계산기" },
-  en: { resources: "Image Resources", generators: "Generators", test: "Test Tools", time: "Time", focus: "Focus & Study", image: "Conversion Tools", pro: "Professional Calculators" },
-  ja: { resources: "画像素材", generators: "ジェネレーター", test: "テストツール", time: "時間", focus: "学習", image: "変換ツール", pro: "専門計算機" },
-  zh: { resources: "图片素材", generators: "生成器", test: "测试工具", time: "时间", focus: "学习", image: "转换工具", pro: "专业计算器" },
+  ko: { resources: "이미지 자료", generators: "생성기", test: "테스트 도구", time: "시간", focus: "학습", image: "변환툴", "pro-architect": "전문가용 계산기 – 건축·목공", "pro-pottery": "전문가용 계산기 – 도예" },
+  en: { resources: "Image Resources", generators: "Generators", test: "Test Tools", time: "Time", focus: "Focus & Study", image: "Conversion Tools", "pro-architect": "Pro Calculators – Architecture & Carpentry", "pro-pottery": "Pro Calculators – Pottery" },
+  ja: { resources: "画像素材", generators: "ジェネレーター", test: "テストツール", time: "時間", focus: "学習", image: "変換ツール", "pro-architect": "専門計算機 – 建築・木工", "pro-pottery": "専門計算機 – 陶芸" },
+  zh: { resources: "图片素材", generators: "生成器", test: "测试工具", time: "时间", focus: "学习", image: "转换工具", "pro-architect": "专业计算器 – 建筑与木工", "pro-pottery": "专业计算器 – 陶艺" },
 };
 
 // 대시보드 도구 목록 아래에 들어가는 소개/FAQ 콘텐츠입니다. 도구 카드 목록은 그대로

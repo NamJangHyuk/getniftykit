@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920319600070989" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D 그림자 시뮬레이터 - 위도 경도 일조 시뮬레이션 무료 도구 | GetNiftyKit</title>
+  <meta name="description" content="위도·경도·날짜·시각을 입력하면 태양 방향을 계산해 간단한 건물 모형에 실시간 3D 그림자를 보여주는 무료 일조 시뮬레이션 도구입니다. 창문·문·처마 길이까지 직접 조절해보세요." />
+  <link rel="canonical" href="https://getniftykit.com/ko/shadow-simulator/" />
+  <link rel="alternate" hreflang="ko" href="https://getniftykit.com/ko/shadow-simulator/" />
+  <link rel="alternate" hreflang="x-default" href="https://getniftykit.com/en/shadow-simulator/" />
+  <base href="../../shadow-simulator/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "3D 그림자 시뮬레이터",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any (웹 브라우저)",
+  "description": "위도·경도·날짜·시각을 입력하면 그 순간의 태양 방향을 계산해, 직접 만든 간이 건물 모형에 실시간 3D 그림자를 보여주는 무료 일조 시뮬레이션 도구입니다.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "왜 창문/문이 정면(남쪽) 벽에만 생기나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "북반구에서는 남향 창이 겨울 채광에 유리해 가장 흔한 기준이라, 이번 버전은 정면 벽을 남쪽으로 고정해 두었습니다. 다른 방향 벽에 창문을 내는 기능은 이후 업데이트로 추가될 예정입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "실제 우리 집 그림자와 정확히 똑같이 나오나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 이 도구는 간단한 직육면체 건물과 평지붕만 표현하고, 주변 건물이나 나무, 지형, 실제 타임존은 반영하지 않는 근사 시뮬레이션입니다. 큰 방향과 흐름을 확인하는 용도로 써주세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "위도·경도는 어떻게 알아내나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "'내 위치 사용' 버튼을 누르면 브라우저의 위치 정보 권한을 통해 자동으로 채워집니다. 직접 입력하고 싶다면 지도 앱 등에서 확인한 좌표를 위도·경도 칸에 그대로 입력하면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "밤 시간대를 입력하면 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "태양 고도가 지평선 아래로 내려가면 '밤' 표시가 뜨고 태양광이 꺼집니다. 이때는 그림자 대신 은은한 주변광만 남은 화면을 보게 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "모바일에서도 잘 동작하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, 화면 크기에 맞춰 레이아웃이 조정되고 손가락으로 화면을 돌리거나 확대할 수 있습니다. 다만 3D 그림자 렌더링은 저사양 기기에서는 다소 버벅일 수 있어, 정밀하게 살펴볼 때는 데스크톱 사용을 권장합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "입력한 정보가 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 위치·날짜·시각을 포함한 모든 계산은 사용자의 브라우저 안에서만 이뤄지며, 어디로도 전송되거나 저장되지 않습니다."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../ko/" class="back-link">← 전체 도구</a>
+  </div>
+
+  <header class="page-header">
+    <h1>3D 그림자 시뮬레이터</h1>
+    <p class="subtitle">위도·경도·날짜·시각을 입력하면 건물 실내에 드는 햇빛과 그림자를 3D로 바로 확인할 수 있어요</p>
+    <p class="tagline-extra">정면(남쪽) 벽에 창문이나 문을 뚫고 처마 길이까지 조절해가며, 계절과 시간에 따라 해가 얼마나 들어오는지 검증해보세요.</p>
+  </header>
+
+  <main>
+    <!-- <div class="ads-container ads-container-top" style="min-height: 100px;"></div> -->
+
+    <div class="ss-layout">
+      <div class="ss-controls">
+        <section class="ss-card" aria-label="건물 크기">
+          <h2 class="ss-card-heading">건물 크기</h2>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-width">가로 (동서)</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-width" min="1" max="30" step="0.1" value="6" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-depth">세로 (남북)</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-depth" min="1" max="30" step="0.1" value="5" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-height">벽 높이</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-height" min="1.5" max="10" step="0.1" value="2.8" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="정면 벽 창문/문">
+          <h2 class="ss-card-heading">정면(남쪽) 벽 창문/문</h2>
+          <p class="ss-hint">이 도구는 정면 벽이 항상 남쪽을 향한다고 가정합니다. 벽 방향 선택 기능은 추후 추가될 예정이에요.</p>
+          <div class="ss-radio-group" role="radiogroup">
+            <label class="ss-radio">
+              <input type="radio" name="ss-opening-type" id="ss-opening-window" value="window" checked />
+              창문
+            </label>
+            <label class="ss-radio">
+              <input type="radio" name="ss-opening-type" id="ss-opening-door" value="door" />
+              문
+            </label>
+          </div>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-opening-width">가로 폭</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-width" min="0.3" max="10" step="0.1" value="1.5" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field">
+              <label for="ss-opening-height">높이</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-height" min="0.3" max="8" step="0.1" value="1.2" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+            <div class="ss-field" id="ss-opening-sill-field">
+              <label for="ss-opening-sill">하단 높이(창턱)</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-opening-sill" min="0" max="5" step="0.1" value="0.9" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="지붕">
+          <h2 class="ss-card-heading">지붕 (평지붕)</h2>
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-eave">처마 길이</label>
+              <div class="ss-input-with-unit">
+                <input type="number" id="ss-eave" min="0" max="3" step="0.05" value="0.4" />
+                <span class="ss-unit">m</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="위치와 시각">
+          <h2 class="ss-card-heading">위치와 시각</h2>
+          <div class="ss-field-row">
+            <div class="ss-field" style="flex: 2;">
+              <label for="ss-address">주소로 찾기</label>
+              <input type="text" id="ss-address" placeholder="예: 서울특별시 중구 세종대로 110" />
+            </div>
+            <div class="ss-field ss-field-btn">
+              <label>&nbsp;</label>
+              <button type="button" id="ss-address-search" class="ss-btn">검색</button>
+            </div>
+          </div>
+          <p class="ss-error" id="ss-address-error" hidden>주소를 찾지 못했어요. 더 간단하게(예: 시/구/동 단위로) 다시 입력해 보세요.</p>
+          <p class="ss-hint">주소 검색은 OpenStreetMap(Nominatim)으로 좌표를 변환하기 위해 입력한 주소가 외부 서버로 전송됩니다. 위도·경도를 직접 입력하거나 '내 위치 사용'을 쓰면 이 전송이 발생하지 않습니다.</p>
+
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-lat">위도</label>
+              <input type="number" id="ss-lat" min="-90" max="90" step="0.0001" value="37.5665" />
+            </div>
+            <div class="ss-field">
+              <label for="ss-lon">경도</label>
+              <input type="number" id="ss-lon" min="-180" max="180" step="0.0001" value="126.9780" />
+            </div>
+            <div class="ss-field ss-field-btn">
+              <label>&nbsp;</label>
+              <button type="button" id="ss-use-location" class="ss-btn">내 위치 사용</button>
+            </div>
+          </div>
+          <p class="ss-error" id="ss-geolocation-error" hidden>위치 정보를 가져오지 못했어요. 브라우저 권한을 확인하거나 위도·경도를 직접 입력해 주세요.</p>
+
+          <div class="ss-field-row">
+            <div class="ss-field">
+              <label for="ss-date">날짜</label>
+              <input type="date" id="ss-date" />
+            </div>
+            <div class="ss-field">
+              <label for="ss-time">시각</label>
+              <input type="time" id="ss-time" step="60" />
+            </div>
+          </div>
+
+          <div class="ss-preset-row">
+            <button type="button" class="ss-preset-btn" id="ss-preset-now">지금</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-equinox">춘분</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-summer">하지</button>
+            <button type="button" class="ss-preset-btn" id="ss-preset-winter">동지</button>
+          </div>
+
+          <div class="ss-field ss-time-slider-field">
+            <label for="ss-time-slider">시간 조절 (드래그)</label>
+            <input type="range" id="ss-time-slider" min="0" max="1439" step="5" value="720" />
+          </div>
+        </section>
+
+        <section class="ss-card" aria-label="보기 옵션">
+          <h2 class="ss-card-heading">보기 옵션</h2>
+          <label class="ss-checkbox">
+            <input type="checkbox" id="ss-hide-roof" />
+            지붕 숨기기 (실내 보기)
+          </label>
+          <label class="ss-checkbox">
+            <input type="checkbox" id="ss-hide-front-wall" />
+            정면 벽 숨기기 (실내 보기)
+          </label>
+        </section>
+      </div>
+
+      <div class="ss-viewport">
+        <div class="ss-canvas-wrap">
+          <div
+            id="ss-canvas-container"
+            class="ss-canvas-container"
+            aria-label="3D 건물과 그림자 뷰"
+            data-compass-n="북"
+            data-compass-e="동"
+            data-compass-s="남"
+            data-compass-w="서"
+          ></div>
+          <p class="ss-fallback" id="ss-fallback" hidden>3D 라이브러리를 불러오지 못했어요. 인터넷 연결을 확인한 뒤 새로고침 해주세요.</p>
+        </div>
+        <div class="ss-sun-info" id="ss-sun-info">
+          <span class="ss-sun-info-item">태양 고도 <strong id="ss-info-altitude">–</strong></span>
+          <span class="ss-sun-info-item">태양 방위각(남=0°, 서=+) <strong id="ss-info-azimuth">–</strong></span>
+          <span class="ss-sun-info-item ss-sun-info-night" id="ss-night-badge" hidden>밤 (해가 지평선 아래)</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="ss-disclaimer">이 도구는 경도를 이용한 겉보기 태양시로 시각을 근사합니다. 실제 표준시(타임존, 서머타임)와 균시차(연중 최대 ±15분 안팎)는 반영하지 않으므로, 실제 일조 인허가나 법적 분쟁 등 정밀한 판단에는 전문가의 검토를 함께 받으세요.</p>
+
+    <!-- <div class="ads-container ads-container-after-grid" style="min-height: 250px;"></div> -->
+
+    <article class="info-section">
+      <h2>3D 그림자 시뮬레이터란?</h2>
+      <p>
+        3D 그림자 시뮬레이터는 위도·경도·날짜·시각을 입력하면 그 순간 태양이 하늘의 어느 방향에서 얼마나 높이 떠 있는지 계산하고, 그 방향에서 빛이 들어오는 것처럼 3D로 만든 간이 건물 모형에 실시간 그림자를 보여주는 무료 웹 도구입니다. 건물은 가로·세로·높이를 입력해 만들고, 정면(남쪽) 벽에는 창문이나 문 크기와 위치를 조절해 뚫을 수 있으며, 지붕은 처마 길이까지 조절 가능한 평지붕입니다. 마우스나 손가락으로 화면을 돌리고 확대해 어느 각도에서든 살펴볼 수 있고, 지붕이나 정면 벽을 숨겨 실내 바닥에 햇빛이 얼마나 깊이 들어오는지도 확인할 수 있습니다.
+      </p>
+
+      <h2>사용 방법</h2>
+      <p>
+        먼저 건물의 가로·세로·벽 높이를 입력하고, 정면 벽에 뚫을 창문 또는 문의 크기(그리고 창문이라면 하단 높이)를 정하세요. 지붕 처마 길이까지 정했다면, 이제 위도·경도를 직접 입력하거나 '내 위치 사용' 버튼으로 브라우저 위치 권한을 이용해 자동으로 채울 수 있습니다. 날짜와 시각을 입력하면(또는 춘분·하지·동지 버튼으로 계절을 빠르게 선택하면) 그 순간의 태양 방향이 계산되어 3D 화면에 그림자가 바로 반영됩니다. '지붕 숨기기'나 '정면 벽 숨기기'를 체크하면 실내 바닥까지 훤히 보여 햇빛이 얼마나 깊게 들어오는지 확인하기 좋습니다.
+      </p>
+
+      <h2>이럴 때 유용해요</h2>
+      <ul>
+        <li>신축이나 리모델링 전에 창문 위치·크기에 따라 계절별로 해가 얼마나 들어올지 미리 확인하고 싶을 때</li>
+        <li>처마 길이를 늘리면 한여름 뙤약볕은 막고 겨울 햇살은 그대로 들어오는지 비교해보고 싶을 때</li>
+        <li>옆 건물이나 담장이 우리 집 창문을 얼마나 가리는지 대략적인 방향 감각을 잡고 싶을 때</li>
+        <li>건축·인테리어 설계안을 검토할 때 시간대별 채광 변화를 클라이언트에게 시각적으로 보여주고 싶을 때</li>
+      </ul>
+
+      <h2>왜 '정확한 시각'이 아니라 '근사한 시각'일까?</h2>
+      <p>실제 표준시(타임존)는 나라마다 행정적으로 정한 기준 경도를 따르기 때문에, 우리 동네의 실제 경도와 완전히 일치하지 않는 경우가 많습니다. 예를 들어 대한민국은 경도 약 127°E 부근이지만 표준시는 135°E를 기준으로 삼고 있어서, 실제 '태양이 정남쪽에 뜨는 시각(진태양시 정오)'은 시계상 정오보다 약 30분 늦게 찾아옵니다. 이 도구는 정밀한 타임존 데이터베이스 대신 입력한 경도로 겉보기 태양시를 근사 계산하기 때문에, 실제 시계 시각과 수십 분 정도 차이가 날 수 있습니다.</p>
+
+      <h2>정밀한 일조 검토가 필요할 때 함께 확인하면 좋은 것</h2>
+      <ul>
+        <li>이 도구는 '이맘때 이 방향에서 해가 들어온다'는 큰 흐름을 빠르게 확인하는 용도입니다. 인허가나 법적 분쟁처럼 분 단위 정밀도가 필요한 경우 전문가의 정밀 일영 분석을 함께 받으세요</li>
+        <li>실제 대지에는 주변 건물, 나무, 지형 등 이 도구가 반영하지 않는 그림자 요인이 많다는 점을 감안하세요</li>
+        <li>건물의 실제 방위각(정면이 정확히 남향이 아닌 경우)이 다르다면, 그만큼 결과를 머릿속으로 회전시켜 해석해야 합니다</li>
+        <li>균시차(태양의 실제 움직임과 평균 시계 시각의 오차, 연중 최대 약 ±15분)까지 고려하면 실제로는 이 도구가 보여주는 것보다 살짝 이르거나 늦게 해가 들 수 있습니다</li>
+      </ul>
+
+
+      <!-- <div class="ads-container ads-container-inline" style="min-height: 250px;"></div> -->
+
+      <h2 id="faq-heading">자주 묻는 질문</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>왜 창문/문이 정면(남쪽) 벽에만 생기나요?</dt>
+          <dd>북반구에서는 남향 창이 겨울 채광에 유리해 가장 흔한 기준이라, 이번 버전은 정면 벽을 남쪽으로 고정해 두었습니다. 다른 방향 벽에 창문을 내는 기능은 이후 업데이트로 추가될 예정입니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>실제 우리 집 그림자와 정확히 똑같이 나오나요?</dt>
+          <dd>아니요. 이 도구는 간단한 직육면체 건물과 평지붕만 표현하고, 주변 건물이나 나무, 지형, 실제 타임존은 반영하지 않는 근사 시뮬레이션입니다. 큰 방향과 흐름을 확인하는 용도로 써주세요.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>위도·경도는 어떻게 알아내나요?</dt>
+          <dd>'내 위치 사용' 버튼을 누르면 브라우저의 위치 정보 권한을 통해 자동으로 채워집니다. 직접 입력하고 싶다면 지도 앱 등에서 확인한 좌표를 위도·경도 칸에 그대로 입력하면 됩니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>밤 시간대를 입력하면 어떻게 되나요?</dt>
+          <dd>태양 고도가 지평선 아래로 내려가면 '밤' 표시가 뜨고 태양광이 꺼집니다. 이때는 그림자 대신 은은한 주변광만 남은 화면을 보게 됩니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>모바일에서도 잘 동작하나요?</dt>
+          <dd>네, 화면 크기에 맞춰 레이아웃이 조정되고 손가락으로 화면을 돌리거나 확대할 수 있습니다. 다만 3D 그림자 렌더링은 저사양 기기에서는 다소 버벅일 수 있어, 정밀하게 살펴볼 때는 데스크톱 사용을 권장합니다.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>입력한 정보가 서버로 전송되나요?</dt>
+          <dd>아니요. 위치·날짜·시각을 포함한 모든 계산은 사용자의 브라우저 안에서만 이뤄지며, 어디로도 전송되거나 저장되지 않습니다.</dd>
+        </div>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p class="privacy-note">
+      이 도구는 모든 계산과 3D 렌더링을 브라우저에서만 처리합니다. 다만 '주소로 찾기'를 사용하면 좌표 변환을 위해 입력한 주소가 OpenStreetMap(Nominatim) 서버로 전송됩니다 — 위도·경도 직접 입력이나 '내 위치 사용'에는 이 전송이 없습니다.
+    </p>
+    <p class="footer-links">
+      <a href="../ko/privacy/">개인정보 처리방침</a>
+      <span aria-hidden="true">·</span>
+      <a href="../ko/about/">소개</a>
+    </p>
+  </footer>
+
+  <!-- 넓은 화면에서만 좌우 여백에 붙어 스크롤을 따라다니는 세로형(스카이스크래퍼) 광고 슬롯 -->
+  <!-- <div class="ads-container ads-rail ads-rail-left" style="min-height: 600px;" aria-hidden="true"></div> -->
+  <!-- <div class="ads-container ads-rail ads-rail-right" style="min-height: 600px;" aria-hidden="true"></div> -->
+
+  <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+  <script src="script.js"></script>
+
+  <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="맨 위로 이동" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.getElementById("scroll-top-btn");
+      var toggle = function () {
+        btn.hidden = window.scrollY < 400;
+      };
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>

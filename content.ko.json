@@ -39,6 +39,8 @@
   "clayShrinkageDesc": "완성 목표 크기를 입력하면 성형 시 만들어야 할 크기를 역산해드려요",
   "kilnLoadingTitle": "가마 적재 개수 계산기",
   "kilnLoadingDesc": "가마와 분판, 도자기 크기를 입력하면 한 번에 몇 개나 구울 수 있는지 계산해드려요",
+  "shadowSimulatorTitle": "3D 그림자 시뮬레이터",
+  "shadowSimulatorDesc": "위도·경도·날짜·시각을 입력하면 건물 실내에 드는 햇빛과 그림자를 3D로 바로 확인해드려요",
   "imageConverterTitle": "이미지 변환기",
   "imageConverterDesc": "이미지를 올리고 원하는 포맷 버튼만 누르면 PNG·JPG·WebP로 바로 변환해드려요",
   "vectorConverterTitle": "라인아트 벡터 변환기",
