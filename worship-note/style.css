@@ -90,6 +90,12 @@ body {
   position: relative;
   flex: 1 1 auto;
   min-height: 0; /* flex 자식이 내용 크기만큼 안 늘어나고 실제로 줄어들 수 있게 */
+  overflow: hidden; /* note: 이게 없으면 Flutter가 만드는 <flutter-view>가 이 박스에
+    할당된 높이보다 크게(때로는 상단바 영역까지) 그려져서, 그 넘친 부분이 위에 있는
+    상단바 뒤로가기 링크의 클릭을 가로채는 문제가 실사용 중 발견됐다 — 개발자 도구로
+    document.elementFromPoint()를 찍어봐서 직접 확인함(<flutter-view>가 상단바
+    좌표에서 반환됨). overflow:hidden으로 이 박스 바깥으로 넘친 부분은 그리기·클릭
+    모두 차단해 상단바가 항상 온전히 눌리게 한다. */
   background: var(--wn-app-bg);
 }
 
